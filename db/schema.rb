@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_06_170313) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_06_172150) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -69,6 +69,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_170313) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "products", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.integer "price"
+    t.integer "quantity"
+    t.bigint "section_id", null: false
+    t.bigint "checkout_cart_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["checkout_cart_id"], name: "index_products_on_checkout_cart_id"
+    t.index ["section_id"], name: "index_products_on_section_id"
+  end
+
   create_table "sections", force: :cascade do |t|
     t.string "title"
     t.datetime "created_at", null: false
@@ -93,4 +106,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_06_170313) do
   add_foreign_key "checkout_carts", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
+  add_foreign_key "products", "checkout_carts"
+  add_foreign_key "products", "sections"
 end
