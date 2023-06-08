@@ -1,8 +1,8 @@
 require "open-uri"
 
 User.destroy_all
-Section.destroy_all
 Product.destroy_all
+Section.destroy_all
 
 puts "Starting seeding"
 
