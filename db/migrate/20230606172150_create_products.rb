@@ -6,7 +6,6 @@ class CreateProducts < ActiveRecord::Migration[7.0]
       t.integer :price
       t.integer :quantity
       t.references :section, null: false, foreign_key: true
-      t.references :checkout_cart, null: false, foreign_key: true
 
       t.timestamps
     end

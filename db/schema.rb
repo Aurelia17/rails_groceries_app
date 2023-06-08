@@ -59,10 +59,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_095110) do
     t.integer "price"
     t.integer "quantity"
     t.bigint "section_id", null: false
-    t.bigint "checkout_cart_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["checkout_cart_id"], name: "index_products_on_checkout_cart_id"
     t.index ["section_id"], name: "index_products_on_section_id"
   end
 
