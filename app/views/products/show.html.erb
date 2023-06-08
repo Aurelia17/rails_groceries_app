@@ -1,2 +1,20 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-6 mb-5">
+      <%= cl_image_tag @product.photo.key, height: 750, width: 500, crop: :fill %>
+    </div>
+    <div class="col-6">
+      <div>
+        <H2><%= @product.title %></H2>
+        <div class="mt-4">
+          <p><%= @product.description %></p>
+        </div>
+        <div class="mt-2">
+          <p>
+            Price : Rs <%= @product.price %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
