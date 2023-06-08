@@ -3,3 +3,25 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+  background-color: #F0F0F0;
+  padding: 10px;
+}
+
+.cards-img {
+  border-radius: 25px;
+  width: 100%;
+  height: auto;
+}
+
+.card-body{
+  border-top: 3px;
+  border-top: medium solid rgb(0, 0, 0);
+}
+.card{
+  border-radius: 20px;
+}
