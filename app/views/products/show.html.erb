@@ -1,17 +1,18 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-6 mb-5">
-      <%= cl_image_tag @product.photo.key, height: 750, width: 500, crop: :fill %>
+      <%= cl_image_tag @product.photo.key, height: 500, width: 500, crop: :fill %>
     </div>
     <div class="col-6">
       <div>
         <H2><%= @product.title %></H2>
         <div class="mt-4">
+          <p>Description :</p>
           <p><%= @product.description %></p>
         </div>
         <div class="mt-2">
           <p>
-            Price : Rs <%= @product.price %>
+            Prix : Rs <%= @product.price %>
           </p>
         </div>
       </div>

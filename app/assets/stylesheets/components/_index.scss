@@ -25,3 +25,11 @@
 .card{
   border-radius: 20px;
 }
+
+.cards-products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  background-color: #F0F0F0;
+  padding: 10px;
+}
