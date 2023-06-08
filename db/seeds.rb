@@ -65,3 +65,63 @@ product1 = Product.create(title: 'Vital 1L',
 product1.photo.attach(io: file_p1, filename: 'vital', content_type: 'image/png')
 
 puts "product 1 created !"
+
+file_p2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/poulet-entier.jpg')
+product2 = Product.create(title: 'POULET ENTIER',
+                          description: "Label60 POULET ENTIER",
+                          price: 335,
+                          quantity: 100,
+                          section_id: section1.id)
+product2.photo.attach(io: file_p2, filename: 'poulet', content_type: 'image/png')
+
+puts "product 2 created !"
+
+file_p3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/multigrains.jpg')
+product3 = Product.create(title: 'MULTIGRAIN 250G',
+                          description: "SPECIAL MOULE MULTIGRAIN 250G",
+                          price: 42,
+                          quantity: 100,
+                          section_id: section1.id)
+product3.photo.attach(io: file_p3, filename: 'multigrain', content_type: 'image/png')
+
+puts "product 3 created !"
+
+file_p4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/banana-chips.jpg')
+product4 = Product.create(title: 'BANANA CHIPS 100G',
+                          description: "SNACK PLUS 100G BANANA CHIPS",
+                          price: 72,
+                          quantity: 100,
+                          section_id: section1.id)
+product4.photo.attach(io: file_p4, filename: 'chips-banane', content_type: 'image/png')
+
+puts "product 4 created !"
+
+file_p5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bananes.jpg')
+product5 = Product.create(title: 'BANANES',
+                          description: "BANANES 1kg",
+                          price: 85,
+                          quantity: 100,
+                          section_id: section1.id)
+product5.photo.attach(io: file_p5, filename: 'bananes', content_type: 'image/png')
+
+puts "product 5 created !"
+
+file_p6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/brede-tom-pouce.jpg')
+product6 = Product.create(title: 'BREDE TOM POUCE',
+                          description: "BREDE TOM POUCE - BOTTE",
+                          price: 18,
+                          quantity: 100,
+                          section_id: section1.id)
+product6.photo.attach(io: file_p6, filename: 'brede-tom-pouce', content_type: 'image/png')
+
+puts "product 6 created !"
+
+file_p7 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Oeufs-15-oeudor.jpg')
+product7 = Product.create(title: 'OEUFS X 15',
+                          description: "OEUDOR OEUFS X 15",
+                          price: 119,
+                          quantity: 100,
+                          section_id: section1.id)
+product7.photo.attach(io: file_p7, filename: 'oeufs-15-oeudor', content_type: 'image/png')
+
+puts "product 7 created !"
