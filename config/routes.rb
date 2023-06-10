@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :orders, only: %i[index show]
+  resources :cart, only: %i[show edit update]
   # Defines the root path route ("/")
   # root "articles#index"
 end
