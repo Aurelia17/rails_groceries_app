@@ -4,6 +4,7 @@ class SectionsController < ApplicationController
 
   def index
     @sections = Section.all
+    cookies[:user_name] = "Aurelia"
   end
 
   def show
