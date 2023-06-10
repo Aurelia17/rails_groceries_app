@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       resources :ratings, only: %i[index new]
     end
   end
-  resources :checkout_cart, only: %i[show new create edit update delete]
+  resources :orders, only: %i[index show]
   # Defines the root path route ("/")
   # root "articles#index"
 end
