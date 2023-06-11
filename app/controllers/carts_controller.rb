@@ -1,24 +1,36 @@
 class CartsController < ApplicationController
-  before_action :set_outfit, only: %i[show edit update]
-  def show; end
+  before_action :set_cart, only: %i[show edit update]
+  def show
+    @cart = current_user.cart
+    @cart_items = @cart.cart_items.includes(:product)
+  end
 
-  def edit; end
+  def add_item
+    @cart = current_user.cart
+    product = Product.find(params[:product_id])
+    cart_item = @cart.cart_items.find_or_initialize_by(product: product)
+    cart_item.quantity += 1
+    cart_item.save
+    redirect_to cart_path
+  end
 
-  def update
-    if @cart.update(outfit_params)
-      redirect_to cart_path(@cart)
-    else
-      render :edit, status: :unprocessable_entity
-    end
+  def update_item_quantity
+    @cart = current_user.cart
+    cart_item = @cart.cart_items.find(params[:id])
+    cart_item.update(quantity: params[:quantity])
+    redirect_to cart_path
+  end
+
+  def remove_item
+    @cart = current_user.cart
+    cart_item = @cart.cart_items.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_path
   end
 
   private
 
   def set_cart
     @cart = Cart.find(params[:cart_id])
-  end
-
-  def cart_params
-    params.require(:cart).permit(:total_price)
   end
 end

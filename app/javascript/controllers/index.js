@@ -6,3 +6,10 @@ import { application } from "./application"
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import OrderItemFormController from "./order_item_form_controller"
+application.register("order-item-form", OrderItemFormController)
+
+// Export your controllers here
+
+export { application };
