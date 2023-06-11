@@ -1,55 +1,39 @@
 class OrderItemsController < ApplicationController
-  before_action :set_product, only: %i[new show create edit update destroy]
-  before_action :set_cart, only: %i[index show new create edit update destroy]
-  before_action :set_order_item, only: %i[show edit update destroy]
-
-  def index
-    @order_items = Order_item.all
-  end
-
-  def show; end
-
-  def new
-    @order_item = OrderItem.new
-  end
 
   def create
-    @order_item = OrderItem.new(order_item_params)
-    @order_item.product = @product
-    @order_item.cart = @cart
-    @order_item.total_price = total_price(@order_item)
-    if @order_item.save
-      redirect_to section_product_path
-    end
-  end
+    product = Product.find(params[:product_id])
+    @order_item = current_order.order_items.build(product: product, quantity: 1)
 
-  def destroy
-    @order_item.destroy
+    if @order_item.save
+      flash[:notice] = 'Item added to order.'
+    else
+      flash[:alert] = 'Failed to add item to order.'
+    end
+
     redirect_to cart_path
   end
 
-  private
+  def update
+    @order_item = current_order.order_items.find(params[:id])
 
-  def set_order_item
-    @order_item = Order_item.find(params[:order_item_id])
+    if @order_item.update(quantity: params[:quantity])
+      flash[:notice] = 'Order item quantity updated.'
+    else
+      flash[:alert] = 'Failed to update order item quantity.'
+    end
+
+    redirect_to cart_path
   end
 
-  def set_product
-    @product = Product.find(params[:product_id])
-  end
+  def destroy
+    @order_item = current_order.order_items.find(params[:id])
 
-  def set_cart
-    @cart = Cart.find(params[:cart_id])
-  end
+    if @order_item.destroy
+      flash[:notice] = 'Item removed from order.'
+    else
+      flash[:alert] = 'Failed to remove item from order.'
+    end
 
-  def order_item_params
-    params.require(:order_item).permit(:quantity, :total_price)
-  end
-
-  def total_price(order_item)
-    quantity = order_item.quantity
-    unit_price = order_item.product.price
-    total_price = quantity * unit_price
-    return total_price
+    redirect_to cart_path
   end
 end

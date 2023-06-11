@@ -15,6 +15,13 @@
             Prix : Rs <%= @product.price %>
           </p>
         </div>
+        <div class="mt-2">
+          <%= simple_form_for(OrderItem.new, url: add_item_cart_path(@product), method: :post) do |f| %>
+            <%= f.input :quantity, as: :string, input_html: { value: 1, min: 1, step: 1, id: 'quantity-input' }, label: 'Quantity' %>
+            <%= f.input :total_price, readonly: true, input_html: { class: 'form-control', id: 'total-price-input' }, label: 'Total Price' %>
+            <%= f.button :submit, 'Add to Cart' %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
