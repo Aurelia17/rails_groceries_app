@@ -1,5 +1,5 @@
 class CartsController < ApplicationController
-  before_action :set_outfit, only: %i[show edit update]
+  before_action :set_cart, only: %i[show edit update]
   def show
     @cart = current_user.cart
     @cart_items = @cart.cart_items.includes(:product)
@@ -26,5 +26,11 @@ class CartsController < ApplicationController
     cart_item = @cart.cart_items.find(params[:id])
     cart_item.destroy
     redirect_to cart_path
+  end
+
+  private
+
+  def set_cart
+    @cart = Cart.find(params[:cart_id])
   end
 end
