@@ -11,9 +11,10 @@
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
   </head>
 
-  <body><%= render "shared/navbar" %>
-<%= render "shared/flashes" %>
-
+  <body>
+    <%= render "shared/navbar" %>
+    <%= render "shared/flashes" %>
     <%= yield %>
+    <%= render "shared/footer" %>
   </body>
 </html>
