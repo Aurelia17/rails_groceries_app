@@ -8,6 +8,9 @@
   </div>
 </div>
 
+<div class="container py-5">
+  <h2 class="pb-4">Pas kit to sofa! Pass to command</h2>
+  <%= cookies[:user_name] %>
   <div class="cards">
     <% @sections.each do |section| %>
       <%= link_to section_path(section), class:"text-decoration-none" do %>
