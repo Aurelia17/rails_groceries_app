@@ -7,10 +7,12 @@ Section.destroy_all
 
 puts "Starting seeding"
 
-user1 = User.new(email: 'test@test.com',
+user1 = User.new(first_name: 'Aurelia',
+                 last_name: 'Tejas',
+                 username: 'Toune',
+                 email: 'test@test.com',
                  password: '123456',
-                 password_confirmation: '123456',
-                 username: 'Jack')
+                 password_confirmation: '123456')
 user1.save!
 
 puts "User 1 created !"
