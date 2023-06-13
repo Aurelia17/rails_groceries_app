@@ -4,36 +4,4 @@
 @import "form_legend_clear";
 @import "navbar";
 @import "buttons";
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
-  background-color: #F0F0F0;
-  padding: 10px;
-}
-
-.cards-img {
-  border-radius: 25px;
-  width: 100%;
-  height: auto;
-  background-color: #F5F4F0;
-}
-
-.card-body{
-  border-top: 3px;
-  border-top: medium solid rgb(0, 0, 0);
-  text-align: center;
-  background-color: #F1EFE7;
-}
-.card{
-  border-radius: 20px;
-}
-
-.cards-products {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  background-color: #F0F0F0;
-  padding: 10px;
-}
+@import "banner";

@@ -1,5 +1,13 @@
-<div class="container py-5">
-  <h2 class="pb-4">Besoin urgent de faire vos courses ?</h2>
+<div class="main">
+  <div class="banner" style="background-image: url('<%= image_path "banner.jpg" %>');">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+    <h2 class="pb-4">Besoin urgent de faire vos courses ?</h2>
+  </div>
+</div>
+
   <div class="cards">
     <% @sections.each do |section| %>
       <%= link_to section_path(section), class:"text-decoration-none" do %>
