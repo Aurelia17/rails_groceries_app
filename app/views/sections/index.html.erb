@@ -1,16 +1,16 @@
 <div class="main">
-  <div class="banner" style="background-image: url('<%= image_path "banner.jpg" %>');">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1057651/pexels-photo-1057651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   <div class="container">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
-    <h2 class="pb-4">Besoin urgent de faire vos courses ?</h2>
+    <h1>BE THE FASTEST IN DELIVERING YOUR FOOD</h1>
   </div>
 </div>
 
 <div class="container py-5">
-  <h2 class="pb-4">Pas kit to sofa! Pass to command</h2>
-  <%= cookies[:user_name] %>
+  <p class="pb-4">WHAT WE SERVE</p>
+  <h2>YOUR FAVORITE FOOD DELICERY PARTNER</h2>
+
+  <%= image_tag("Banner.jpg", class: "banner-img") %>
+  <h1>CATEGORIES</h1>
   <div class="cards">
     <% @sections.each do |section| %>
       <%= link_to section_path(section), class:"text-decoration-none" do %>
@@ -19,6 +19,7 @@
         <div class="card-body">
           <h5 class="card-title"><%= section.title %></h5>
         </div>
+
       </div>
       <% end %>
     <% end %>
