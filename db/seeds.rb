@@ -1,6 +1,7 @@
 require "open-uri"
 
 User.destroy_all
+OrderItem.destroy_all
 Product.destroy_all
 Section.destroy_all
 
@@ -81,7 +82,7 @@ product3 = Product.create(title: 'MULTIGRAIN 250G',
                           description: "SPECIAL MOULE MULTIGRAIN 250G",
                           price: 42,
                           quantity: 100,
-                          section_id: section1.id)
+                          section_id: section2.id)
 product3.photo.attach(io: file_p3, filename: 'multigrain', content_type: 'image/png')
 
 puts "product 3 created !"
@@ -125,3 +126,73 @@ product7 = Product.create(title: 'OEUFS X 15',
 product7.photo.attach(io: file_p7, filename: 'oeufs-15-oeudor', content_type: 'image/png')
 
 puts "product 7 created !"
+
+file_p8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Tarte-Banane.jpg')
+product8 = Product.create(title: 'Tarte Banane',
+                          description: "TARTE BANANE 6-8 PERS",
+                          price: 239,
+                          quantity: 100,
+                          section_id: section2.id)
+product8.photo.attach(io: file_p8, filename: 'tarte-banane', content_type: 'image/png')
+
+puts "product 8 created !"
+
+file_p9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Gato-Choco.jpg')
+product9 = Product.create(title: 'Moelleux aux Chocolat',
+                          description: "MOELLEUX AU CHOCOLAT 10-15 PERS",
+                          price: 359,
+                          quantity: 100,
+                          section_id: section2.id)
+product9.photo.attach(io: file_p9, filename: 'tarte-banane', content_type: 'image/png')
+
+puts "product 9 created !"
+
+file_p10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Baguette-Campagne_500x500.jpg')
+product10 = Product.create(title: 'Baguette',
+                           description: "Baguette Campagne",
+                           price: 42,
+                           quantity: 100,
+                           section_id: section2.id)
+product10.photo.attach(io: file_p10, filename: 'baguette-campgane', content_type: 'image/png')
+
+puts "product 10 created !"
+
+file_p11 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Pain-Energie_500x500.jpg')
+product11 = Product.create(title: 'Pain Energie',
+                           description: "PAIN ENERGIE",
+                           price: 129,
+                           quantity: 100,
+                           section_id: section2.id)
+product11.photo.attach(io: file_p11, filename: 'pain-energie', content_type: 'image/png')
+
+puts "product 11 created !"
+
+file_p12 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/ozimate-bakery-delisun-chia-flax-seeds-360g-14344201109591_500x500.jpg')
+product12 = Product.create(title: 'Wrap with seeds',
+                           description: "Delisun, Chia & Flax seeds, 360g",
+                           price: 155,
+                           quantity: 100,
+                           section_id: section2.id)
+product12.photo.attach(io: file_p12, filename: 'wrap-seeds', content_type: 'image/png')
+
+puts "product 12 created !"
+
+file_p13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/mission-wraps-original-super-soft-x8-360g-979217_500x500.jpg')
+product13 = Product.create(title: 'Wrap',
+                           description: "Mission, Wraps Original Super Soft x8, 360g",
+                           price: 185,
+                           quantity: 100,
+                           section_id: section2.id)
+product13.photo.attach(io: file_p13, filename: 'wrap', content_type: 'image/png')
+
+puts "product 13 created !"
+
+file_p14 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pain-maison.jpg')
+product14 = Product.create(title: 'Boule de Pain',
+                           description: "Boule de pain maison, 100g",
+                           price: 4,
+                           quantity: 100,
+                           section_id: section2.id)
+product14.photo.attach(io: file_p14, filename: 'boule-pain', content_type: 'image/png')
+
+puts "product 14 created !"
