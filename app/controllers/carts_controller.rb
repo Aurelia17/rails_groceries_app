@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: %i[show edit update confirmed]
+  skip_before_action :authenticate_user!, only: %i[show edit update]
   def show
     @order_items = OrderItem.all.where(cart_id: @cart.id)
     @total = all_total
