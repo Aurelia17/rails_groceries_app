@@ -16,7 +16,7 @@
           </p>
         </div>
         <div class="mt-2" data-controller="order-item" data-order-item-price-value=<%= @product.price %>>
-          <%= simple_form_for(@order_item, url: order_item_path(@product), method: :post) do |f| %>
+          <%= simple_form_for(@order_item, url: order_items_path(@product), method: :post) do |f| %>
             <%= f.input :quantity, input_html: { value: 1, min: 1, step: 1, data: {order_item_target: "quantity", action: "change->order-item#test"} }, label: 'Quantity' %>
             <%= f.input :total_price, label: 'Total Price', input_html: { value: @product.price , data: {order_item_target: "totalprice"}, readonly: true} %>
             <%= f.hidden_field :section_id, value: @section.id %>
