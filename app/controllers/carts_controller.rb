@@ -1,36 +1,27 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[show edit update destroy]
+  before_action :set_cart, only: %i[show edit update confirmed]
   def show
-    @cart = current_user.cart
-    @cart_items = @cart.cart_items.includes(:product)
+    @order_items = OrderItem.all.where(cart_id: @cart.id)
   end
 
   def edit
-    @cart.user = current_user
-    product = Product.find(params[:product_id])
-    cart_item = @cart.cart_items.find_or_initialize_by(product: product)
-    cart_item.quantity += 1
-    cart_item.save
-    redirect_to cart_path
+    @product = Product.find(params[:product_id])
   end
 
   def update
-    @cart = current_user.cart
-    cart_item = @cart.cart_items.find(params[:id])
-    cart_item.update(quantity: params[:quantity])
-    redirect_to cart_path
   end
 
-  def destroy
-    @cart = current_user.cart
-    cart_item = @cart.cart_items.find(params[:id])
-    cart_item.destroy
-    redirect_to cart_path
+  def confirmed
+    if @cart.is_confirmed?
+      @order = Order.new
+      @cart.destroy
+      redirect_to order_path(@order)
+    end
   end
 
   private
 
   def set_cart
-    @cart = Cart.find(params[:cart_id])
+    @cart = Cart.find_by(id: cookies[:cart_id])
   end
 end
