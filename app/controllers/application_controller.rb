@@ -6,6 +6,15 @@ class ApplicationController < ActionController::Base
   #     @cart = Cart.create
   #   end
   # end
+  # def set_up_cookies
+  #   unless cookies[:quantity] && cookies[:product_id]
+  #     cookies[:quantity] = Array.new
+  #     cookies[:product_id] = Array.new
+  #   end
+  #   puts "------------------------"
+  #   puts cookies[:quantity]
+  #   puts cookies[:product_id]
+  # end
 
   def set_up_cart
     if cookies[:cart_id]
