@@ -29,7 +29,9 @@
                   <div class="align-items-center justify-content-between mb-2">
                     <%= simple_form_for(@cart) do |f| %>
                       <%= hidden_field_tag :source, 'confirmation' %>
-                      <%= f.submit 'Confirm', class: 'btn btn-primary confirm-btn mt-2 w-100' %>
+                      <%= f.hidden_field :is_confirmed, value: true %>
+                      <%= f.hidden_field :total_price, value: @total %>
+                      <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Confirm' %></button>
                     <% end %>
                       <div class="text-center">
                         <div class="spinner-border text-secondary my-3 d-none" role="status">
