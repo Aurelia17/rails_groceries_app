@@ -1,15 +1,35 @@
-<div class="main">
+<%# <div class="main">
   <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1057651/pexels-photo-1057651.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1);
   <div class="container">
-    <h1>BE THE FASTEST IN DELIVERING YOUR FOOD</h1>
+    <div class="wrapper four">
+        <div class="type">
+            <h3 class="typing">PAS KIT TO SOFA! PASS TO COMMAND</h3>
+        </div>
+    </div>
   </div>
-</div>
+</div> %>
+
+
+	<div class="slider-wrapper">
+		<div class="slider">
+    <%= image_tag("slider1.jpg", class: "slider1-img") %>
+    <%= image_tag("slider2.jpg", class: "slider2-img") %>
+    <%= image_tag("slider3.jpg", class: "slider3-img") %>
+      <div class="slider-nav">
+        <a href="#slide-1"></a>
+        <a href="#slide-2"></a>
+        <a href="#slide-3"></a>
+      </div>
+		</div>
+	</div>
 
 <div class="container py-5">
   <p class="pb-4">WHAT WE SERVE</p>
-  <h2>YOUR FAVORITE FOOD DELICERY PARTNER</h2>
+  <h2>YOUR FAVORITE FOOD</h2>
+  <h2>FOOD DELICERY PARTNER</h2>
 
-  <%= image_tag("Banner.jpg", class: "banner-img") %>
+
+  <%= image_tag("services.jpg", class: "services-img") %>
   <h1>CATEGORIES</h1>
   <div class="cards">
     <% @sections.each do |section| %>
