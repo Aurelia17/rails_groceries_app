@@ -19,9 +19,9 @@ class CartsController < ApplicationController
       flash[:notice] = 'Order created !'
       if @cart.is_confirmed?
         if current_user.orders.last
-          oder_number = current_user.orders.last.oder_number + 1
+          oder_number = current_user.orders.last.oder_number + 56
         else
-          oder_number = 1
+          oder_number = 9847
         end
         @order = Order.create(total_price: all_total, oder_number: oder_number, user: current_user)
         @order_items = OrderItem.where(cart_id: @cart.id)
