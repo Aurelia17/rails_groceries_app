@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
   def set_order
     @order = Order.find(params[:id])
-    @order_item = Order_item.find(params[:order_item_id])
+    @order_items = OrderItem.where(order_id: @order.id)
   end
 
   def order_params

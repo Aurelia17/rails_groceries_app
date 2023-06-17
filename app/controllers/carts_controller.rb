@@ -30,7 +30,7 @@ class CartsController < ApplicationController
         end
         @cart.order_items = []
       end
-      redirect_to orders_path
+      redirect_to order_path(@order)
     end
   end
 
