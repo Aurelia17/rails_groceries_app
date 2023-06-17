@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   end
   resources :orders, only: %i[index show]
   resource :cart, only: %i[show edit update]
-  resource :order_item, only: %i[new create edit update destroy]
+  get "cart/confirmation", to: "carts#confirmation", as: :cart_confirmation
+  resources :order_items, only: %i[new create edit update destroy]
   # Defines the root path route ("/")
   # root "articles#index"
 end

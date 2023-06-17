@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_10_125905) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_17_122716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_125905) do
     t.bigint "cart_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "order_id", default: 0, null: false
     t.index ["cart_id"], name: "index_order_items_on_cart_id"
     t.index ["product_id"], name: "index_order_items_on_product_id"
   end
@@ -63,10 +64,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_125905) do
   create_table "orders", force: :cascade do |t|
     t.integer "oder_number"
     t.float "total_price"
-    t.bigint "cart_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_orders_on_cart_id"
+    t.bigint "user_id"
+    t.boolean "is_delivered", default: false, null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -105,6 +107,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_125905) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "username"
+    t.string "first_name"
+    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -113,7 +117,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_10_125905) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "products"
-  add_foreign_key "orders", "carts"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "sections"
   add_foreign_key "ratings", "products"
   add_foreign_key "ratings", "users"

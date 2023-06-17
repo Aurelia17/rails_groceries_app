@@ -4,11 +4,11 @@
 
 import { application } from "./application"
 
+import CartOrderItemController from "./cart_order_item_controller"
+application.register("cart-order-item", CartOrderItemController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import OrderItemFormController from "./order_item_form_controller"
-application.register("order-item-form", OrderItemFormController)
-
-import QuantityInputController from "./quantity_input_controller"
-application.register("quantity-input", QuantityInputController)
+import OrderItemController from "./order_item_controller"
+application.register("order-item", OrderItemController)

@@ -1,0 +1,39 @@
+<div class="container">
+  <h1>Shopping Cart</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price</th>
+        <th></th>
+        <th>Quantity</th>
+        <th>Subtotal</th>
+        <th></th>
+      </tr>
+    </thead>
+    <% @order_items.each do |order_item| %>
+      <tr>
+        <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
+        <td class="align-middle"><%= order_item.product.price %></td>
+        <td>
+          <div data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %>>
+            <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put) do |f| %>
+            <%= f.input :quantity, input_html: { value: order_item.quantity, data: {order_item_target: "quantity", action: "change->order-item#test"} }, label: false %>
+            <%= f.input :total_price, label: false, input_html: { value: order_item.total_price , data: {order_item_target: "totalprice"}, readonly: true} %>
+            <%= f.hidden_field :section_id, value: order_item.product.section_id %>
+            <%= f.hidden_field :product_id, value: order_item.product_id %>
+            <%= f.hidden_field :cart_id, value: @cart.id %>
+            <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Update' %></button>
+            <% end %>
+          </div>
+        </td>
+        <td class="align-middle">
+          <%= link_to "delete", order_item_path(order_item), class: "button-arounder button-red", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this Item from cart?" } %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <h2>Total : Rs <%= @total %></h2>
+  <a class="btn btn-primary" href="/cart/confirmation" role="button">Checkout</a>
+</div>

@@ -1,0 +1,50 @@
+<div class="container mb-5">
+  <div class="col-5 bg-white p-4">
+    <div class="box-2">
+      <div class="box-inner-2">
+        <div>
+          <p class="fw-bold">Payment Details</p>
+          <p class="dis mb-3">Complete your purchase by providing your payment details</p>
+        </div>
+        <div>
+          <p class="dis fw-bold mb-2">Card details</p>
+          <div class="d-flex align-items-center justify-content-between card-atm border rounded">
+            <div class="fab fa-cc-visa px-2"></div>
+              <input type="text" class="form-control" placeholder="Card Details">
+                <div class="d-flex w-50">
+                  <input type="text" id="dateInput" oninput="formatDate(this)" maxlength="4" class="form-control px-2" placeholder="MM/YY">
+                  <input type="text" maxlength=3 class="form-control px-2" placeholder="CVV">
+                </div>
+            </div>
+            <div class="my-3 cardname">
+              <p class="dis fw-bold mb-2">Cardholder name</p>
+              <input class="form-control" type="text">
+            </div>
+            <div class="address">
+              <div class="d-flex flex-column dis">
+                <div class="d-flex align-items-center justify-content-between mb-2">
+                    <p class="fw-bold">Total</p>
+                    <p class="fw-bold">Rs <%= @total %></p>
+                </div>
+                  <div class="align-items-center justify-content-between mb-2">
+                    <%= simple_form_for(@cart) do |f| %>
+                      <%= hidden_field_tag :source, 'confirmation' %>
+                      <%= f.hidden_field :is_confirmed, value: true %>
+                      <%= f.hidden_field :total_price, value: @total %>
+                      <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Confirm' %></button>
+                    <% end %>
+                      <div class="text-center">
+                        <div class="spinner-border text-secondary my-3 d-none" role="status">
+                          <span class="sr-only">Loading...</span>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

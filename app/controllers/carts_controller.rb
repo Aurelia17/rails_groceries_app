@@ -1,36 +1,62 @@
 class CartsController < ApplicationController
-  before_action :set_cart, only: %i[show edit update destroy]
+  before_action :set_cart, only: %i[show ]
+  skip_before_action :authenticate_user!, only: %i[show edit update]
+
   def show
-    @cart = current_user.cart
-    @cart_items = @cart.cart_items.includes(:product)
+    @order_items = OrderItem.all.where(cart_id: @cart.id)
+    @total = all_total
+    @cart.total_price = all_total
   end
 
   def edit
-    @cart.user = current_user
-    product = Product.find(params[:product_id])
-    cart_item = @cart.cart_items.find_or_initialize_by(product: product)
-    cart_item.quantity += 1
-    cart_item.save
-    redirect_to cart_path
+    @product = Product.find(params[:product_id])
   end
 
   def update
-    @cart = current_user.cart
-    cart_item = @cart.cart_items.find(params[:id])
-    cart_item.update(quantity: params[:quantity])
-    redirect_to cart_path
+    @order_items = OrderItem.where(cart_id: @cart.id)
+    @total = all_total
+    if @cart.update(cart_params)
+      flash[:notice] = 'Order created !'
+      if @cart.is_confirmed?
+        if current_user.orders.last
+          oder_number = current_user.orders.last.oder_number + 56
+        else
+          oder_number = 9847
+        end
+        @order = Order.create(total_price: all_total, oder_number: oder_number, user: current_user)
+        @order_items = OrderItem.where(cart_id: @cart.id)
+        @order_items.each do |order_item|
+          order_item.order_id = @order.id
+        end
+        @cart.order_items = []
+      end
+      redirect_to order_path(@order)
+    end
   end
 
-  def destroy
-    @cart = current_user.cart
-    cart_item = @cart.cart_items.find(params[:id])
-    cart_item.destroy
-    redirect_to cart_path
+  def confirmation
+    @total = all_total
+  end
+
+  def all_total
+    total_all = 0
+    @order_items = OrderItem.all.where(cart_id: @cart.id)
+    @order_items.each do |order_item|
+      total_all += order_item.total_price
+    end
+    return total_all.to_i
   end
 
   private
 
+  def cart_params
+    params.require(:cart).permit(:total_price, :is_confirmed, :id)
+  end
+
   def set_cart
-    @cart = Cart.find(params[:cart_id])
+    @cart = Cart.find_by(id: cookies[:cart_id])
+  end
+
+  def set_order_item
   end
 end
