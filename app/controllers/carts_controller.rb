@@ -24,9 +24,9 @@ class CartsController < ApplicationController
           oder_number = 9847
         end
         @order = Order.create(total_price: all_total, oder_number: oder_number, user: current_user)
-        @order_items = OrderItem.where(cart_id: @cart.id)
         @order_items.each do |order_item|
           order_item.order_id = @order.id
+          order_item.save
         end
         @cart.order_items = []
       end
