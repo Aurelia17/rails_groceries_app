@@ -6,20 +6,10 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name username avatar])
     devise_parameter_sanitizer.permit(:account_update, keys: %i[first_name last_name username avatar])
   end
-  # def set_up_cart
-  #   if @cart.nil?
-  #     @cart = Cart.create
-  #   end
-  # end
-  # def set_up_cookies
-  #   unless cookies[:quantity] && cookies[:product_id]
-  #     cookies[:quantity] = Array.new
-  #     cookies[:product_id] = Array.new
-  #   end
-  #   puts "------------------------"
-  #   puts cookies[:quantity]
-  #   puts cookies[:product_id]
-  # end
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
 
   def set_up_cart
     if cookies[:cart_id]
