@@ -12,7 +12,7 @@
         <th></th>
       </tr>
     </thead>
-    <% @order_items.each do |order_item| %>
+    <% @order_items.includes([:product]).each do |order_item| %>
       <tr>
         <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
         <td class="align-middle"><%= order_item.product.price %></td>
