@@ -1,10 +1,21 @@
 require "open-uri"
 
+puts "cleaning DB..."
+
 Order.destroy_all
+puts "Orders deleted"
+
 User.destroy_all
+puts "Users deleted"
+
 OrderItem.destroy_all
+puts "OrderItems deleted"
+
 Product.destroy_all
+puts "Products deleted"
+
 Section.destroy_all
+puts "Sections deleted"
 
 puts "Starting seeding"
 
@@ -21,32 +32,42 @@ user1.save!
 puts "User 1 created !"
 
 file1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/viandes.png')
+banner1 = URI.open('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
 section1 = Section.create(title: 'Viandes')
 section1.photo.attach(io: file1, filename: 'viandes', content_type: 'image/png')
+section1.banner.attach(io: banner1, filename: 'viandesb', content_type: 'image/png')
 
 puts "Section 1 created !"
 
+banner2 = URI.open('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80')
 file2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/boulangerie.png')
 section2 = Section.create(title: 'Boulangerie')
 section2.photo.attach(io: file2, filename: 'boulangerie', content_type: 'image/png')
+section2.banner.attach(io: banner2, filename: 'boulangerieb', content_type: 'image/png')
 
 puts "Section 2 created !"
 
 file3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/boissons.png')
+banner3 = URI.open('https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
 section3 = Section.create(title: 'Boissons')
 section3.photo.attach(io: file3, filename: 'boisson', content_type: 'image/png')
+section3.banner.attach(io: banner3, filename: 'boissonb', content_type: 'image/png')
 
 puts "Section 3 created !"
 
 file4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gadjak.png')
+banner4 = URI.open('https://images.unsplash.com/photo-1543158181-1274e5362710?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
 section4 = Section.create(title: 'Gadjak')
 section4.photo.attach(io: file4, filename: 'gadjak', content_type: 'image/png')
+section4.banner.attach(io: banner4, filename: 'gadjaks', content_type: 'image/png')
 
 puts "Section 4 created !"
 
 file5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/fruit.png')
+banner5 = URI.open('https://images.unsplash.com/photo-1521123036037-6725d75de336?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
 section5 = Section.create(title: 'Fruits')
 section5.photo.attach(io: file5, filename: 'fruit', content_type: 'image/png')
+section5.banner.attach(io: banner5, filename: 'fruits', content_type: 'image/png')
 
 puts "Section 5 created !"
 
@@ -93,7 +114,7 @@ product3.photo.attach(io: file_p3, filename: 'multigrain', content_type: 'image/
 puts "product 3 created !"
 
 file_p4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/banana-chips.jpg')
-product4 = Product.create(title: 'BANANA CHIPS 100G',
+product4 = Product.create(title: 'BANANA CHIPS',
                           description: "SNACK PLUS 100G BANANA CHIPS",
                           price: 72,
                           quantity: 100,
@@ -113,7 +134,7 @@ product5.photo.attach(io: file_p5, filename: 'bananes', content_type: 'image/png
 puts "product 5 created !"
 
 file_p6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/brede-tom-pouce.jpg')
-product6 = Product.create(title: 'BREDE TOM POUCE',
+product6 = Product.create(title: 'TOM POUCE',
                           description: "BREDE TOM POUCE - BOTTE",
                           price: 18,
                           quantity: 100,
@@ -143,7 +164,7 @@ product8.photo.attach(io: file_p8, filename: 'tarte-banane', content_type: 'imag
 puts "product 8 created !"
 
 file_p9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Gato-Choco.jpg')
-product9 = Product.create(title: 'Moelleux aux Chocolat',
+product9 = Product.create(title: 'Gato Chocolat',
                           description: "MOELLEUX AU CHOCOLAT 10-15 PERS",
                           price: 359,
                           quantity: 100,
