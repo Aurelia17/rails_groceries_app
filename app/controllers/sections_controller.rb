@@ -3,12 +3,12 @@ class SectionsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
-    @sections = Section.all
+    @sections = Section.includes([photo_attachment: :blob]).all
     cookies[:user_name] = "Aurelia"
   end
 
   def show
-    @products = Product.all
+    @products = Product.includes([photo_attachment: :blob]).all
   end
 
   private

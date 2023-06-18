@@ -3,7 +3,7 @@ class CartsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[show edit update]
 
   def show
-    @order_items = OrderItem.all.where(cart_id: @cart.id)
+    @order_items = OrderItem.includes([:product]).where(cart_id: @cart.id).all
     @total = all_total
     @cart.total_price = all_total
   end
