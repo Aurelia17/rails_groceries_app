@@ -53,7 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_122716) do
     t.integer "quantity"
     t.float "total_price"
     t.bigint "product_id", null: false
-    t.bigint "cart_id", null: false
+    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_id", default: 0, null: false

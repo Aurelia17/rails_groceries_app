@@ -1,1 +1,52 @@
-<h1>order/show</h1>
+<div class="homepage">
+  <div class="container">
+    <p class="fs-1">Order #<%= @order.oder_number %></p>
+  </div>
+</div>
+<% if @order.is_delivered? %>
+  <div class="container">
+    <p>Your order was delivered on the <%= @order.updated_at.strftime("%dth %B %y") %> at <%= @order.updated_at.time.strftime("%H:%M") %></p>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <% @order_items.includes([:product]).each do |order_item| %>
+        <tr>
+          <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
+          <td class="align-middle"><%= order_item.product.price %></td>
+          <td class="align-middle"><%= order_item.quantity %></td>
+          <td class="align-middle"><%= order_item.total_price.to_i %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p class="fs-3">Total : Rs <%= @order.total_price.to_i %></p>
+  </div>
+
+<% else %>
+  <div class="container">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <% @order_items.includes([:product]).each do |order_item| %>
+        <tr>
+          <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
+          <td class="align-middle"><%= order_item.product.price %></td>
+          <td class="align-middle"><%= order_item.quantity %></td>
+          <td class="align-middle"><%= order_item.total_price.to_i %></td>
+        </tr>
+      <% end %>
+    </table>
+    <p class="fs-3">Total : Rs <%= @order.total_price.to_i %></p>
+  </div>
+<% end %>
