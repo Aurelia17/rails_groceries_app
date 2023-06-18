@@ -1,7 +1,17 @@
-<h1>Sections#show</h1>
-<p>Find me in app/views/sections/show.html.erb</p>
+<% if @section.banner.attached? %>
+  <div class="slider-wrapper">
+    <div class="slider">
+      <%= cl_image_tag @section.banner.key, crop: :fill,  class:"slider1-img"%>
+    </div>
+  </div>
+<% end %>
 
-<div class="container py-5">
+<div class="homepage">
+  <div class="container">
+    <p class="fs-1"><%= @section.title %></p>
+  </div>
+</div>
+<div class="container">
   <div class="cards-products">
     <% @products.each do |product| %>
       <% if @section.id == product.section_id %>
