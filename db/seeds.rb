@@ -1,5 +1,6 @@
 require "open-uri"
 
+Order.destroy_all
 User.destroy_all
 OrderItem.destroy_all
 Product.destroy_all
@@ -7,12 +8,14 @@ Section.destroy_all
 
 puts "Starting seeding"
 
+file0 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Design-sans-titre-1.jpg')
 user1 = User.new(first_name: 'Aurelia',
                  last_name: 'Tejas',
                  username: 'Toune',
                  email: 'test@test.com',
                  password: '123456',
                  password_confirmation: '123456')
+user1.avatar.attach(io: file0, filename: 'avatar', content_type: 'image/png')
 user1.save!
 
 puts "User 1 created !"
