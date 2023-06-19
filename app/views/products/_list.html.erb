@@ -1,0 +1,13 @@
+<div class="cards" data-search-products-target="list">
+  <% @products.each do |product| %>
+    <% @section = product.section_id %>
+    <%= link_to section_product_path(@section, product), class:"text-decoration-none" do %>
+    <div class="card">
+      <%= cl_image_tag product.photo.key, crop: :fill,  class:"cards-img"%>
+      <div class="card-body border-top border-secondary">
+        <h5 class="card-title"><%= product.title %></h5>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

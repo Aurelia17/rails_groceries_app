@@ -29,6 +29,7 @@
 
 <% else %>
   <div class="container">
+    <p>Order was created on the <%= @order.created_at.strftime("%dth %B %y") %> at <%= @order.created_at.time.strftime("%H:%M") %></p>
     <table class="table">
       <thead>
         <tr>

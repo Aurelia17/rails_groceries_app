@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :ratings, only: %i[index new]
     end
   end
+  resources :products, only: %i[index]
   resources :orders, only: %i[index show]
   resource :cart, only: %i[show edit update]
   get "cart/confirmation", to: "carts#confirmation", as: :cart_confirmation

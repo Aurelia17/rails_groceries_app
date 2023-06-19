@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import OrderItemController from "./order_item_controller"
 application.register("order-item", OrderItemController)
+
+import SearchProductsController from "./search_products_controller"
+application.register("search-products", SearchProductsController)

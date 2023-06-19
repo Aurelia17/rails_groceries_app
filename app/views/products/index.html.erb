@@ -1,0 +1,20 @@
+<div class="homepage">
+  <div class="container py-5" data-controller="search-products">
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= form_with url: products_path, method: :get, class: "d-flex", data: {search_products_target: "form"} do %>
+          <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                placeholder: "ki to p roder ?",
+                data: {action: "keyup->search-products#update",
+                search_products_target: "input"}
+          %>
+          <%= submit_tag "Search", name: "", class: "btn btn-search" %>
+        <% end %>
+      </div>
+    </div>
+    <p class="pb-4 fs-3">Products</p>
+    <%= render "list", products: @products %>
+  </div>
+</div>
