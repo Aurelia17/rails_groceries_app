@@ -1,12 +1,12 @@
 class ProductsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[show]
+  skip_before_action :authenticate_user!, only: %i[index show]
   before_action :set_product, only: %i[show]
 
   def index
     if params[:query].present?
-      @products = Product.global_search(params[:query])
+      @products = Product.global_search(params[:query]).order(:title)
     else
-      @products = Product.all
+      @products = Product.all.order(:title)
     end
 
     respond_to do |format|

@@ -83,6 +83,158 @@ section7.photo.attach(io: file7, filename: 'oeufs', content_type: 'image/png')
 
 puts "Section 7 created !"
 
+file8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Gateaux.png')
+banner8 = URI.open('https://images.unsplash.com/photo-1548848221-0c2e497ed557?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1769&q=80')
+section8 = Section.create(title: 'Biscuits')
+section8.photo.attach(io: file8, filename: 'Biscuit', content_type: 'image/png')
+section8.banner.attach(io: banner8, filename: 'Biscuits', content_type: 'image/png')
+
+puts "Section 8 created !"
+
+file9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Glaces.png')
+banner9 = URI.open('https://images.unsplash.com/photo-1629385701021-fcd568a743e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
+section9 = Section.create(title: 'Glaces')
+section9.photo.attach(io: file9, filename: 'Glace', content_type: 'image/png')
+section9.banner.attach(io: banner9, filename: 'Glaces', content_type: 'image/png')
+
+puts "Section 9 created !"
+
+file10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/plats-prepares.png')
+banner10 = URI.open('https://images.unsplash.com/photo-1545216560-68430ad77342?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2430&q=80')
+section10 = Section.create(title: 'Plats préparés')
+section10.photo.attach(io: file10, filename: 'Plats-prepares', content_type: 'image/png')
+section10.banner.attach(io: banner10, filename: 'Plats-prepares', content_type: 'image/png')
+
+puts "Section 10 created !"
+
+file11 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/cereales.png')
+banner11 = URI.open('https://images.unsplash.com/photo-1626020675290-ee0548b806e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Y2VyZWFsfGVufDB8MHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60')
+section11 = Section.create(title: 'Céréales')
+section11.photo.attach(io: file11, filename: 'Cereale', content_type: 'image/png')
+section11.banner.attach(io: banner11, filename: 'Cereales', content_type: 'image/png')
+
+puts "Section 11 created !"
+
+file12 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Conserves.png')
+banner12 = URI.open('https://images.unsplash.com/photo-1534483509719-3feaee7c30da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
+section12 = Section.create(title: 'Conserves')
+section12.photo.attach(io: file12, filename: 'Conserve', content_type: 'image/png')
+section12.banner.attach(io: banner12, filename: 'Conserves', content_type: 'image/png')
+
+puts "Section 12 created !"
+
+file13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Produits-du-monde.png')
+banner13 = URI.open('https://images.unsplash.com/photo-1612277631885-872bf6bd3de5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1767&q=80')
+section13 = Section.create(title: 'Produits du monde')
+section13.photo.attach(io: file13, filename: 'produits-du-monde', content_type: 'image/png')
+section13.banner.attach(io: banner13, filename: 'produits-du-mondes', content_type: 'image/png')
+
+puts "Section 13 created !"
+
+file14 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Bonbons.png')
+banner14 = URI.open('https://images.unsplash.com/photo-1627494113508-9ba5b63d9d5c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
+section14 = Section.create(title: 'Bonbons')
+section14.photo.attach(io: file14, filename: 'Bonbons', content_type: 'image/png')
+section14.banner.attach(io: banner14, filename: 'Bonbonss', content_type: 'image/png')
+
+puts "Section 14 created !"
+
+file15 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/the.png')
+section15 = Section.create(title: 'Thés')
+section15.photo.attach(io: file15, filename: 'Thes', content_type: 'image/png')
+
+puts "Section 15 created !"
+
+file16 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/cafe.png')
+section16 = Section.create(title: 'Cafés')
+section16.photo.attach(io: file16, filename: 'Cafes', content_type: 'image/png')
+
+puts "Section 16 created !"
+
+file17 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Produits-lessives.png')
+section17 = Section.create(title: 'Produits Lessives')
+section17.photo.attach(io: file17, filename: 'Produits-Lessives', content_type: 'image/png')
+
+puts "Section 17 created !"
+
+file18 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Produits-Vaisselle.png')
+section18 = Section.create(title: 'Produits Vaisselle')
+section18.photo.attach(io: file18, filename: 'Produits-Vaisselle', content_type: 'image/png')
+
+puts "Section 18 created !"
+
+file19 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/produits-bebes.png')
+section19 = Section.create(title: 'Produits Bébé')
+section19.photo.attach(io: file19, filename: 'Produits-bebe', content_type: 'image/png')
+
+puts "Section 19 created !"
+
+file20 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Presse.png')
+section20 = Section.create(title: 'Presse')
+section20.photo.attach(io: file20, filename: 'presse', content_type: 'image/png')
+
+puts "Section 20 created !"
+
+file21 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/articlesmenager.png')
+section21 = Section.create(title: 'Produits ménager')
+section21.photo.attach(io: file21, filename: 'articlesmenager', content_type: 'image/png')
+
+puts "Section 21 created !"
+
+file22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/detente.png')
+section22 = Section.create(title: 'Détente')
+section22.photo.attach(io: file22, filename: 'detente', content_type: 'image/png')
+
+puts "Section 22 created !"
+
+file23 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/electromenager.png')
+section23 = Section.create(title: 'Electromenager')
+section23.photo.attach(io: file23, filename: 'electromenager', content_type: 'image/png')
+
+puts "Section 23 created !"
+
+file24 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/hygiene-dentaire.png')
+section24 = Section.create(title: 'Hygiène dentaire')
+section24.photo.attach(io: file24, filename: 'hygiene-dentaire', content_type: 'image/png')
+
+puts "Section 24 created !"
+
+file25 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Papeterie.png')
+section25 = Section.create(title: 'Papeterie')
+section25.photo.attach(io: file25, filename: 'papeterie', content_type: 'image/png')
+
+puts "Section 25 created !"
+
+file26 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Animalerie.png')
+section26 = Section.create(title: 'Animalerie')
+section26.photo.attach(io: file26, filename: 'animalerie', content_type: 'image/png')
+
+puts "Section 26 created !"
+
+file27 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Maison-et-loisirs.png')
+section27 = Section.create(title: 'Maison et loisirs')
+section27.photo.attach(io: file27, filename: 'maison', content_type: 'image/png')
+
+puts "Section 27 created !"
+
+file28 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Farine.png')
+section28 = Section.create(title: 'Produits patisserie')
+section28.photo.attach(io: file28, filename: 'patisserie', content_type: 'image/png')
+
+puts "Section 28 created !"
+
+file29 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Yaourt.png')
+section29 = Section.create(title: 'Produits laitiers')
+section29.photo.attach(io: file29, filename: 'laitiers', content_type: 'image/png')
+
+puts "Section 29 created !"
+
+file30 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Papiers-et-tissue.png')
+section30 = Section.create(title: 'Papiers et tissues')
+section30.photo.attach(io: file30, filename: 'papiers', content_type: 'image/png')
+
+puts "Section 30 created !"
+
 file_p1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/vital.jpg')
 product1 = Product.create(title: 'Vital 1L',
                           description: "Eau de source",
