@@ -17,7 +17,6 @@ class RatingsController < ApplicationController
     if @rating.save
       redirect_to section_product_path(@section, @product)
     else
-      flash[:alert] = "Something went wrong."
       render :new
     end
   end
