@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resource :cart, only: %i[show edit update]
   get "cart/confirmation", to: "carts#confirmation", as: :cart_confirmation
   resources :order_items, only: %i[new create edit update destroy]
+  get "contact", to: "contact#show", as: :contact
   # Defines the root path route ("/")
   # root "articles#index"
 end
