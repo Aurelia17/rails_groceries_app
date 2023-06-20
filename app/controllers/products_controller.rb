@@ -30,6 +30,7 @@ class ProductsController < ApplicationController
       average = sum.to_f / @sum_rates.size
       @total_rate = show_star_rating(average)
     end
+    @user_rating = user_rating
   end
 
   def show_star_rating(rating)
@@ -42,6 +43,14 @@ class ProductsController < ApplicationController
       next(half_star_icon_name) if rating_round_point5 + 0.5 == i
       zero_star_icon_name
     end
+  end
+
+  def user_rating
+    rating_user = []
+    @product.ratings.each do |rating|
+      rating_user << rating.user_id
+    end
+    rating_user
   end
 
   private

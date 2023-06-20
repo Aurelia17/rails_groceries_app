@@ -45,8 +45,10 @@
                   <% else %>
                     <H2 class="fs-6"><%= @sum_rates.size %> ratings</H2>
                   <% end %>
-                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none" do %>
-                    <h2 class="fs-6">add a rating</i></h2>
+                  <% unless @user_rating.include?(current_user.id) %>
+                    <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none" do %>
+                      <h2 class="fs-6">add a rating</i></h2>
+                    <% end %>
                   <% end %>
                 </div>
               </div>

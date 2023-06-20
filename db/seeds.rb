@@ -2,18 +2,16 @@ require "open-uri"
 
 puts "cleaning DB..."
 
+Rating.destroy_all
+puts "Rating deleted"
 Order.destroy_all
 puts "Orders deleted"
-
 User.destroy_all
 puts "Users deleted"
-
 OrderItem.destroy_all
 puts "OrderItems deleted"
-
 Product.destroy_all
 puts "Products deleted"
-
 Section.destroy_all
 puts "Sections deleted"
 
@@ -21,7 +19,7 @@ puts "Starting seeding"
 
 file0 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Design-sans-titre-1.jpg')
 user1 = User.new(first_name: 'Aurelia',
-                 last_name: 'Tejas',
+                 last_name: 'Toffee',
                  username: 'Toune',
                  email: 'test@test.com',
                  password: '123456',
@@ -30,6 +28,16 @@ user1.avatar.attach(io: file0, filename: 'avatar', content_type: 'image/png')
 user1.save!
 
 puts "User 1 created !"
+
+user2 = User.new(first_name: 'Tejas',
+                 last_name: 'Test',
+                 username: 'Test',
+                 email: 'test@test.test',
+                 password: '123456',
+                 password_confirmation: '123456')
+user2.save!
+
+puts "User 2 created !"
 
 file1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/viandes.png')
 banner1 = URI.open('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
