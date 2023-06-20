@@ -7,6 +7,9 @@ import { application } from "./application"
 import CartOrderItemController from "./cart_order_item_controller"
 application.register("cart-order-item", CartOrderItemController)
 
+import FormSubmitController from "./form_submit_controller"
+application.register("form-submit", FormSubmitController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -15,3 +18,6 @@ application.register("order-item", OrderItemController)
 
 import SearchProductsController from "./search_products_controller"
 application.register("search-products", SearchProductsController)
+
+import StarRatingController from "./star_rating_controller"
+application.register("star-rating", StarRatingController)

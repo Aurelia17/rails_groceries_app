@@ -48,11 +48,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <link href="/assets/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <link href="dist/star-rating.css" rel="stylesheet" />
   </head>
 
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
+    <script src="dist/star-rating.min.js"></script>
   </body>
 </html>

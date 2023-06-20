@@ -6,6 +6,53 @@
     <div class="col-6">
       <div>
         <H2><%= @product.title %></H2>
+        <H3>
+          <% if @product.ratings == [] %>
+            <div class="container p-0">
+              <div class="row">
+                <div class="col-4">
+                  <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                  <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                  <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                  <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                  <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                </div>
+                <div class="col-6">
+                  <H2 class="fs-6">*No rating yet</H2>
+                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none" do %>
+                    <h2 class="fs-6">add a rating</i></h2>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% else %>
+            <div class="container p-0">
+              <div class="row">
+                <div class="col-5">
+                  <% @total_rate.each do |star| %>
+                    <% if star == "star_fill" %>
+                      <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+                    <% elsif star == "star_lefthalf_fill" %>
+                      <i class="fa-solid fa-star-half-stroke" style="color: #ffde0a;"></i>
+                    <% else star %>
+                      <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                    <% end %>
+                  <% end %>
+                </div>
+                <div class="col-4 p-0 m-0">
+                  <% if @sum_rates.size == 1 %>
+                    <H2 class="fs-6"><%= @sum_rates.size %> rating</H2>
+                  <% else %>
+                    <H2 class="fs-6"><%= @sum_rates.size %> ratings</H2>
+                  <% end %>
+                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none" do %>
+                    <h2 class="fs-6">add a rating</i></h2>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </H3>
         <div class="mt-4">
           <p>Description :</p>
           <p><%= @product.description %></p>
