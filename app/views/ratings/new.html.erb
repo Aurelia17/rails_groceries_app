@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= cl_image_tag @product.photo.key, height: 200, width: 200, crop: :fill %>
+    </div>
+    <div class="col-6 mt">
+      <%= simple_form_for ([@section, @product, @rating]), data: { controller: "submit" } do |f| %>
+        <%= f.input :rate, collection: (1..5).to_a, label: "Rate the product", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+        <button class= "btn btn-outline btn-sm"><%= f.button :submit, 'Add rating' %></button>
+      <% end %>
+    </div>
+    <div class="col-3"></div>
+  </div>
+</div>
