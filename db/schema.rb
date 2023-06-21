@@ -64,10 +64,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_122716) do
   create_table "orders", force: :cascade do |t|
     t.integer "oder_number"
     t.float "total_price"
+    t.bigint "cart_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.boolean "is_delivered", default: false, null: false
+    t.index ["cart_id"], name: "index_orders_on_cart_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
@@ -117,6 +119,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_17_122716) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "order_items", "carts"
   add_foreign_key "order_items", "products"
+  add_foreign_key "orders", "carts"
   add_foreign_key "orders", "users"
   add_foreign_key "products", "sections"
   add_foreign_key "ratings", "products"
