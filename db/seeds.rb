@@ -65,7 +65,7 @@ puts "Section 3 created !"
 
 file4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gadjak.png')
 banner4 = URI.open('https://images.unsplash.com/photo-1543158181-1274e5362710?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
-section4 = Section.create(title: 'Gadjak')
+section4 = Section.create(title: 'Gadjaks')
 section4.photo.attach(io: file4, filename: 'gadjak', content_type: 'image/png')
 section4.banner.attach(io: banner4, filename: 'gadjaks', content_type: 'image/png')
 
@@ -243,18 +243,308 @@ section30.photo.attach(io: file30, filename: 'papiers', content_type: 'image/png
 
 puts "Section 30 created !"
 
-file_p1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/vital.jpg')
-product1 = Product.create(title: 'Vital 1L',
-                          description: "Eau de source",
-                          price: 22,
-                          quantity: 100,
-                          section_id: section3.id)
-product1.photo.attach(io: file_p1, filename: 'vital', content_type: 'image/png')
+file_boissons1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/vital.jpg')
+boissons1 = Product.create(title: 'Vital',
+                           description: "Eau de source",
+                           price: 22,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons1.photo.attach(io: file_boissons1, filename: 'vital', content_type: 'image/png')
 
-puts "product 1 created !"
+puts "Boissons 1 created !"
+
+file_boissons2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bourgogne.jpg')
+boissons2 = Product.create(title: 'Vin de Bourgogne',
+                           description: "Vin de Bourgogne Aligoté",
+                           price: 719,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons2.photo.attach(io: file_boissons2, filename: 'bourgogne', content_type: 'image/png')
+
+puts "Boissons 2 created !"
+
+file_boissons3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Chamarel-Rhum.jpg')
+boissons3 = Product.create(title: 'Rhum Vanille',
+                           description: "CHAMAREL ORIGINAL RUM - Vanilla",
+                           price: 840,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons3.photo.attach(io: file_boissons3, filename: 'rumvanille', content_type: 'image/png')
+
+puts "Boissons 3 created !"
+
+file_boissons4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Crystal-gazeuse.jpg')
+boissons4 = Product.create(title: 'Crystal gazeuse',
+                           description: "CRYSTAL SPARKLING 1L",
+                           price: 30,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons4.photo.attach(io: file_boissons4, filename: 'crystalgazeuse', content_type: 'image/png')
+
+puts "Boissons 4 created !"
+
+file_boissons5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Crystal.jpg')
+boissons5 = Product.create(title: 'Crystal',
+                           description: "CRYSTAL 1L",
+                           price: 24,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons5.photo.attach(io: file_boissons5, filename: 'crystalgazeuse', content_type: 'image/png')
+
+puts "Boissons 5 created !"
+
+file_boissons6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gin.jpg')
+boissons6 = Product.create(title: "Gylbeys gin",
+                           description: "GILBEYS LONDON DRY GIN 70CL",
+                           price: 525,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons6.photo.attach(io: file_boissons6, filename: 'gin', content_type: 'image/png')
+
+puts "Boissons 6 created !"
+
+file_boissons7 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Malibu.jpg')
+boissons7 = Product.create(title: "Malibu",
+                           description: "MALIBU 50CL",
+                           price: 395,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons7.photo.attach(io: file_boissons7, filename: 'malibu', content_type: 'image/png')
+
+puts "Boissons 7 created !"
+
+file_boissons8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sparkling-rose.jpg')
+boissons8 = Product.create(title: "Rosé petillant",
+                           description: "SAMSARA SCINTILLA SPARKLING ROSÉ 75CL",
+                           price: 365,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons8.photo.attach(io: file_boissons8, filename: 'rose-petillant', content_type: 'image/png')
+
+puts "Boissons 8 created !"
+
+file_boissons9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/spiced-rhum.jpg')
+boissons9 = Product.create(title: "Rhum épicé",
+                           description: "CHAMAREL SPICED RUM VANILLA 50CL",
+                           price: 840,
+                           quantity: 100,
+                           section_id: section3.id)
+boissons9.photo.attach(io: file_boissons9, filename: 'spiced-rum', content_type: 'image/png')
+
+puts "Boissons 9 created !"
+
+file_boissons10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/St-martin.jpg')
+boissons10 = Product.create(title: "Cabernet Sauvignon",
+                            description: "Vin rouge, réserve St Martin, cabernet Sauvignon, 75cl",
+                            price: 524,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons10.photo.attach(io: file_boissons10, filename: 'st-martin', content_type: 'image/png')
+
+puts "Boissons 10 created !"
+
+file_boissons11 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/St-pellegrino.jpg')
+boissons11 = Product.create(title: "St Pellegrino",
+                            description: "St Pellegrino 1L, eau pétillante",
+                            price: 62,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons11.photo.attach(io: file_boissons11, filename: 'st-pellegrino', content_type: 'image/png')
+
+puts "Boissons 11 created !"
+
+file_boissons12 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/vin-grape.jpg')
+boissons12 = Product.create(title: "GR8 Cape White",
+                            description: "GR8 CAPE 75CL - WHITE",
+                            price: 290,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons12.photo.attach(io: file_boissons12, filename: 'gr8', content_type: 'image/png')
+
+puts "Boissons 12 created !"
+
+file_boissons13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Vin-rose.jpg')
+boissons13 = Product.create(title: "Montmeyrac Rouge",
+                            description: "MONTMEYRAC 75CL ROUGE",
+                            price: 489,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons13.photo.attach(io: file_boissons13, filename: 'vin-rose', content_type: 'image/png')
+
+puts "Boissons 13 created !"
+
+file_boissons14 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Vital-gazeuse.jpg')
+boissons14 = Product.create(title: "Vital Gazeuse",
+                            description: "VITAL SPARKLING 1.5L",
+                            price: 38,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons14.photo.attach(io: file_boissons14, filename: 'vital-gaz', content_type: 'image/png')
+
+puts "Boissons 14 created !"
+
+file_boissons15 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/whisky.jpg')
+boissons15 = Product.create(title: "Cambridge Whisky",
+                            description: "CAMBRIDGE SCOTCH WHISKY 1LT",
+                            price: 1149,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons15.photo.attach(io: file_boissons15, filename: 'whisky', content_type: 'image/png')
+
+puts "Boissons 15 created !"
+
+file_boissons16 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Fuze-Tea.jpg')
+boissons16 = Product.create(title: "Fuze Tea Pêche",
+                            description: "FUZE TEA 1.5L-PECHE",
+                            price: 67,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons16.photo.attach(io: file_boissons16, filename: 'fuze-tea-peche', content_type: 'image/png')
+
+puts "Boissons 17 created !"
+
+file_boissons17 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Lipton-peche.jpg')
+boissons17 = Product.create(title: "Lipton Pêche",
+                            description: "LIPTON ICE TEA 1.5L - PEACH",
+                            price: 59,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons17.photo.attach(io: file_boissons17, filename: 'lipton-peche', content_type: 'image/png')
+
+puts "Boissons 17 created !"
+
+file_boissons18 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Pulpy-mangue.jpg')
+boissons18 = Product.create(title: "5 Alive Mango",
+                            description: "5 ALIVE PULPY 1LT MANGO",
+                            price: 59,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons18.photo.attach(io: file_boissons18, filename: '5-alive-mangue', content_type: 'image/png')
+
+puts "Boissons 18 created !"
+
+file_boissons19 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Ice-tea-mangue.jpg')
+boissons19 = Product.create(title: "Ice Tea Mangue",
+                            description: "NATURES JUICE ICE TEA 1L MANGO",
+                            price: 42,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons19.photo.attach(io: file_boissons19, filename: 'ice-tea-mangue', content_type: 'image/png')
+
+puts "Boissons 19 created !"
+
+file_boissons20 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Ice-tea-peche.jpg')
+boissons20 = Product.create(title: "Ice Tea Pêche",
+                            description: "NATURES JUICE ICE TEA 1L PEACH",
+                            price: 42,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons20.photo.attach(io: file_boissons20, filename: 'ice-tea-peche', content_type: 'image/png')
+
+puts "Boissons 20 created !"
+
+file_boissons21 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sunquick-mandarine.jpg')
+boissons21 = Product.create(title: "Sunquick Mandarine",
+                            description: "SUNQUICK 840ML MANDARINE",
+                            price: 229,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons21.photo.attach(io: file_boissons21, filename: 'sunquick-mandarine', content_type: 'image/png')
+
+puts "Boissons 21 created !"
+
+file_boissons22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sun-up-goyave.jpg.jpg')
+boissons22 = Product.create(title: "Sunquick Goyave",
+                            description: "SUNQUICK 840ML Goyave",
+                            price: 229,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons22.photo.attach(io: file_boissons22, filename: 'sunquick-goyave', content_type: 'image/png')
+
+puts "Boissons 22 created !"
+
+file_boissons23 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/red-bull.jpg')
+boissons23 = Product.create(title: "Red Bull",
+                            description: "RED BULL ENERGY DRINKK 355ML CAN",
+                            price: 87,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons23.photo.attach(io: file_boissons23, filename: 'redbull', content_type: 'image/png')
+
+puts "Boissons 23 created !"
+
+file_boissons24 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/coca-zero.jpg')
+boissons24 = Product.create(title: "Coca-Cola Zéro",
+                            description: "COCA COLA NO SUGAR 1L",
+                            price: 45,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons24.photo.attach(io: file_boissons24, filename: 'coca-zero', content_type: 'image/png')
+
+puts "Boissons 24 created !"
+
+file_boissons25 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/coca.jpg')
+boissons25 = Product.create(title: "Coca-Cola",
+                            description: "COCA COLA 2L",
+                            price: 75,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons25.photo.attach(io: file_boissons25, filename: 'coca', content_type: 'image/png')
+
+puts "Boissons 25 created !"
+
+file_boissons26 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/fanta-passion.jpg')
+boissons26 = Product.create(title: "Fanta Passion",
+                            description: "Fanta Passion 1L",
+                            price: 43,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons26.photo.attach(io: file_boissons26, filename: 'fanta-passion', content_type: 'image/png')
+
+puts "Boissons 26 created !"
+
+file_boissons27 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/eski-amande.jpg')
+boissons27 = Product.create(title: "Eski Amande",
+                            description: "Eski Amande 2L",
+                            price: 73,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons27.photo.attach(io: file_boissons27, filename: 'eski-amande', content_type: 'image/png')
+
+puts "Boissons 27 created !"
+
+file_boissons28 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pepsi.jpg')
+boissons28 = Product.create(title: "Pepsi",
+                            description: "Pepsi 1L",
+                            price: 42,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons28.photo.attach(io: file_boissons28, filename: 'Pepsi', content_type: 'image/png')
+
+puts "Boissons 28 created !"
+
+file_boissons29 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/miranda-orange.jpg')
+boissons29 = Product.create(title: "Miranda Orange",
+                            description: "Miranda Orange 1L",
+                            price: 38,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons29.photo.attach(io: file_boissons29, filename: 'Miranda-orange', content_type: 'image/png')
+
+puts "Boissons 29 created !"
+
+file_boissons30 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sprite.jpg')
+boissons30 = Product.create(title: "Sprite",
+                            description: "Sprite 2L",
+                            price: 78,
+                            quantity: 100,
+                            section_id: section3.id)
+boissons30.photo.attach(io: file_boissons30, filename: 'Miranda-orange', content_type: 'image/png')
+
+puts "Boissons 30 created !"
 
 file_p2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/poulet-entier.jpg')
-product2 = Product.create(title: 'POULET ENTIER',
+product2 = Product.create(title: 'Poulet entier',
                           description: "Label60 POULET ENTIER",
                           price: 335,
                           quantity: 100,
@@ -264,7 +554,7 @@ product2.photo.attach(io: file_p2, filename: 'poulet', content_type: 'image/png'
 puts "product 2 created !"
 
 file_p3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/multigrains.jpg')
-product3 = Product.create(title: 'MULTIGRAIN 250G',
+product3 = Product.create(title: 'Multigrain 250G',
                           description: "SPECIAL MOULE MULTIGRAIN 250G",
                           price: 42,
                           quantity: 100,
@@ -274,7 +564,7 @@ product3.photo.attach(io: file_p3, filename: 'multigrain', content_type: 'image/
 puts "product 3 created !"
 
 file_p4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/banana-chips.jpg')
-product4 = Product.create(title: 'BANANA CHIPS',
+product4 = Product.create(title: 'Banana chips',
                           description: "SNACK PLUS 100G BANANA CHIPS",
                           price: 72,
                           quantity: 100,
@@ -284,7 +574,7 @@ product4.photo.attach(io: file_p4, filename: 'chips-banane', content_type: 'imag
 puts "product 4 created !"
 
 file_p5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bananes.jpg')
-product5 = Product.create(title: 'BANANES',
+product5 = Product.create(title: 'Bananes',
                           description: "BANANES 1kg",
                           price: 85,
                           quantity: 100,
@@ -294,7 +584,7 @@ product5.photo.attach(io: file_p5, filename: 'bananes', content_type: 'image/png
 puts "product 5 created !"
 
 file_p6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/brede-tom-pouce.jpg')
-product6 = Product.create(title: 'TOM POUCE',
+product6 = Product.create(title: 'Tom Pouce',
                           description: "BREDE TOM POUCE - BOTTE",
                           price: 18,
                           quantity: 100,
@@ -304,7 +594,7 @@ product6.photo.attach(io: file_p6, filename: 'brede-tom-pouce', content_type: 'i
 puts "product 6 created !"
 
 file_p7 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Oeufs-15-oeudor.jpg')
-product7 = Product.create(title: 'OEUFS X 15',
+product7 = Product.create(title: 'Oeufs X 15',
                           description: "OEUDOR OEUFS X 15",
                           price: 119,
                           quantity: 100,
