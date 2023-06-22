@@ -8,6 +8,7 @@ class RatingsController < ApplicationController
 
   def new
     @rating = Rating.new
+    search
   end
 
   def create
@@ -19,6 +20,7 @@ class RatingsController < ApplicationController
     else
       render :new
     end
+    search
   end
 
   private
@@ -31,5 +33,11 @@ class RatingsController < ApplicationController
     @product = Product.find(params[:product_id])
     section_id = @product.section_id
     @section = Section.find(section_id)
+  end
+
+  def search
+    if params[:query].present?
+      redirect_to products_path(query: params[:query]) and return
+    end
   end
 end

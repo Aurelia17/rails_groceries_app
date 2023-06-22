@@ -6,10 +6,12 @@ class CartsController < ApplicationController
     @order_items = OrderItem.includes([:product]).where(cart_id: @cart.id).all
     @total = all_total
     @cart.total_price = all_total
+    search
   end
 
   def edit
     @product = Product.find(params[:product_id])
+    search
   end
 
   def update
@@ -35,11 +37,15 @@ class CartsController < ApplicationController
       @msg_deliver = Message.create(content: "Hello, I am on my way", chatroom: @chatroom, user: deliverboy)
       redirect_to order_path(@order)
     end
+    search
   end
 
   def confirmation
     @total = all_total
+    search
   end
+
+  private
 
   def all_total
     total_all = 0
@@ -50,13 +56,17 @@ class CartsController < ApplicationController
     return total_all.to_i
   end
 
-  private
-
   def cart_params
     params.require(:cart).permit(:total_price, :is_confirmed, :id)
   end
 
   def set_cart
     @cart = Cart.find_by(id: cookies[:cart_id])
+  end
+
+  def search
+    if params[:query].present?
+      redirect_to products_path(query: params[:query]) and return
+    end
   end
 end
