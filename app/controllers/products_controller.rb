@@ -55,7 +55,6 @@ class ProductsController < ApplicationController
 
   private
 
-
   def set_product
     @section = Section.find(params[:section_id])
     @product = Product.find(params[:id])

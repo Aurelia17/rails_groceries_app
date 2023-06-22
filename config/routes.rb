@@ -8,7 +8,11 @@ Rails.application.routes.draw do
     end
   end
   resources :products, only: %i[index]
-  resources :orders, only: %i[index show]
+  resources :orders, only: %i[index show] do
+    resources :chatrooms, only: :show do
+      resources :messages, only: %i[new create]
+    end
+  end
   resource :cart, only: %i[show edit update]
   get "cart/confirmation", to: "carts#confirmation", as: :cart_confirmation
   resources :order_items, only: %i[new create edit update destroy]
