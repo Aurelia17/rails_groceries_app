@@ -29,9 +29,9 @@ user1.save!
 
 puts "User 1 created !"
 
-user2 = User.new(first_name: 'Tejas',
-                 last_name: 'Test',
-                 username: 'Test',
+user2 = User.new(first_name: 'Denny',
+                 last_name: 'Nou Ration',
+                 username: 'Denny',
                  email: 'test@test.test',
                  password: '123456',
                  password_confirmation: '123456')
@@ -334,7 +334,7 @@ boissons9.photo.attach(io: file_boissons9, filename: 'spiced-rum', content_type:
 puts "Boissons 9 created !"
 
 file_boissons10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/St-martin.jpg')
-boissons10 = Product.create(title: "Cabernet Sauvignon",
+boissons10 = Product.create(title: "Cabernet",
                             description: "Vin rouge, réserve St Martin, cabernet Sauvignon, 75cl",
                             price: 524,
                             quantity: 100,
@@ -363,7 +363,7 @@ boissons12.photo.attach(io: file_boissons12, filename: 'gr8', content_type: 'ima
 
 puts "Boissons 12 created !"
 
-file_boissons13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Vin-rose.jpg')
+file_boissons13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/vin-rose-2.jpg')
 boissons13 = Product.create(title: "Montmeyrac Rouge",
                             description: "MONTMEYRAC 75CL ROUGE",
                             price: 489,
@@ -444,7 +444,7 @@ boissons20.photo.attach(io: file_boissons20, filename: 'ice-tea-peche', content_
 puts "Boissons 20 created !"
 
 file_boissons21 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sunquick-mandarine.jpg')
-boissons21 = Product.create(title: "Sunquick Mandarine",
+boissons21 = Product.create(title: "Sunquick",
                             description: "SUNQUICK 840ML MANDARINE",
                             price: 229,
                             quantity: 100,
@@ -453,7 +453,7 @@ boissons21.photo.attach(io: file_boissons21, filename: 'sunquick-mandarine', con
 
 puts "Boissons 21 created !"
 
-file_boissons22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sun-up-goyave.jpg.jpg')
+file_boissons22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sun-up-goyave.jpg')
 boissons22 = Product.create(title: "Sunquick Goyave",
                             description: "SUNQUICK 840ML Goyave",
                             price: 229,

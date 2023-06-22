@@ -30,6 +30,9 @@ class CartsController < ApplicationController
         end
         @cart.order_items = []
       end
+      @chatroom = Chatroom.create(name: @order.oder_number.to_s, order: @order)
+      deliverboy = User.where(email: "test@test.test").first
+      @msg_deliver = Message.create(content: "Hello, I am on my way", chatroom: @chatroom, user: deliverboy)
       redirect_to order_path(@order)
     end
   end
@@ -55,8 +58,5 @@ class CartsController < ApplicationController
 
   def set_cart
     @cart = Cart.find_by(id: cookies[:cart_id])
-  end
-
-  def set_order_item
   end
 end
