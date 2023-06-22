@@ -19,18 +19,19 @@ class ProductsController < ApplicationController
     @order_item = OrderItem.new
     @ratings = Rating.all
     @sum_rates = []
-    unless @product.ratings == []
-      @product.ratings.each do |rating|
-        @sum_rates << rating.rate
-      end
-      sum = 0
-      @sum_rates.each do |sum_rate|
-        sum += sum_rate
-      end
-      average = sum.to_f / @sum_rates.size
-      @total_rate = show_star_rating(average)
-    end
+    product_rating
     @user_rating = user_rating
+    search
+  end
+
+  private
+
+  def user_rating
+    rating_user = []
+    @product.ratings.each do |rating|
+      rating_user << rating.user_id
+    end
+    rating_user
   end
 
   def show_star_rating(rating)
@@ -45,18 +46,28 @@ class ProductsController < ApplicationController
     end
   end
 
-  def user_rating
-    rating_user = []
-    @product.ratings.each do |rating|
-      rating_user << rating.user_id
+  def product_rating
+    unless @product.ratings == []
+      @product.ratings.each do |rating|
+        @sum_rates << rating.rate
+      end
+      sum = 0
+      @sum_rates.each do |sum_rate|
+        sum += sum_rate
+      end
+      average = sum.to_f / @sum_rates.size
+      @total_rate = show_star_rating(average)
     end
-    rating_user
   end
-
-  private
 
   def set_product
     @section = Section.find(params[:section_id])
     @product = Product.find(params[:id])
+  end
+
+  def search
+    if params[:query].present?
+      redirect_to products_path(query: params[:query]) and return
+    end
   end
 end
