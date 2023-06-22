@@ -33,7 +33,11 @@
       <h4>Your order is on the way</h4>
       <div class="col-6">
         <div class="messages chatroom-map">
-          <%= image_tag("map.png", class: "map") %>
+          <div style="height: calc(75vh - 75px);"
+              data-controller="map"
+              data-map-markers-value="<%= @marker.to_json %>"
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
         </div>
       </div>
       <div class="col-6">

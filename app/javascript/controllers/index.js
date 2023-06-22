@@ -13,6 +13,9 @@ application.register("form-submit", FormSubmitController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import MapController from "./map_controller"
+application.register("map", MapController)
+
 import OrderItemController from "./order_item_controller"
 application.register("order-item", OrderItemController)
 
