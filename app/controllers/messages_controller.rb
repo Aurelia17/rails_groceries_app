@@ -14,6 +14,9 @@ class MessagesController < ApplicationController
     end
   end
 
+  def sender?(a_user)
+    user.id == a_user.id
+  end
   private
 
   def message_params

@@ -9,6 +9,10 @@ class OrdersController < ApplicationController
     @chatroom = Chatroom.where(order_id: @order.id).first
     @message = Message.new
     search
+    @marker = [{
+      lat: current_user.latitude,
+      lng: current_user.longitude
+    }]
   end
 
   private

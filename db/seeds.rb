@@ -2,6 +2,10 @@ require "open-uri"
 
 puts "cleaning DB..."
 
+Message.destroy_all
+puts "Message deleted"
+Chatroom.destroy_all
+puts "Chatroom deleted"
 Rating.destroy_all
 puts "Rating deleted"
 Order.destroy_all
@@ -23,7 +27,9 @@ user1 = User.new(first_name: 'Aurelia',
                  username: 'Toune',
                  email: 'test@test.com',
                  password: '123456',
-                 password_confirmation: '123456')
+                 password_confirmation: '123456',
+                 latitude: -20.226398833351094,
+                 longitude: 57.53850954457916)
 user1.avatar.attach(io: file0, filename: 'avatar', content_type: 'image/png')
 user1.save!
 
@@ -34,7 +40,9 @@ user2 = User.new(first_name: 'Denny',
                  username: 'Denny',
                  email: 'test@test.test',
                  password: '123456',
-                 password_confirmation: '123456')
+                 password_confirmation: '123456',
+                 latitude: -20.223638228310033,
+                 longitude: 57.49645501960054)
 user2.save!
 
 puts "User 2 created !"
