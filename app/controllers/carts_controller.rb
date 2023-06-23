@@ -6,6 +6,7 @@ class CartsController < ApplicationController
     @order_items = OrderItem.includes([:product]).where(cart_id: @cart.id).all
     @total = all_total
     @cart.total_price = all_total
+    @cart.save
     search
   end
 
