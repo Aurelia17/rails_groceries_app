@@ -31,3 +31,20 @@
   --bs-btn-disabled-bg: #38c9b6;
   --bs-btn-disabled-border-color: #38c9b6;
 }
+
+.btn-chat {
+  --bs-btn-color: white;
+  --bs-btn-bg: #EB5757;
+  --bs-btn-border-color: #EB5757;
+  --bs-btn-hover-color: white;
+  --bs-btn-hover-bg: #e17c7c;
+  --bs-btn-hover-border-color: #e17c7c;
+  --bs-btn-focus-shadow-rgb: 196, 107, 29;
+  --bs-btn-active-color: white;
+  --bs-btn-active-bg: #e17c7c;
+  --bs-btn-active-border-color: #e17c7c;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: white;
+  --bs-btn-disabled-bg: #EB5757;
+  --bs-btn-disabled-border-color: #EB5757;
+}
