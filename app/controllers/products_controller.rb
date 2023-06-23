@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show]
 
   def index
+    @tags = ActsAsTaggableOn::Tag.all
     if params[:query].present?
       @products = Product.global_search(params[:query]).order(:title)
     else
