@@ -7,6 +7,9 @@ import { application } from "./application"
 import CartOrderItemController from "./cart_order_item_controller"
 application.register("cart-order-item", CartOrderItemController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FormSubmitController from "./form_submit_controller"
 application.register("form-submit", FormSubmitController)
 

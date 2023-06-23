@@ -34,7 +34,7 @@ class CartsController < ApplicationController
       end
       @chatroom = Chatroom.create(name: @order.oder_number.to_s, order: @order)
       deliverboy = User.where(email: "test@test.test").first
-      @msg_deliver = Message.create(content: "Hello, I am on my way", chatroom: @chatroom, user: deliverboy)
+      @msg_deliver = Message.create(content: "Bonzour, noun byen gagn to komman, mo p vini!", chatroom: @chatroom, user: deliverboy)
       redirect_to order_path(@order)
     end
     search
