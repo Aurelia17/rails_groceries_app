@@ -32,7 +32,6 @@ user1 = User.new(first_name: 'Aurelia',
                  longitude: 57.53850954457916)
 user1.avatar.attach(io: file0, filename: 'avatar', content_type: 'image/png')
 user1.save!
-
 puts "User 1 created !"
 
 user2 = User.new(first_name: 'Denny',
@@ -44,7 +43,6 @@ user2 = User.new(first_name: 'Denny',
                  latitude: -20.223638228310033,
                  longitude: 57.49645501960054)
 user2.save!
-
 puts "User 2 created !"
 
 user3 = User.new(first_name: 'Julien',
@@ -56,7 +54,6 @@ user3 = User.new(first_name: 'Julien',
                  latitude: -20.223638228310033,
                  longitude: 57.49645501960054)
 user3.save!
-
 puts "User 3 created !"
 
 user4 = User.new(first_name: 'Tejas',
@@ -68,7 +65,6 @@ user4 = User.new(first_name: 'Tejas',
                  latitude: -20.223638228310033,
                  longitude: 57.49645501960054)
 user4.save!
-
 puts "User 4 created !"
 
 file1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/viandes.png')
@@ -76,7 +72,6 @@ banner1 = URI.open('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f
 section1 = Section.create(title: 'Viandes')
 section1.photo.attach(io: file1, filename: 'viandes', content_type: 'image/png')
 section1.banner.attach(io: banner1, filename: 'viandesb', content_type: 'image/png')
-
 puts "Section 1 created !"
 
 banner2 = URI.open('https://images.unsplash.com/photo-1608198093002-ad4e005484ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2232&q=80')
@@ -84,7 +79,6 @@ file2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/boulangeri
 section2 = Section.create(title: 'Boulangerie')
 section2.photo.attach(io: file2, filename: 'boulangerie', content_type: 'image/png')
 section2.banner.attach(io: banner2, filename: 'boulangerieb', content_type: 'image/png')
-
 puts "Section 2 created !"
 
 file3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/boissons.png')
@@ -92,7 +86,6 @@ banner3 = URI.open('https://images.unsplash.com/photo-1595981267035-7b04ca84a82d
 section3 = Section.create(title: 'Boissons')
 section3.photo.attach(io: file3, filename: 'boisson', content_type: 'image/png')
 section3.banner.attach(io: banner3, filename: 'boissonb', content_type: 'image/png')
-
 puts "Section 3 created !"
 
 file4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gadjak.png')
@@ -602,6 +595,16 @@ boissons26.save
 
 puts "Boissons 26 created !"
 
+Rating.create!(rate: 5,
+               user_id: user3.id,
+               product_id: boissons26.id)
+
+Rating.create!(rate: 4,
+               user_id: user4.id,
+               product_id: boissons26.id)
+
+puts 'Ratings Boissons 26 created !'
+
 file_boissons27 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/eski-amande.jpg')
 boissons27 = Product.create(title: "Eski Amande",
                             description: "Eski Amande 2L",
@@ -650,6 +653,350 @@ boissons30.save
 
 puts "Boissons 30 created !"
 
+file_gadjack1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-truffe.jpg')
+gadjack1 = Product.create(title: "Chips truffe",
+                            description: "HUNTERS GOURMET BLACK TRUFFLE 150G",
+                            price: 168,
+                            quantity: 100,
+                            section_id: section4.id)
+gadjack1.photo.attach(io: file_gadjack1, filename: 'chips-truffe', content_type: 'image/png')
+gadjack1.tag_list.add("Chips")
+gadjack1.save
+
+puts "Gadjack 1 created !"
+
+file_gadjack2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/banana-chips.jpg')
+gadjack2 = Product.create(title: 'Banana chips',
+                          description: "SNACK PLUS 100G BANANA CHIPS",
+                          price: 72,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack2.photo.attach(io: file_gadjack2, filename: 'chips-banane', content_type: 'image/png')
+gadjack2.tag_list.add("Chips")
+gadjack2.save
+
+puts "Gadjack 2 created !"
+
+file_gadjack3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/fruit-chutney-chips-1.jpg')
+gadjack3 = Product.create(title: "Willards Chutney",
+                          description: "WILLARDS 125G CHUTNEY CHIPS",
+                          price: 69,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack3.photo.attach(io: file_gadjack3, filename: 'chips-chutney', content_type: 'image/png')
+gadjack3.tag_list.add("Chips")
+gadjack3.save
+
+puts "Gadjack 3 created !"
+
+Rating.create!(rate: 1,
+               user_id: user3.id,
+               product_id: gadjack3.id)
+
+Rating.create!(rate: 2,
+               user_id: user4.id,
+               product_id: gadjack3.id)
+
+puts 'Ratings Gadjack 3 created !'
+
+file_gadjack4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Seu.jpg')
+gadjack4 = Product.create(title: "Sev",
+                          description: "SUN SEV 150G",
+                          price: 53,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack4.photo.attach(io: file_gadjack4, filename: 'sev', content_type: 'image/png')
+
+puts "Gadjack 4 created !"
+
+file_gadjack5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-paysanne.jpg')
+gadjack5 = Product.create(title: "Chips paysanne",
+                          description: "BRETS CHIPS PAYSANNE 125G",
+                          price: 103,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack5.photo.attach(io: file_gadjack5, filename: 'chips-paysanne', content_type: 'image/png')
+gadjack5.tag_list.add("Chips")
+gadjack5.save
+
+puts "Gadjack 5 created !"
+
+file_gadjack6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/poppies-chicken.jpg')
+gadjack6 = Product.create(title: "Poppies poulet",
+                          description: "POPPIES 10G CHICKEN",
+                          price: 12,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack6.photo.attach(io: file_gadjack6, filename: 'poppies', content_type: 'image/png')
+gadjack6.tag_list.add("Chips")
+gadjack6.save
+
+puts "Gadjack 6 created !"
+
+file_gadjack7 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bruschette-garlic.jpg')
+gadjack7 = Product.create(title: "Bruschette ail",
+                          description: "MARETTI SNACK ROASTED GARLIC 150G",
+                          price: 64,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack7.photo.attach(io: file_gadjack7, filename: 'bruschette', content_type: 'image/png')
+
+puts "Gadjack 7 created !"
+
+file_gadjack8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sev2.jpg')
+gadjack8 = Product.create(title: "Sev Sweetmart",
+                          description: "L.SWEETMART 50G SEV",
+                          price: 17,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack8.photo.attach(io: file_gadjack8, filename: 'sev2', content_type: 'image/png')
+
+puts "Gadjack 8 created !"
+
+file_gadjack9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/moolkoo-stick.jpg')
+gadjack9 = Product.create(title: "Moolkoo stick",
+                          description: "MIGHTYBEST MOOLKOO STICK 50G",
+                          price: 18,
+                          quantity: 100,
+                          section_id: section4.id)
+gadjack9.photo.attach(io: file_gadjack9, filename: 'moolkoo-stick', content_type: 'image/png')
+
+puts "Gadjack 9 created !"
+
+file_gadjack10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/moolkoo.jpg')
+gadjack10 = Product.create(title: "Moolkoo",
+                           description: "MOOLKOO 120G",
+                           price: 43,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack10.photo.attach(io: file_gadjack10, filename: 'moolkoo', content_type: 'image/png')
+
+puts "Gadjack 10 created !"
+
+file_gadjack11 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gato-cravattes.jpg')
+gadjack11 = Product.create(title: "Gateaux cravattes",
+                           description: "KOO GATEAUX CRAVATTES 120G",
+                           price: 35,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack11.photo.attach(io: file_gadjack11, filename: 'gato-cravattes', content_type: 'image/png')
+
+puts "Gadjack 11 created !"
+
+file_gadjack12 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/oriental-mix.jpg')
+gadjack12 = Product.create(title: "Oriental Mix",
+                           description: "Oriental Mix 120G",
+                           price: 80,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack12.photo.attach(io: file_gadjack12, filename: 'Oriental Mix', content_type: 'image/png')
+
+puts "Gadjack 12 created !"
+
+file_gadjack13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/ti-pois.jpg')
+gadjack13 = Product.create(title: "Ti Pois Chilli",
+                           description: "TI POIS 100G CHILLI",
+                           price: 29,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack13.photo.attach(io: file_gadjack13, filename: 'ti-pois', content_type: 'image/png')
+
+puts "Gadjack 13 created !"
+
+file_gadjack14 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/doritos.jpg')
+gadjack14 = Product.create(title: "Doritos Fromage",
+                           description: "DORITOS CHEESE SUPREME 145G",
+                           price: 90,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack14.photo.attach(io: file_gadjack14, filename: 'doritos', content_type: 'image/png')
+gadjack14.tag_list.add("Chips")
+gadjack14.save
+
+puts "Gadjack 14 created !"
+
+file_gadjack15 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/prawn-crackers.jpg')
+gadjack15 = Product.create(title: "Prawn crackers",
+                           description: "M.MIAOW 60G PRAWN CRACKERS",
+                           price: 49,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack15.photo.attach(io: file_gadjack15, filename: 'prawn-cracker', content_type: 'image/png')
+gadjack15.tag_list.add("Chips")
+gadjack15.save
+
+puts "Gadjack 15 created !"
+
+file_gadjack16 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pop-pop.jpg')
+gadjack16 = Product.create(title: "Pop Pop",
+                           description: "POP POP SWEET CORN 16G",
+                           price: 10,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack16.photo.attach(io: file_gadjack16, filename: 'pop-pop', content_type: 'image/png')
+gadjack16.tag_list.add("Chips")
+gadjack16.save
+
+puts "Gadjack 16 created !"
+
+file_gadjack17 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pringles-paprika.jpg')
+gadjack17 = Product.create(title: "Pringles Paprika",
+                           description: "PRINGLES 175G SWEET PAPRIKA",
+                           price: 119,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack17.photo.attach(io: file_gadjack17, filename: 'pringles-paprika', content_type: 'image/png')
+gadjack17.tag_list.add("Chips")
+gadjack17.save
+
+puts "Gadjack 17 created !"
+
+file_gadjack18 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/peanuts.jpg')
+gadjack18 = Product.create(title: "Peanuts Crackers",
+                           description: "TAI SUN 40G PEANUT CRACKERS",
+                           price: 26,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack18.photo.attach(io: file_gadjack18, filename: 'peanuts', content_type: 'image/png')
+
+puts "Gadjack 18 created !"
+
+file_gadjack19 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/baguette-fromage.jpg')
+gadjack19 = Product.create(title: "Baguette Fromage",
+                           description: "KOO BAGUETTE FROMAGE 150G",
+                           price: 35,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack19.photo.attach(io: file_gadjack19, filename: 'baguette-fromage', content_type: 'image/png')
+
+puts "Gadjack 19 created !"
+
+file_gadjack20 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bruschette-medi.jpg')
+gadjack20 = Product.create(title: "Bruschette Légumes",
+                           description: "MARETTI SN MEDI VEGETABLES 50G",
+                           price: 28,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack20.photo.attach(io: file_gadjack20, filename: 'bruschette-medi', content_type: 'image/png')
+
+puts "Gadjack 20 created !"
+
+file_gadjack21 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pringles-original.jpg')
+gadjack21 = Product.create(title: "Pringles Original",
+                           description: "PRINGLES 175G ORIGINAL",
+                           price: 119,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack21.photo.attach(io: file_gadjack21, filename: 'pringles-ori', content_type: 'image/png')
+gadjack21.tag_list.add("Chips")
+gadjack21.save
+
+puts "Gadjack 21 created !"
+
+file_gadjack22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-poulet.jpg')
+gadjack22 = Product.create(title: "Chips Poulet",
+                           description: "BRETS CHIPS POULET BRAISE 125G",
+                           price: 103,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack22.photo.attach(io: file_gadjack22, filename: 'chips-poulet', content_type: 'image/png')
+gadjack22.tag_list.add("Chips")
+gadjack22.save
+
+puts "Gadjack 22 created !"
+
+file_gadjack23 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/croco.jpg')
+gadjack23 = Product.create(title: "Chips Crocodile",
+                           description: "CROCODILES CHEESE FLAVOUR 20G",
+                           price: 13,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack23.photo.attach(io: file_gadjack23, filename: 'croco', content_type: 'image/png')
+gadjack23.tag_list.add("Chips")
+gadjack23.save
+
+puts "Gadjack 23 created !"
+
+file_gadjack24 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/pringles.jpg')
+gadjack24 = Product.create(title: "Pringles Hot & Spicy",
+                           description: "PRINGLES 175G HOT & SPICY",
+                           price: 119,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack24.photo.attach(io: file_gadjack24, filename: 'pringles-spicy', content_type: 'image/png')
+gadjack24.tag_list.add("Chips")
+gadjack24.save
+
+puts "Gadjack 24 created !"
+
+file_gadjack25 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/green-pea.jpg')
+gadjack25 = Product.create(title: "Ti Poi Wasabi",
+                           description: "CAMEL WASABI COATED GR.PEA 40G",
+                           price: 28,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack25.photo.attach(io: file_gadjack25, filename: 'pois-wasabi', content_type: 'image/png')
+
+puts "Gadjack 25 created !"
+
+file_gadjack26 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/twisties.jpg')
+gadjack26 = Product.create(title: "Twisties Poulet",
+                           description: "TWISTIES 20G - CHICKEN",
+                           price: 17,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack26.photo.attach(io: file_gadjack26, filename: 'twisties', content_type: 'image/png')
+gadjack26.tag_list.add("Chips")
+gadjack26.save
+
+puts "Gadjack 26 created !"
+
+file_gadjack27 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/corn-curl.jpg')
+gadjack27 = Product.create(title: "Corn Curl BBQ",
+                           description: "CORN CURLS 90G BBQ",
+                           price: 66,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack27.photo.attach(io: file_gadjack27, filename: 'corn-curl', content_type: 'image/png')
+gadjack27.tag_list.add("Chips")
+gadjack27.save
+
+puts "Gadjack 27 created !"
+
+file_gadjack28 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-tomates.jpg')
+gadjack28 = Product.create(title: "Chips Tomate",
+                           description: "KRUNCH CHIPS 30G TOMATO",
+                           price: 23,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack28.photo.attach(io: file_gadjack28, filename: 'chips-tomates', content_type: 'image/png')
+gadjack28.tag_list.add("Chips")
+gadjack28.save
+
+puts "Gadjack 28 created !"
+
+file_gadjack29 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-oignon.jpg')
+gadjack29 = Product.create(title: "Chips Oignon",
+                           description: "KRUNCH CHIPS 125G CHEESE ONION",
+                           price: 65,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack29.photo.attach(io: file_gadjack29, filename: 'chips-oignons', content_type: 'image/png')
+gadjack29.tag_list.add("Chips")
+gadjack29.save
+
+puts "Gadjack 29 created !"
+
+file_gadjack30 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/chips-oignon.jpg')
+gadjack30 = Product.create(title: "Noix de Cajou",
+                           description: "TROPIC CASHEW NUTS 125G",
+                           price: 175,
+                           quantity: 100,
+                           section_id: section4.id)
+gadjack30.photo.attach(io: file_gadjack30, filename: 'chips-oignons', content_type: 'image/png')
+
+puts "Gadjack 30 created !"
+
 file_p2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/poulet-entier.jpg')
 product2 = Product.create(title: 'Poulet entier',
                           description: "Label60 POULET ENTIER",
@@ -670,22 +1017,12 @@ product3.photo.attach(io: file_p3, filename: 'multigrain', content_type: 'image/
 
 puts "product 3 created !"
 
-file_p4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/banana-chips.jpg')
-product4 = Product.create(title: 'Banana chips',
-                          description: "SNACK PLUS 100G BANANA CHIPS",
-                          price: 72,
-                          quantity: 100,
-                          section_id: section1.id)
-product4.photo.attach(io: file_p4, filename: 'chips-banane', content_type: 'image/png')
-
-puts "product 4 created !"
-
 file_p5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bananes.jpg')
 product5 = Product.create(title: 'Bananes',
                           description: "BANANES 1kg",
                           price: 85,
                           quantity: 100,
-                          section_id: section1.id)
+                          section_id: section5.id)
 product5.photo.attach(io: file_p5, filename: 'bananes', content_type: 'image/png')
 
 puts "product 5 created !"
@@ -695,7 +1032,7 @@ product6 = Product.create(title: 'Tom Pouce',
                           description: "BREDE TOM POUCE - BOTTE",
                           price: 18,
                           quantity: 100,
-                          section_id: section1.id)
+                          section_id: section6.id)
 product6.photo.attach(io: file_p6, filename: 'brede-tom-pouce', content_type: 'image/png')
 
 puts "product 6 created !"
@@ -705,7 +1042,7 @@ product7 = Product.create(title: 'Oeufs X 15',
                           description: "OEUDOR OEUFS X 15",
                           price: 119,
                           quantity: 100,
-                          section_id: section1.id)
+                          section_id: section7.id)
 product7.photo.attach(io: file_p7, filename: 'oeufs-15-oeudor', content_type: 'image/png')
 
 puts "product 7 created !"
@@ -715,7 +1052,7 @@ product8 = Product.create(title: 'Tarte Banane',
                           description: "TARTE BANANE 6-8 PERS",
                           price: 239,
                           quantity: 100,
-                          section_id: section2.id)
+                          section_id: section8.id)
 product8.photo.attach(io: file_p8, filename: 'tarte-banane', content_type: 'image/png')
 
 puts "product 8 created !"
@@ -725,7 +1062,7 @@ product9 = Product.create(title: 'Gato Chocolat',
                           description: "MOELLEUX AU CHOCOLAT 10-15 PERS",
                           price: 359,
                           quantity: 100,
-                          section_id: section2.id)
+                          section_id: section8.id)
 product9.photo.attach(io: file_p9, filename: 'tarte-banane', content_type: 'image/png')
 
 puts "product 9 created !"
