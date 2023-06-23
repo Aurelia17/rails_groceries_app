@@ -47,6 +47,30 @@ user2.save!
 
 puts "User 2 created !"
 
+user3 = User.new(first_name: 'Julien',
+                 last_name: 'Perle',
+                 username: 'Billy',
+                 email: 'billy@test.test',
+                 password: '123456',
+                 password_confirmation: '123456',
+                 latitude: -20.223638228310033,
+                 longitude: 57.49645501960054)
+user3.save!
+
+puts "User 3 created !"
+
+user4 = User.new(first_name: 'Tejas',
+                 last_name: 'Boodoo',
+                 username: 'Tejas29b',
+                 email: 'tejas@test.test',
+                 password: '123456',
+                 password_confirmation: '123456',
+                 latitude: -20.223638228310033,
+                 longitude: 57.49645501960054)
+user4.save!
+
+puts "User 4 created !"
+
 file1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/viandes.png')
 banner1 = URI.open('https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')
 section1 = Section.create(title: 'Viandes')
@@ -258,8 +282,24 @@ boissons1 = Product.create(title: 'Vital',
                            quantity: 100,
                            section_id: section3.id)
 boissons1.photo.attach(io: file_boissons1, filename: 'vital', content_type: 'image/png')
+boissons1.tag_list.add("Eau")
+boissons1.save
 
 puts "Boissons 1 created !"
+
+Rating.create!(rate: 5,
+               user_id: user2.id,
+               product_id: boissons1.id)
+
+Rating.create!(rate: 5,
+               user_id: user3.id,
+               product_id: boissons1.id)
+
+Rating.create!(rate: 5,
+               user_id: user4.id,
+               product_id: boissons1.id)
+
+puts 'Ratings Boissons 1 created !'
 
 file_boissons2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/bourgogne.jpg')
 boissons2 = Product.create(title: 'Vin de Bourgogne',
@@ -268,6 +308,8 @@ boissons2 = Product.create(title: 'Vin de Bourgogne',
                            quantity: 100,
                            section_id: section3.id)
 boissons2.photo.attach(io: file_boissons2, filename: 'bourgogne', content_type: 'image/png')
+boissons2.tag_list.add("Alcool", "Vin")
+boissons2.save
 
 puts "Boissons 2 created !"
 
@@ -276,8 +318,11 @@ boissons3 = Product.create(title: 'Rhum Vanille',
                            description: "CHAMAREL ORIGINAL RUM - Vanilla",
                            price: 840,
                            quantity: 100,
-                           section_id: section3.id)
+                           section_id: section3.id,
+                           tag_list: ["Alcool", "Spiriteux"])
 boissons3.photo.attach(io: file_boissons3, filename: 'rumvanille', content_type: 'image/png')
+boissons3.tag_list.add("Alcool", "Spiriteux")
+boissons3.save
 
 puts "Boissons 3 created !"
 
@@ -288,6 +333,8 @@ boissons4 = Product.create(title: 'Crystal gazeuse',
                            quantity: 100,
                            section_id: section3.id)
 boissons4.photo.attach(io: file_boissons4, filename: 'crystalgazeuse', content_type: 'image/png')
+boissons4.tag_list.add("Eau", "Sans-sucre")
+boissons4.save
 
 puts "Boissons 4 created !"
 
@@ -298,6 +345,8 @@ boissons5 = Product.create(title: 'Crystal',
                            quantity: 100,
                            section_id: section3.id)
 boissons5.photo.attach(io: file_boissons5, filename: 'crystalgazeuse', content_type: 'image/png')
+boissons5.tag_list.add("Eau", "Sans-sucre")
+boissons5.save
 
 puts "Boissons 5 created !"
 
@@ -308,6 +357,8 @@ boissons6 = Product.create(title: "Gylbeys gin",
                            quantity: 100,
                            section_id: section3.id)
 boissons6.photo.attach(io: file_boissons6, filename: 'gin', content_type: 'image/png')
+boissons6.tag_list.add("Alcool", "Spiriteux")
+boissons6.save
 
 puts "Boissons 6 created !"
 
@@ -318,6 +369,8 @@ boissons7 = Product.create(title: "Malibu",
                            quantity: 100,
                            section_id: section3.id)
 boissons7.photo.attach(io: file_boissons7, filename: 'malibu', content_type: 'image/png')
+boissons7.tag_list.add("Alcool", "Spiriteux")
+boissons7.save
 
 puts "Boissons 7 created !"
 
@@ -328,6 +381,8 @@ boissons8 = Product.create(title: "Rosé petillant",
                            quantity: 100,
                            section_id: section3.id)
 boissons8.photo.attach(io: file_boissons8, filename: 'rose-petillant', content_type: 'image/png')
+boissons8.tag_list.add("Alcool", "Vin")
+boissons8.save
 
 puts "Boissons 8 created !"
 
@@ -338,6 +393,8 @@ boissons9 = Product.create(title: "Rhum épicé",
                            quantity: 100,
                            section_id: section3.id)
 boissons9.photo.attach(io: file_boissons9, filename: 'spiced-rum', content_type: 'image/png')
+boissons9.tag_list.add("Alcool", "Spiriteux")
+boissons9.save
 
 puts "Boissons 9 created !"
 
@@ -348,6 +405,8 @@ boissons10 = Product.create(title: "Cabernet",
                             quantity: 100,
                             section_id: section3.id)
 boissons10.photo.attach(io: file_boissons10, filename: 'st-martin', content_type: 'image/png')
+boissons10.tag_list.add("Alcool", "Vin")
+boissons10.save
 
 puts "Boissons 10 created !"
 
@@ -358,6 +417,8 @@ boissons11 = Product.create(title: "St Pellegrino",
                             quantity: 100,
                             section_id: section3.id)
 boissons11.photo.attach(io: file_boissons11, filename: 'st-pellegrino', content_type: 'image/png')
+boissons11.tag_list.add("Eau", "Sans-sucre")
+boissons11.save
 
 puts "Boissons 11 created !"
 
@@ -368,6 +429,8 @@ boissons12 = Product.create(title: "GR8 Cape White",
                             quantity: 100,
                             section_id: section3.id)
 boissons12.photo.attach(io: file_boissons12, filename: 'gr8', content_type: 'image/png')
+boissons12.tag_list.add("Alcool", "Vin")
+boissons12.save
 
 puts "Boissons 12 created !"
 
@@ -378,6 +441,8 @@ boissons13 = Product.create(title: "Montmeyrac Rouge",
                             quantity: 100,
                             section_id: section3.id)
 boissons13.photo.attach(io: file_boissons13, filename: 'vin-rose', content_type: 'image/png')
+boissons13.tag_list.add("Alcool", "Vin")
+boissons13.save
 
 puts "Boissons 13 created !"
 
@@ -388,6 +453,8 @@ boissons14 = Product.create(title: "Vital Gazeuse",
                             quantity: 100,
                             section_id: section3.id)
 boissons14.photo.attach(io: file_boissons14, filename: 'vital-gaz', content_type: 'image/png')
+boissons14.tag_list.add("Eau", "Sans-sucre")
+boissons14.save
 
 puts "Boissons 14 created !"
 
@@ -398,6 +465,8 @@ boissons15 = Product.create(title: "Cambridge Whisky",
                             quantity: 100,
                             section_id: section3.id)
 boissons15.photo.attach(io: file_boissons15, filename: 'whisky', content_type: 'image/png')
+boissons15.tag_list.add("Alcool", "Spiriteux")
+boissons15.save
 
 puts "Boissons 15 created !"
 
@@ -408,6 +477,8 @@ boissons16 = Product.create(title: "Fuze Tea Pêche",
                             quantity: 100,
                             section_id: section3.id)
 boissons16.photo.attach(io: file_boissons16, filename: 'fuze-tea-peche', content_type: 'image/png')
+boissons16.tag_list.add("Jus")
+boissons16.save
 
 puts "Boissons 17 created !"
 
@@ -418,6 +489,8 @@ boissons17 = Product.create(title: "Lipton Pêche",
                             quantity: 100,
                             section_id: section3.id)
 boissons17.photo.attach(io: file_boissons17, filename: 'lipton-peche', content_type: 'image/png')
+boissons17.tag_list.add("Jus")
+boissons17.save
 
 puts "Boissons 17 created !"
 
@@ -428,6 +501,8 @@ boissons18 = Product.create(title: "5 Alive Mango",
                             quantity: 100,
                             section_id: section3.id)
 boissons18.photo.attach(io: file_boissons18, filename: '5-alive-mangue', content_type: 'image/png')
+boissons18.tag_list.add("Jus")
+boissons18.save
 
 puts "Boissons 18 created !"
 
@@ -438,6 +513,8 @@ boissons19 = Product.create(title: "Ice Tea Mangue",
                             quantity: 100,
                             section_id: section3.id)
 boissons19.photo.attach(io: file_boissons19, filename: 'ice-tea-mangue', content_type: 'image/png')
+boissons19.tag_list.add("Jus")
+boissons19.save
 
 puts "Boissons 19 created !"
 
@@ -448,6 +525,8 @@ boissons20 = Product.create(title: "Ice Tea Pêche",
                             quantity: 100,
                             section_id: section3.id)
 boissons20.photo.attach(io: file_boissons20, filename: 'ice-tea-peche', content_type: 'image/png')
+boissons20.tag_list.add("Jus")
+boissons20.save
 
 puts "Boissons 20 created !"
 
@@ -458,6 +537,8 @@ boissons21 = Product.create(title: "Sunquick",
                             quantity: 100,
                             section_id: section3.id)
 boissons21.photo.attach(io: file_boissons21, filename: 'sunquick-mandarine', content_type: 'image/png')
+boissons21.tag_list.add("Jus")
+boissons21.save
 
 puts "Boissons 21 created !"
 
@@ -468,6 +549,8 @@ boissons22 = Product.create(title: "Sunquick Goyave",
                             quantity: 100,
                             section_id: section3.id)
 boissons22.photo.attach(io: file_boissons22, filename: 'sunquick-goyave', content_type: 'image/png')
+boissons22.tag_list.add("Jus")
+boissons22.save
 
 puts "Boissons 22 created !"
 
@@ -478,6 +561,8 @@ boissons23 = Product.create(title: "Red Bull",
                             quantity: 100,
                             section_id: section3.id)
 boissons23.photo.attach(io: file_boissons23, filename: 'redbull', content_type: 'image/png')
+boissons23.tag_list.add("Energy-drink", "Soda")
+boissons23.save
 
 puts "Boissons 23 created !"
 
@@ -488,6 +573,8 @@ boissons24 = Product.create(title: "Coca-Cola Zéro",
                             quantity: 100,
                             section_id: section3.id)
 boissons24.photo.attach(io: file_boissons24, filename: 'coca-zero', content_type: 'image/png')
+boissons24.tag_list.add("Sans-sucre", "Soda")
+boissons24.save
 
 puts "Boissons 24 created !"
 
@@ -498,6 +585,8 @@ boissons25 = Product.create(title: "Coca-Cola",
                             quantity: 100,
                             section_id: section3.id)
 boissons25.photo.attach(io: file_boissons25, filename: 'coca', content_type: 'image/png')
+boissons25.tag_list.add("Soda")
+boissons25.save
 
 puts "Boissons 25 created !"
 
@@ -508,6 +597,8 @@ boissons26 = Product.create(title: "Fanta Passion",
                             quantity: 100,
                             section_id: section3.id)
 boissons26.photo.attach(io: file_boissons26, filename: 'fanta-passion', content_type: 'image/png')
+boissons26.tag_list.add("Soda")
+boissons26.save
 
 puts "Boissons 26 created !"
 
@@ -518,6 +609,8 @@ boissons27 = Product.create(title: "Eski Amande",
                             quantity: 100,
                             section_id: section3.id)
 boissons27.photo.attach(io: file_boissons27, filename: 'eski-amande', content_type: 'image/png')
+boissons27.tag_list.add("Soda")
+boissons27.save
 
 puts "Boissons 27 created !"
 
@@ -528,6 +621,8 @@ boissons28 = Product.create(title: "Pepsi",
                             quantity: 100,
                             section_id: section3.id)
 boissons28.photo.attach(io: file_boissons28, filename: 'Pepsi', content_type: 'image/png')
+boissons28.tag_list.add("Soda")
+boissons28.save
 
 puts "Boissons 28 created !"
 
@@ -538,6 +633,8 @@ boissons29 = Product.create(title: "Miranda Orange",
                             quantity: 100,
                             section_id: section3.id)
 boissons29.photo.attach(io: file_boissons29, filename: 'Miranda-orange', content_type: 'image/png')
+boissons29.tag_list.add("Soda")
+boissons29.save
 
 puts "Boissons 29 created !"
 
@@ -548,6 +645,8 @@ boissons30 = Product.create(title: "Sprite",
                             quantity: 100,
                             section_id: section3.id)
 boissons30.photo.attach(io: file_boissons30, filename: 'Miranda-orange', content_type: 'image/png')
+boissons30.tag_list.add("Soda")
+boissons30.save
 
 puts "Boissons 30 created !"
 

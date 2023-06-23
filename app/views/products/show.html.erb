@@ -1,7 +1,12 @@
 <div class="container mt-5">
   <div class="row">
-    <div class="col-6 mb-5">
+    <div class="col-6 mb-5 card" id="product-card-show">
       <%= cl_image_tag @product.photo.key, height: 500, width: 500, crop: :fill %>
+      <div class="img-tags">
+        <% @product.tags.each do |tag| %>
+          <span><%= tag.name %></span>
+        <% end %>
+      </div>
     </div>
     <div class="col-6">
       <div>
@@ -45,7 +50,7 @@
                   <% else %>
                     <H2 class="fs-6"><%= @sum_rates.size %> ratings</H2>
                   <% end %>
-                  <% unless @user_rating.include?(current_user.id) %>
+                  <% unless user_signed_in? && @user_rating.include?(current_user.id) %>
                     <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none" do %>
                       <h2 class="fs-6">add a rating</i></h2>
                     <% end %>

@@ -14,6 +14,11 @@
         <% end %>
       </div>
     </div>
+    <div class="bd-example my-2 border-0">
+      <% @tags.each do |tag| %>
+        <button class="btn-tag", data-search-products-target="tag", data-action="click->search-products#tags" ><%= tag.name %></button>
+      <% end %>
+    </div>
     <p class="pb-4 fs-3">Products</p>
     <%= render "list", products: @products %>
   </div>

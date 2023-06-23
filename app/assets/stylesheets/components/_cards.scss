@@ -6,6 +6,15 @@
   padding: 10px;
 }
 
+.card-product {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 25px;
+}
+
 .cards-img {
   border-radius: 25px;
   width: 100%;
@@ -23,10 +32,47 @@
   border-radius: 25px;
 }
 
+#product-card-show {
+  background-color: transparent;
+  border-radius: 0px;
+  border: none;
+}
+
 .cards-products {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 40px;
   background-color: white;
   padding: 10px;
+}
+
+.card-tags {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: 80%;
+  color: white;
+  span {
+    background: #EB5757;
+    font-size: .7em;
+    padding: 2px 4px;
+    border-radius: 25px;
+  }
+  a {
+    color: white;
+  }
+}
+
+.img-tags {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  span {
+    background: #EB5757;
+    font-size: 1em;
+    padding: 4px 6px;
+    border-radius: 25px;
+    color: white;
+    margin-right: 10px;
+  }
 }

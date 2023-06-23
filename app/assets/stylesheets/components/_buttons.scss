@@ -48,3 +48,14 @@
   --bs-btn-disabled-bg: #EB5757;
   --bs-btn-disabled-border-color: #EB5757;
 }
+
+.btn-tag {
+  background: #EB5757;
+  font-size: 1em;
+  padding: 4px 6px;
+  border-radius: 25px;
+  color: white;
+  margin-right: 5px;
+  width: 100px !important;
+  border: none;
+}
