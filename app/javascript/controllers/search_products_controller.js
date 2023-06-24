@@ -17,7 +17,7 @@ export default class extends Controller {
   }
 
   tags() {
-    console.log(this.tagTarget.textContent);
+    console.log(this.tagTargets);
     const url = `${this.formTarget.action}?query=${this.tagTarget.textContent}`
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
