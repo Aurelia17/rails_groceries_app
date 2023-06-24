@@ -4,6 +4,26 @@
   gap: 40px;
   background-color: white;
   padding: 10px;
+  overflow:hidden;
+  transition: transform 0.4s ease;
+  transform-origin: 50% 50%;
+}
+
+.card-show {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 40px;
+  background-color: white;
+  padding: 10px;
+}
+
+.card:hover {
+  transform: scale(1.1);
+  width: 100%;
+}
+
+.card:hover .card-body{
+  background-color: #ffd11b;
 }
 
 .card-product {
@@ -39,6 +59,7 @@
   background-color: transparent;
   border-radius: 0px;
   border: none;
+  pointer-events: none;
 }
 
 .cards-products {
