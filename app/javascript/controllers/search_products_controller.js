@@ -1,7 +1,8 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "input", "list", "tag"]
+  static targets = ["form", "input", "list", "Tags", "Vin", "Alcool", "Chips"]
+
 
   connect() {
     console.log("HALLLLLLLLLLLLLOOOOOOOOOOOO")
@@ -17,8 +18,13 @@ export default class extends Controller {
   }
 
   tags() {
-    console.log(this.tagTargets);
-    const url = `${this.formTarget.action}?query=${this.tagTarget.textContent}`
+    //console.log(this.tagsTargets);
+    // console.log(this.tagsTargets);
+    const tags = this.tagsTargets;
+    console.log("ntiee");
+
+    // console.log("console", targets);
+    const url = `${this.formTarget.action}?query=${this.tagsTargets.textContent}`
     fetch(url, {headers: {"Accept": "text/plain"}})
       .then(response => response.text())
       .then((data) => {

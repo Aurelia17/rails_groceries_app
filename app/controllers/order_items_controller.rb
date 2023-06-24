@@ -23,7 +23,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     if @order_item.update(order_item_params)
       flash[:notice] = 'Item quantity updated.'
-      redirect_to section_product_path(@order_item)
+      redirect_to cart_path
     end
   end
 
@@ -31,7 +31,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.find(params[:id])
     @order_item.destroy
     flash[:notice] = 'Item removed from cart.'
-    redirect_to section_product_path(@order_item), status: :see_other
+    redirect_to cart_path, status: :see_other
   end
 
   private
