@@ -10,7 +10,7 @@ class OrderItemsController < ApplicationController
   def create
     @order_item = OrderItem.new(order_item_params)
     if @order_item.save
-      flash[:notice] = 'Item added to cart.'
+      flash[:notice] = 'Item added to cart. 🥳'
       redirect_to products_path
     end
   end
@@ -22,7 +22,7 @@ class OrderItemsController < ApplicationController
   def update
     @order_item = OrderItem.find(params[:id])
     if @order_item.update(order_item_params)
-      flash[:notice] = 'Item quantity updated.'
+      flash[:notice] = 'Item quantity updated. 😉'
       redirect_to cart_path
     end
   end
@@ -30,7 +30,7 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item = OrderItem.find(params[:id])
     @order_item.destroy
-    flash[:notice] = 'Item removed from cart.'
+    flash[:notice] = 'Item removed from cart. 😱'
     redirect_to cart_path, status: :see_other
   end
 
