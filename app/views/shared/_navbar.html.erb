@@ -41,6 +41,7 @@
         <li class="dropdown mt-2 me-5">
           <a href="#" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <h2 class="align-items-center"><i class="fa-solid fa-cart-shopping" style="color: #FF3130;"></i></h2>
+            <p class="nav-cart"><%= @cart.order_items.size %></p>
           </a>
           <ul class="dropdown-menu dropdown-cart" role="menu">
             <% if  @cart.order_items == [] %>
