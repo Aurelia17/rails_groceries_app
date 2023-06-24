@@ -49,7 +49,7 @@
   --bs-btn-disabled-border-color: #EB5757;
 }
 
-.btn-tag {
+.btn-tag2 {
   background: #EB5757;
   font-size: 0.8em;
   padding: 6px 6px;
@@ -62,6 +62,11 @@
   text-decoration: none;
 }
 
+.btn-tag2 a {
+  text-decoration: none;
+  color: white;
+}
+
 .btn-cart {
   text-decoration: none;
 }
@@ -69,4 +74,17 @@
 .btn-tag:hover {
   color:white;
   background-color: #ff8e8e;
+}
+
+.btn-tag {
+  background: #EB5757;
+  font-size: 0.8em;
+  padding: 6px 6px;
+  border-radius: 25px;
+  color: white;
+  margin-right: 5px;
+  width: 100px !important;
+  border: none;
+  margin-bottom: 10px;
+  text-decoration: none;
 }
