@@ -10,6 +10,7 @@
         <thead class="bg-light">
           <tr>
             <th scope="col">Order number</th>
+            <th scope="col">Date</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
             <th scope="col"></th>
@@ -26,6 +27,7 @@
         <thead class="bg-light">
           <tr>
             <th scope="col">Order number</th>
+            <th scope="col">Date</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
             <th scope="col"></th>
@@ -37,6 +39,11 @@
                 <td>
                   <div>
                     <p class="fw-normal mb-1"> #<%= link_to order.oder_number, order_path(order), class: "text-dark fw-normal mb-1"%></p>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <p class="text-muted mb-0"> <%= order.created_at.strftime("%d/%m/20%y") %> </p>
                   </div>
                 </td>
                 <td>

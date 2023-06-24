@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand me-4" href="/">
+    <a class="navbar-brand me-4 ps-2" href="/">
       <%# <img src="	http://localhost:3000/assets/logo-5086acf903bfff68…63734ac6d56d7561154ca90d7487112011d7fee0e79cc.png" alt="logo"
         style="width: 80px;" class="ms-2 rounded-3"> %>
       <%= image_tag "logo.png", class: "ms-2 rounded-3", style: "width: 80px;" %>
@@ -30,10 +30,10 @@
         <%= form_with url: products_path, method: :get, class: "d-flex" do %>
           <%= text_field_tag :query,
                 params[:query],
-                class: "form-control me-2",
+                class: "form-control",
                 placeholder: "Keyword"
             %>
-          <%= submit_tag "Search", name: "", class: "btn btn-warning" %>
+          <%= submit_tag "Search", name: "", class: "btn btn-warning form-button" %>
         <% end %>
       </form>
 
@@ -53,18 +53,18 @@
             <% else %>
               <% @cart.order_items.each do |order_item| %>
                 <li>
-                  <span class="item">
+                  <span class="item pb-2">
                     <span class="item-left">
                       <%= cl_image_tag order_item.product.photo.key, height: 50, width: 50, crop: :fill, :effect=>"improve:outdoor" %>
                       <span class="item-info">
                         <span><%= order_item.product.title %> x <%= order_item.quantity %></span>
-                        <span>Rs <%= order_item.total_price %></span>
+                        <span >Rs <%= order_item.total_price %></span>
                       </span>
                     </span>
-                  </span>
+                  </>
                 </li>
               <% end %>
-              <li class=" divider btn-cart m-2"><%= link_to 'Checkout', cart_path, class: "btn-tag"%></li>
+              <li class=" divider btn-cart pt-2 m-2"><%= link_to 'Checkout', cart_path, class: "btn-tag"%></li>
             <% end %>
           </ul>
         </li>
@@ -72,7 +72,7 @@
 
       <ul class="navbar-nav">
         <% if user_signed_in? %>
-          <li class="nav-item dropdown me-2">
+          <li class="nav-item dropdown me-2 pe-2">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <% if current_user.avatar.attached? %>
               <%= cl_image_tag current_user.avatar.key, class: "avatar", alt: "dropdown menu", style: "width: 60px;" %>
@@ -86,7 +86,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item">
+          <li class="nav-item pe-2">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
           </li>
         <% end %>
