@@ -11,7 +11,7 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     if @order_item.save
       flash[:notice] = 'Item added to cart.'
-      redirect_to cart_path(@cart)
+      redirect_to products_path
     end
   end
 
