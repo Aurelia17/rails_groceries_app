@@ -94,8 +94,10 @@ body {
 }
 
 .login {
-  height: 100vh;
+  // height: 100vh;
   padding: 10rem 20rem !important;
+
+
   .form_login {
     background-color: white;
     padding: 2rem;
@@ -106,7 +108,13 @@ body {
     padding-left: 110px;
     padding-top: 110px;
     padding-bottom: 110px;
+
+    &.edit {
+      border: 1px solid black;
+    }
   }
+
+
 
 }
 
