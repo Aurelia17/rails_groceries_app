@@ -10,11 +10,11 @@
                 data: {action: "keyup->search-products#update",
                 search_products_target: "input"}
           %>
-          <%= submit_tag "Search", name: "", class: "btn btn-search" %>
+          <%= submit_tag "Search", name: "", class: "btn btn-search form-button" %>
         <% end %>
       </div>
     </div>
-    <div class="bd-example my-2 border-0">
+    <div class="row justify-content-center tag-list py-2">
       <% @tags.each do |tag| %>
         <button class="btn-tag2" style="text-align: center"><a class="text-center" href="/products?query= <%= tag.name %>"><%= tag.name %></a></button>
       <% end %>

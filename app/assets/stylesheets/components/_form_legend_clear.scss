@@ -8,3 +8,13 @@
 legend ~ div.form-check:first-of-type {
   clear: left;
 }
+
+.form-control {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.form-button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
