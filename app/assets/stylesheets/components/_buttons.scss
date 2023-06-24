@@ -16,20 +16,21 @@
 }
 
 .btn-search {
+  color: white;
   --bs-btn-color: #000;
-  --bs-btn-bg: #38c9b6;
-  --bs-btn-border-color: #38c9b6;
+  --bs-btn-bg: #0079FF;
+  --bs-btn-border-color: #0079FF;
   --bs-btn-hover-color: #000;
-  --bs-btn-hover-bg: #8cdbd0;
-  --bs-btn-hover-border-color: #8cdbd0;
+  --bs-btn-hover-bg: #73b4fd;
+  --bs-btn-hover-border-color: 73b4fd;
   --bs-btn-focus-shadow-rgb: 196, 107, 29;
   --bs-btn-active-color: #000;
-  --bs-btn-active-bg: #8cdbd0;
-  --bs-btn-active-border-color: #8cdbd0;
+  --bs-btn-active-bg: 73b4fd;
+  --bs-btn-active-border-color: 73b4fd;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #000;
-  --bs-btn-disabled-bg: #38c9b6;
-  --bs-btn-disabled-border-color: #38c9b6;
+  --bs-btn-disabled-bg: #0079FF;
+  --bs-btn-disabled-border-color: #0079FF;
 }
 
 .btn-chat {
@@ -60,6 +61,10 @@
   border: none;
   margin-bottom: 10px;
   text-decoration: none;
+}
+
+.btn-tag2:hover {
+  background-color: #ff8e8e;
 }
 
 .btn-tag2 a {
