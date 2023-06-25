@@ -11,6 +11,16 @@
   width: 40px;
 }
 
+.nav-link:hover {
+  background-color: #EB5757 ;
+  color: white;
+  border-radius: 2px;
+}
+
+.nav-link {
+  border-radius: 2px;
+}
+
 .bigicon {
   color:white;
 }
@@ -86,10 +96,6 @@ ul.dropdown-cart li .item {
   border-bottom-width: initial;
   border-bottom-style: dashed;
   border-bottom-color: initial;
-  /* border-bottom: #ffd859; */
-  /* border-bottom-width: initial; */
-  /* border-bottom-style: initial; */
-  /* border-bottom-color: rgb(255, 216, 89); */
 }
 * {
   margin: 0;
