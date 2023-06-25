@@ -18,3 +18,52 @@ legend ~ div.form-check:first-of-type {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
+
+.total-price-form {
+  border: none;
+  background-color: transparent;
+  background-image: none !important;
+  margin-right: -1050px !important;
+  text-align: center;
+  margin-top: 12px !important;
+  padding-right: 0 !important;
+}
+
+.td-quantity {
+  width: 9%;
+  text-align: center;
+}
+
+.td-button-l {
+  width: 3%;
+  text-align: right;
+}
+
+.td-button-r {
+  width: 3%;
+  padding-right: 20px !important;
+}
+
+.td-price {
+  text-align: center;
+  width: 15%;
+}
+
+.td-cross {
+  width: 15%;
+  text-align: center;
+}
+
+.td-btn-update {
+  width: 15%;
+  text-align: center;
+}
+
+th {
+  font-weight: normal;
+}
+
+.td-product {
+  width: 15%;
+  text-align: center;
+}

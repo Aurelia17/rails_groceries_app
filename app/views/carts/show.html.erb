@@ -7,36 +7,39 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Product</th>
-        <th>Price</th>
-        <th></th>
-        <th>Quantity</th>
-        <th>Subtotal</th>
-        <th></th>
+        <th class="td-product">Product</th>
+        <th class="td-price">Price</th>
+        <th class="td-button-l"></th>
+        <th class="td-quantity">Quantity</th>
+        <th class="td-button-r"></th>
+        <th class="td-price">Subtotal</th>
+        <td class="td-btn-update">Update</th>
+        <td class="td-cross">Remove</th>
       </tr>
     </thead>
     <% @order_items.includes([:product]).each do |order_item| %>
-      <tr>
-        <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
-        <td class="align-middle"><%= order_item.product.price %></td>
-        <td>
-          <div data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %>>
-            <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put) do |f| %>
-            <%= f.input :quantity, input_html: { value: order_item.quantity, data: {order_item_target: "quantity", action: "change->order-item#test"} }, label: false %>
-            <%= f.input :total_price, label: false, input_html: { value: order_item.total_price.to_i , data: {order_item_target: "totalprice"}, readonly: true} %>
+      <tr data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %> style="vertical-align: middle !important;">
+        <th class="td-product"><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
+        <th class="td-price"><%= order_item.product.price %></td>
+        <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put) do |f|%>
+          <td class="td-button-l"><button class="btn btn-cross" data-action="click->order-item#reduce:prevent"><i class="fa-solid fa-minus" style="color: #213454;"></i></button></td>
+          <td class="td-quantity"><%= f.input :quantity, input_html: { value: order_item.quantity, data: {order_item_target: "quantity", action: "change->order-item#test"}, class: "total-price-form", readonly: true }, label: false %></td>
+          <td class="td-button-r"><button class="btn btn-cross" data-action="click->order-item#increase:prevent"><i class="fa-solid fa-plus" style="color: #213454;"></i></button></td>
+          <td class="td-price"><%= f.input :total_price, label: false, input_html: { value: order_item.total_price.to_i , data: {order_item_target: "totalprice" }, class: "total-price-form", readonly: true} %>
             <%= f.hidden_field :section_id, value: order_item.product.section_id %>
             <%= f.hidden_field :product_id, value: order_item.product_id %>
-            <%= f.hidden_field :cart_id, value: @cart.id %>
-            <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Update' %></button>
-            <% end %>
-          </div>
-        </td>
-        <td class="align-middle">
-          <%= link_to "delete", order_item_path(order_item), class: "button-arounder button-red", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this Item from cart?" } %>
+            <%= f.hidden_field :cart_id, value: @cart.id %></td>
+            <td class="td-btn-update"><button type="submit" class="btn btn-cross">
+                <h4><i class="fa-solid fa-arrows-rotate" style="color: #2abc20;"></i></h4>
+            </button></td>
+          </td>
+        <% end %>
+        <td class="td-cross">
+          <%= link_to "<h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>".html_safe, order_item_path(order_item), class: "btn btn-cross", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this Item from cart?" } %>
         </td>
       </tr>
     <% end %>
   </table>
-  <h2>Total : Rs <%= @total %></h2>
-  <a class="btn btn-primary" href="/cart/confirmation" role="button">Checkout</a>
+  <h2 class="total-cart">Total : Rs <%= number_with_delimiter(@total, delimiter: "’") %>.00</h2>
+  <button class="btn-checkout mt-3" style="text-align: center"><a class="text-center" href="/cart/confirmation">Checkout</a></button>
 </div>
