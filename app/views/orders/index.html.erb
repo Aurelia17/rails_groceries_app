@@ -80,7 +80,7 @@
             <th scope="col">Date</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
-            <th scope="col"></th>
+            <th td class="td-eye-order" scope="col">Preview</th>
           </tr>
         </thead>
           <tbody>
@@ -108,7 +108,7 @@
                     <span class="order-awaiting">On it's way</span>
                   <% end %>
                 </td>
-                <td>
+                <td class="td-eye-order">
                   <%= link_to order_path(order), class:"text-decoration-none" do %>
                     <h3><i class="fa-solid fa-eye"></i></h3>
                   <% end %>
