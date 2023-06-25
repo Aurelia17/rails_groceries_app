@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_up_cart
   before_action :cart_total
+  before_action :cart_quantity
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name username avatar])
@@ -30,5 +31,13 @@ class ApplicationController < ActionController::Base
       total_all += order_item.total_price
     end
     @cart.total_price = total_all.to_i
+  end
+
+  def cart_quantity
+    @quantity = 0
+    @cart.order_items.each do |order_item|
+      @quantity += order_item.quantity
+    end
+    @quantity
   end
 end
