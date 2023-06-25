@@ -27,16 +27,22 @@
   color: #EB5757;
 }
 
-.nav-cart {
-  text-align: center;
-  text-decoration: none;
-  font-family: system-ui;
-  size: 10px;
-  margin-top: -46px;
-  margin-left: 4px;
-  color: white;
-}
-
 a {
   text-decoration: none;
+}
+
+.fa-eye {
+  color: #5271ff;
+}
+.fa-eye:hover {
+  color:#EB5757;
+}
+
+thead th{
+  font-weight: 500;
+  width: 250px !important;
+}
+
+.total-cart {
+  margin-top: 30px !important;
 }

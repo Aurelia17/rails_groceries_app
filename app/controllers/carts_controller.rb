@@ -46,6 +46,7 @@ class CartsController < ApplicationController
     search
   end
 
+
   private
 
   def all_total
