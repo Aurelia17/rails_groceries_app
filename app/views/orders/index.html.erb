@@ -32,7 +32,7 @@
                 </td>
                 <td>
                   <div>
-                    <p class="text-muted mb-0">Rs <%= order.total_price.to_i %> </p>
+                    <p class="text-muted mb-0">Rs <%= number_with_delimiter(order.total_price.to_i, delimiter: "’") %> </p>
                   </div>
                 </td>
                 <td>
@@ -98,7 +98,7 @@
                 </td>
                 <td>
                   <div>
-                    <p class="text-muted mb-0">Rs <%= order.total_price.to_i %> </p>
+                    <p class="text-muted mb-0 order-price">Rs <%= number_with_delimiter(order.total_price.to_i, delimiter: "'") %> </p>
                   </div>
                 </td>
                 <td>
