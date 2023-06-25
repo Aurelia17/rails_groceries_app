@@ -87,10 +87,16 @@
           <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
           <td class="align-middle"><%= order_item.product.price %></td>
           <td class="align-middle"><%= order_item.quantity %></td>
-          <td class="align-middle"><%= order_item.total_price.to_i %></td>
+          <td class="align-middle"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
         </tr>
       <% end %>
     </table>
-    <p class="fs-3">Total : Rs <%= @order.total_price.to_i %></p>
+    <p class="fs-3">Total : Rs <%= number_with_delimiter(@order.total_price.to_i, delimiter: "’") %></p>
+    <% if current_user.is_admin? %>
+      <p>Is the order delivered?</p>
+      <%= simple_form_for(@order) do |f| %>
+        <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Confirm' %></button>
+      <% end %>
+    <% end %>
   </div>
 <% end %>

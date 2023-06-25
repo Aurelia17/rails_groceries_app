@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show]
+  before_action :set_order, only: %i[show edit update]
   def index
     @orders = Order.all.order(oder_number: :desc)
     search
@@ -13,6 +13,15 @@ class OrdersController < ApplicationController
       lat: current_user.latitude,
       lng: current_user.longitude
     }]
+  end
+
+  def edit;
+  end
+
+  def update
+    @order.is_delivered = true
+    @order.save
+    redirect_to order_path(@order)
   end
 
   private
