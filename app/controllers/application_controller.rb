@@ -16,7 +16,13 @@ class ApplicationController < ActionController::Base
   def set_up_cart
     if cookies[:cart_id]
       puts "cookie is present"
-      @cart = Cart.find(cookies[:cart_id])
+      if Cart.exists?(cookies[:cart_id])
+        @cart = Cart.find(cookies[:cart_id])
+      else
+        cookies.delete :cart_id
+        @cart = Cart.create
+        cookies[:cart_id] = @cart.id
+      end
     else
       puts "cookie is absent"
       @cart = Cart.create
