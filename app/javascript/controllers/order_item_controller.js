@@ -27,7 +27,8 @@ export default class extends Controller {
   }
   increase() {
     const quantity = this.quantityTarget.value;
-    const quantityIncreased = quantity + 1;
+    let quantityIncreased = quantity;
+    ++quantityIncreased;
     this.quantityTarget.value = quantityIncreased
     const unitPrice = parseInt(this.priceValue);
     const totalPrice= quantityIncreased * unitPrice
