@@ -10,17 +10,17 @@
       <thead>
         <tr>
           <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
+          <th td class="td-eye-order" scope="col">Price</th>
+          <th td class="td-eye-order" scope="col">Quantity</th>
+          <th td class="td-eye-order" scope="col">Subtotal</th>
         </tr>
       </thead>
       <% @order_items.includes([:product]).each do |order_item| %>
         <tr>
           <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
-          <td class="align-middle"><%= order_item.product.price %></td>
-          <td class="align-middle"><%= order_item.quantity %></td>
-          <td class="align-middle"><%= order_item.total_price.to_i %></td>
+          <td class="align-middle td-eye-order"><%= order_item.product.price %></td>
+          <td class="align-middle td-eye-order"><%= order_item.quantity %></td>
+          <td class="align-middle td-eye-order"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
         </tr>
       <% end %>
     </table>
@@ -77,17 +77,17 @@
       <thead>
         <tr>
           <th>Product</th>
-          <th>Price</th>
-          <th>Quantity</th>
-          <th>Subtotal</th>
+          <th td class="td-eye-order" scope="col">Price</th>
+          <th td class="td-eye-order" scope="col">Quantity</th>
+          <th td class="td-eye-order" scope="col">Subtotal</th>
         </tr>
       </thead>
       <% @order_items.includes([:product]).each do |order_item| %>
         <tr>
           <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
-          <td class="align-middle"><%= order_item.product.price %></td>
-          <td class="align-middle"><%= order_item.quantity %></td>
-          <td class="align-middle"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
+          <td class="align-middle td-eye-order"><%= order_item.product.price %></td>
+          <td class="align-middle td-eye-order"><%= order_item.quantity %></td>
+          <td class="align-middle td-eye-order"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
         </tr>
       <% end %>
     </table>
