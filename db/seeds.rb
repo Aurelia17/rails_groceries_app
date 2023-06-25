@@ -40,6 +40,7 @@ user2 = User.new(first_name: 'Denny',
                  email: 'test@test.test',
                  password: '123456',
                  password_confirmation: '123456',
+                 is_admin: true,
                  latitude: -20.223638228310033,
                  longitude: 57.49645501960054)
 user2.save!

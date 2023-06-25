@@ -18,12 +18,15 @@
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
   width: 100%;
+  border-color: #EB5757;
+  ;
 }
 
 .card:hover .card-body{
-  background-color: #ffd11b;
+  background-color: #EB5757;
+  color: white;
 }
 
 .card-product {
@@ -53,6 +56,7 @@
 }
 .card{
   border-radius: 25px;
+  --bs-card-border-color: #FFDE59;
 }
 
 #product-card-show {
