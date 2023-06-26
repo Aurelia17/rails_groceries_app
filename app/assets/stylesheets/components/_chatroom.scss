@@ -57,3 +57,7 @@ small strong {
 color: #EB5757;
 }
 
+.flex-grow-1 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: grey;
+  opacity: 1; /* Firefox */
+}

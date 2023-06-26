@@ -8,6 +8,9 @@ class CartsController < ApplicationController
     @cart.total_price = all_total
     @cart.save
     search
+    @order_items.each do |order_item|
+      if order_item.quantity.zero? then order_item.destroy end
+    end
   end
 
   def edit
@@ -34,6 +37,7 @@ class CartsController < ApplicationController
         @cart.order_items = []
       end
       @chatroom = Chatroom.create(name: @order.oder_number.to_s, order: @order)
+      qty_product_updated(@order_items)
       deliverboy = User.where(email: "test@test.test").first
       @msg_deliver = Message.create(content: "Bonzour, noun byen gagn to komman, mo p vini!", chatroom: @chatroom, user: deliverboy)
       redirect_to order_path(@order)
@@ -69,6 +73,15 @@ class CartsController < ApplicationController
   def search
     if params[:query].present?
       redirect_to products_path(query: params[:query]) and return
+    end
+  end
+
+  def qty_product_updated(order_items)
+    order_items.each do |order_item|
+      product = Product.where(id: order_item.product_id).first
+      product_quantity_updated = product.quantity - order_item.quantity
+      product.quantity = product_quantity_updated
+      product.save
     end
   end
 end
