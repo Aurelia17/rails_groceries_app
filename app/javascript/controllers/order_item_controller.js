@@ -5,10 +5,8 @@ export default class extends Controller {
   static targets = ["totalprice", "quantity"]
   static values = { price: String, quantity: String}
   connect() {
-    console.log("hello");
-    console.log(this.quantityTarget);
-    console.log(this.priceValue);
   }
+  
   test() {
     const quantity = this.quantityTarget.value;
     const unitPrice = parseInt(this.priceValue);
@@ -18,6 +16,18 @@ export default class extends Controller {
   }
   reduce() {
     if (this.quantityTarget.value > 0) {
+      const quantity = this.quantityTarget.value;
+      const quantityReduced = quantity - 1;
+      console.log(quantityReduced);
+      this.quantityTarget.value = quantityReduced
+      const unitPrice = parseInt(this.priceValue);
+      const totalPrice= quantityReduced * unitPrice
+      this.totalpriceTarget.value = totalPrice;
+    }
+  }
+
+  reduce2() {
+    if (this.quantityTarget.value > 1) {
       const quantity = this.quantityTarget.value;
       const quantityReduced = quantity - 1;
       console.log(quantityReduced);
