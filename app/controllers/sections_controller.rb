@@ -10,6 +10,13 @@ class SectionsController < ApplicationController
   def show
     @products = Product.includes([photo_attachment: :blob]).all.order(:title)
     search
+    @tag_section = []
+    @section.products.each do |product|
+      product.tags.each do |tag|
+        @tag_section << tag
+      end
+    end
+    @tag_section
   end
 
   private

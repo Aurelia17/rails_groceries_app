@@ -11,6 +11,11 @@
     <p class="fs-1"><%= @section.title %></p>
   </div>
 </div>
+<div class="row justify-content-center tag-list py-2">
+  <% @tag_section.uniq.each do |tag| %>
+    <a class="text-center btn-tag2" style="text-align: center" href="/products?query= <%= tag.name %>"><%= tag.name %></a>
+  <% end %>
+</div>
 <div class="container">
   <div class="cards-products">
     <% @products.each do |product| %>
