@@ -5,7 +5,6 @@ export default class extends Controller {
 
 
   connect() {
-    console.log("HALLLLLLLLLLLLLOOOOOOOOOOOO")
   }
 
   update() {
