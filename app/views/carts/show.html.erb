@@ -18,7 +18,7 @@
       </tr>
     </thead>
     <% @order_items.includes([:product]).each do |order_item| %>
-      <tr data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %> style="vertical-align: middle !important;">
+      <tr data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %> data-order-item-quantity-value=<%= order_item.product.quantity %> style="vertical-align: middle !important;">
         <th class="td-product"><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
         <th class="td-price"><%= order_item.product.price %></td>
         <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put) do |f|%>
