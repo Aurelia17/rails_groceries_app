@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_up_cart
   before_action :cart_total
   before_action :cart_quantity
+  add_flash_types :warning
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: %i[first_name last_name username avatar])
