@@ -6,7 +6,7 @@
       <%= cl_image_tag product.photo.key, crop: :fill,  class:"cards-img"%>
       <div class="card-tags">
             <% product.tags.each do |tag| %>
-              <span><%= tag.name %></span>
+              <h6><span><%= tag.name %></span></h6>
             <% end %>
       </div>
       <div class="card-body border-top border-secondary">
