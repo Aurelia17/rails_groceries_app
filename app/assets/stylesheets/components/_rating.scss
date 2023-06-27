@@ -1,0 +1,20 @@
+.gl-star-rating--stars[class*=" s"] > span {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+
+[data-star-rating] .gl-star-rating--stars[aria-label]::after {
+  background: #ffd859;
+  color: black;
+  margin-left: 15px;
+}
+
+[data-star-rating] .gl-star-rating--stars[aria-label]::before {
+  margin-left: 9px;
+}
+
+.img-rating {
+  margin-left: -50px !important;
+}
