@@ -22,7 +22,6 @@ class CartsController < ApplicationController
     @order_items = OrderItem.where(cart_id: @cart.id)
     @total = all_total
     if @cart.update(cart_params)
-      flash[:notice] = 'Order created !'
       if @cart.is_confirmed?
         if current_user.orders.last
           oder_number = current_user.orders.last.oder_number + 56
