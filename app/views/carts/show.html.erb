@@ -28,7 +28,18 @@
         <tr data-controller="order-item" data-order-item-price-value=<%= order_item.product.price %> data-order-item-quantity-value=<%= order_item.product.quantity %> style="vertical-align: middle !important;">
           <th class="td-product"><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
           <th class="td-price"><%= order_item.product.price %></td>
-          <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put) do |f|%>
+          <%= simple_form_for(order_item, url: order_item_path(order_item), method: :put, html: {
+                data: {
+                  controller: "alert",
+                  alert_icon_value: "warning",
+                  alert_title_value: "Are your sure?",
+                  alert_html_value: "Create new post.",
+                  confirm_button_text: "All good!",
+                  show_cancel_button: true,
+                  cancel_button_text: "Cancel",
+                  action: "submit->alert#initSweetalert",
+                  turbo: false
+                } }) do |f|%>
             <td class="td-button-l"><button class="btn btn-cross" data-action="click->order-item#reduce:prevent"><i class="fa-solid fa-minus" style="color: #213454;"></i></button></td>
             <td class="td-quantity"><%= f.input :quantity, input_html: { value: order_item.quantity, data: {order_item_target: "quantity", action: "change->order-item#test"}, class: "total-price-form", readonly: true }, label: false %></td>
             <td class="td-button-r"><button class="btn btn-cross" data-action="click->order-item#increase:prevent"><i class="fa-solid fa-plus" style="color: #213454;"></i></button></td>
@@ -42,7 +53,10 @@
             </td>
           <% end %>
           <td class="td-cross">
-            <%= link_to "<h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>".html_safe, order_item_path(order_item), class: "btn btn-cross", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove this Item from cart?" } %>
+              <%= button_to "<h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>".html_safe, order_item, method: :delete, form_class: 'delete-post', class: "btn btn-cross", data: {
+        controller: "alert",
+        action: "click->alert#removeAlert",
+        }  %>
           </td>
         </tr>
       <% end %>

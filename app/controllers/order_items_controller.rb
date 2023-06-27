@@ -24,8 +24,6 @@ class OrderItemsController < ApplicationController
     if @order_item.update(order_item_params)
       if @order_item.quantity.zero?
         flash[:warning] = 'Item removed from cart. 😱'
-      else
-        flash[:notice] = 'Item quantity updated. 😉'
       end
       redirect_to cart_path
     end
