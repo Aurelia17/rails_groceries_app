@@ -39,8 +39,8 @@
 }
 
 .cards-img {
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   width: 100%;
   height: auto;
   background-color: #fcfaf4;
@@ -51,11 +51,11 @@
 .card-body{
   text-align: center;
   background-color: #FFDE59;
-  border-bottom-left-radius: 25px;
-  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 .card{
-  border-radius: 25px;
+  border-radius: 15px;
   --bs-card-border-color: #FFDE59;
 }
 
@@ -84,7 +84,7 @@
     background: #EB5757;
     font-size: .7em;
     padding: 2px 4px;
-    border-radius: 25px;
+    border-radius: 5px;
   }
   a {
     color: white;
@@ -99,7 +99,7 @@
     background: #EB5757;
     font-size: 1em;
     padding: 4px 6px;
-    border-radius: 25px;
+    border-radius: 5px;
     color: white;
     margin-right: 10px;
   }

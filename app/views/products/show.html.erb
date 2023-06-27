@@ -66,7 +66,7 @@
         </div>
         <div class="mt-2">
           <p>
-            <strong style="font-weight: 600 !important;">Prix :</strong> Rs <%= @product.price %>
+            <strong style="font-weight: 600 !important;">Prix :</strong> Rs <%= number_with_delimiter(@product.price, delimiter: "’")  %>
           </p>
         </div>
         <% if @product.quantity == 0 %>
