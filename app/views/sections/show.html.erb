@@ -1,3 +1,7 @@
+<ul class="breadcrumb">
+  <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+  <li><a href="/sections/<%= @section.id %>"><%= @section.title %></a></li>
+</ul>
 <% if @section.banner.attached? %>
   <div class="slider-wrapper">
     <div class="slider">
