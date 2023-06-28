@@ -672,7 +672,7 @@ gadjack1 = Product.create(title: "Chips truffe",
                           quantity: 100,
                           section_id: section4.id)
 gadjack1.photo.attach(io: file_gadjack1, filename: 'chips-truffe', content_type: 'image/png')
-gadjack1.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack1.tag_list.add("Chips", "Vegan")
 gadjack1.save
 
 puts "Gadjack 1 created !"
@@ -684,7 +684,7 @@ gadjack2 = Product.create(title: 'Banana chips',
                           quantity: 100,
                           section_id: section4.id)
 gadjack2.photo.attach(io: file_gadjack2, filename: 'chips-banane', content_type: 'image/png')
-gadjack2.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack2.tag_list.add("Chips", "Vegan")
 gadjack2.save
 
 puts "Gadjack 2 created !"
@@ -696,7 +696,7 @@ gadjack3 = Product.create(title: "Willards Chutney",
                           quantity: 100,
                           section_id: section4.id)
 gadjack3.photo.attach(io: file_gadjack3, filename: 'chips-chutney', content_type: 'image/png')
-gadjack3.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack3.tag_list.add("Chips", "Vegan")
 gadjack3.save
 
 puts "Gadjack 3 created !"
@@ -730,7 +730,7 @@ gadjack5 = Product.create(title: "Chips paysanne",
                           quantity: 100,
                           section_id: section4.id)
 gadjack5.photo.attach(io: file_gadjack5, filename: 'chips-paysanne', content_type: 'image/png')
-gadjack5.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack5.tag_list.add("Chips", "Vegan")
 gadjack5.save
 
 puts "Gadjack 5 created !"
@@ -838,7 +838,7 @@ gadjack14 = Product.create(title: "Doritos Fromage",
                            quantity: 100,
                            section_id: section4.id)
 gadjack14.photo.attach(io: file_gadjack14, filename: 'doritos', content_type: 'image/png')
-gadjack14.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack14.tag_list.add("Chips", "Vegan")
 gadjack14.save
 
 puts "Gadjack 14 created !"
@@ -862,7 +862,7 @@ gadjack16 = Product.create(title: "Pop Pop",
                            quantity: 5,
                            section_id: section4.id)
 gadjack16.photo.attach(io: file_gadjack16, filename: 'pop-pop', content_type: 'image/png')
-gadjack16.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack16.tag_list.add("Chips", "Vegan")
 gadjack16.save
 
 puts "Gadjack 16 created !"
@@ -874,7 +874,7 @@ gadjack17 = Product.create(title: "Pringles Paprika",
                            quantity: 100,
                            section_id: section4.id)
 gadjack17.photo.attach(io: file_gadjack17, filename: 'pringles-paprika', content_type: 'image/png')
-gadjack17.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack17.tag_list.add("Chips", "Vegan")
 gadjack17.save
 
 puts "Gadjack 17 created !"
@@ -922,7 +922,7 @@ gadjack21 = Product.create(title: "Pringles Original",
                            quantity: 100,
                            section_id: section4.id)
 gadjack21.photo.attach(io: file_gadjack21, filename: 'pringles-ori', content_type: 'image/png')
-gadjack21.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack21.tag_list.add("Chips", "Vegan")
 gadjack21.save
 
 puts "Gadjack 21 created !"
@@ -946,7 +946,7 @@ gadjack23 = Product.create(title: "Chips Crocodile",
                            quantity: 100,
                            section_id: section4.id)
 gadjack23.photo.attach(io: file_gadjack23, filename: 'croco', content_type: 'image/png')
-gadjack23.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack23.tag_list.add("Chips", "Vegan")
 gadjack23.save
 
 puts "Gadjack 23 created !"
@@ -958,7 +958,7 @@ gadjack24 = Product.create(title: "Pringles Hot & Spicy",
                            quantity: 100,
                            section_id: section4.id)
 gadjack24.photo.attach(io: file_gadjack24, filename: 'pringles-spicy', content_type: 'image/png')
-gadjack24.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack24.tag_list.add("Chips", "Vegan")
 gadjack24.save
 
 puts "Gadjack 24 created !"
@@ -970,7 +970,7 @@ gadjack25 = Product.create(title: "Ti Poi Wasabi",
                            quantity: 100,
                            section_id: section4.id)
 gadjack25.photo.attach(io: file_gadjack25, filename: 'pois-wasabi', content_type: 'image/png')
-gadjack25.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack25.tag_list.add("Chips", "Vegan")
 gadjack25.save
 
 puts "Gadjack 25 created !"
@@ -1006,7 +1006,7 @@ gadjack28 = Product.create(title: "Chips Tomate",
                            quantity: 100,
                            section_id: section4.id)
 gadjack28.photo.attach(io: file_gadjack28, filename: 'chips-tomates', content_type: 'image/png')
-gadjack28.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack28.tag_list.add("Chips", "Vegan")
 gadjack28.save
 
 puts "Gadjack 28 created !"
@@ -1018,7 +1018,7 @@ gadjack29 = Product.create(title: "Chips Oignon",
                            quantity: 100,
                            section_id: section4.id)
 gadjack29.photo.attach(io: file_gadjack29, filename: 'chips-oignons', content_type: 'image/png')
-gadjack29.tag_list.add("Chips", "Peanut-free", "Vegan")
+gadjack29.tag_list.add("Chips", "Vegan")
 gadjack29.save
 
 puts "Gadjack 29 created !"
