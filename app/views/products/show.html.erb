@@ -1,3 +1,8 @@
+<ul class="breadcrumb">
+  <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+  <li><a href="/sections/<%= @section.id %>"><%= @section.title %></a></li>
+  <li><a href="/sections/<%= @section.id %>/products/<%= @product.id %>"><%= @product.title %></a></li>
+</ul>
 <div class="container mt-5">
   <div class="row">
     <div class="col-6 mb-5 card" id="product-card-show">

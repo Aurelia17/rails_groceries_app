@@ -564,7 +564,7 @@ file_boissons24 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/
 boissons24 = Product.create(title: "Coca-Cola Zéro",
                             description: "COCA COLA NO SUGAR 1L",
                             price: 45,
-                            quantity: 100,
+                            quantity: 0,
                             section_id: section3.id)
 boissons24.photo.attach(io: file_boissons24, filename: 'coca-zero', content_type: 'image/png')
 boissons24.tag_list.add("Sans-sucre", "Soda")
@@ -583,6 +583,17 @@ boissons25.tag_list.add("Soda")
 boissons25.save
 
 puts "Boissons 25 created !"
+
+Rating.create!(rate: 4,
+               user_id: user2.id,
+               product_id: boissons25.id)
+
+Rating.create!(rate: 3,
+               user_id: user3.id,
+               product_id: boissons25.id)
+
+
+puts 'Ratings Boissons 25 created !'
 
 file_boissons26 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/fanta-passion.jpg')
 boissons26 = Product.create(title: "Fanta Passion",
@@ -848,7 +859,7 @@ file_gadjack16 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/p
 gadjack16 = Product.create(title: "Pop Pop",
                            description: "POP POP SWEET CORN 16G",
                            price: 10,
-                           quantity: 100,
+                           quantity: 5,
                            section_id: section4.id)
 gadjack16.photo.attach(io: file_gadjack16, filename: 'pop-pop', content_type: 'image/png')
 gadjack16.tag_list.add("Chips", "Peanut-free", "Vegan")
@@ -1024,6 +1035,360 @@ gadjack30.save
 
 puts "Gadjack 30 created !"
 
+file_biscuit1 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Tarte-Banane.jpg')
+biscuit1 = Product.create(title: 'Tarte Banane',
+                          description: "TARTE BANANE 6-8 PERS",
+                          price: 239,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit1.photo.attach(io: file_biscuit1, filename: 'tarte-banane', content_type: 'image/png')
+biscuit1.tag_list.add("Homemade")
+biscuit1.save
+
+puts "Biscuit 1 created !"
+
+file_biscuit2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Gato-Choco.jpg')
+biscuit2 = Product.create(title: 'Gato Chocolat',
+                          description: "MOELLEUX AU CHOCOLAT 10-15 PERS",
+                          price: 359,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit2.photo.attach(io: file_biscuit2, filename: 'gato-choco', content_type: 'image/png')
+biscuit2.tag_list.add("Homemade")
+biscuit2.save
+
+puts "Biscuit 2 created !"
+
+file_biscuit3 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/choc-kits-coco.jpg')
+biscuit3 = Product.create(title: 'White Choc',
+                          description: "BAKERS WHITE CHOC KITS 200 G",
+                          price: 122,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit3.photo.attach(io: file_biscuit3, filename: 'white-choc', content_type: 'image/png')
+
+puts "Biscuit 3 created !"
+
+file_biscuit4 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/gaufrettes-fraise.jpg')
+biscuit4 = Product.create(title: 'Gaufrettes Fraise',
+                          description: "ESKO GAUFRETTE FRAISES 75G",
+                          price: 18,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit4.photo.attach(io: file_biscuit4, filename: 'gaufrettes-fraises', content_type: 'image/png')
+biscuit4.tag_list.add("Peanut-free")
+biscuit4.save
+
+puts "Biscuit 4 created !"
+
+file_biscuit5 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/motto-tiramisu.jpg')
+biscuit5 = Product.create(title: 'Motto Tiramisu',
+                          description: "MY MOTTO WAFERS TIRAMISU 34G",
+                          price: 13,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit5.photo.attach(io: file_biscuit5, filename: 'moto-tiramisu', content_type: 'image/png')
+biscuit5.tag_list.add("Peanut-free")
+biscuit5.save
+
+puts "Biscuit 5 created !"
+
+file_biscuit6 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/puff-sandwich-chocolat.jpg')
+biscuit6 = Product.create(title: 'Biscuit Puff',
+                          description: "JULIES LE MOND PUFF CHOCO 180G",
+                          price: 89,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit6.photo.attach(io: file_biscuit6, filename: 'puff-choco', content_type: 'image/png')
+
+puts "Biscuit 6 created !"
+
+file_biscuit7 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/granola-choco-noir-1.jpg')
+biscuit7 = Product.create(title: 'Granola Noir',
+                          description: "LU GRANOLA NOIR 195G",
+                          price: 83,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit7.photo.attach(io: file_biscuit7, filename: 'granola-noir', content_type: 'image/png')
+biscuit7.tag_list.add("Lu")
+biscuit7.save
+
+puts "Biscuit 7 created !"
+
+file_biscuit8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Chips-Choc.jpg')
+biscuit8 = Product.create(title: 'Chips Choc',
+                          description: "H.SENG CHIPSCHOC 180G",
+                          price: 69,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit8.photo.attach(io: file_biscuit8, filename: 'chips-choc', content_type: 'image/png')
+biscuit8.tag_list.add("Cookies")
+biscuit8.save
+
+puts "Biscuit 8 created !"
+
+file_biscuit9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Chips-Ahoy.jpg')
+biscuit9 = Product.create(title: 'Chips Ahoy',
+                          description: "CHIPS AHOY COOKIES 128G",
+                          price: 59,
+                          quantity: 100,
+                          section_id: section8.id)
+biscuit9.photo.attach(io: file_biscuit9, filename: 'chips-ahoy', content_type: 'image/png')
+biscuit9.tag_list.add("Cookies")
+biscuit9.save
+
+puts "Biscuit 9 created !"
+
+file_biscuit10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Chips-Ahoy.jpg')
+biscuit10 = Product.create(title: 'Cookies Noisettes',
+                           description: "BONNE MAMAN COOKIES CHOCO 225G",
+                           price: 185,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit10.photo.attach(io: file_biscuit10, filename: 'bonne-maman', content_type: 'image/png')
+biscuit10.tag_list.add("Cookies")
+biscuit10.save
+
+puts "Biscuit 10 created !"
+
+file_biscuit11 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Cookies-Noisettes.jpg')
+biscuit11 = Product.create(title: 'Cookies Noisettes',
+                           description: "BONNE MAMAN COOKIES CHOCO 225G",
+                           price: 185,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit11.photo.attach(io: file_biscuit11, filename: 'bonne-maman', content_type: 'image/png')
+biscuit11.tag_list.add("Cookies")
+biscuit11.save
+
+puts "Biscuit 11 created !"
+
+file_biscuit12 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Biscuit-Cabine.jpg')
+biscuit12 = Product.create(title: 'Biscuit Cabine',
+                           description: "LE HOCHET BISCUIT CABINE 168G",
+                           price: 18,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit12.photo.attach(io: file_biscuit12, filename: 'biscuit-cabine', content_type: 'image/png')
+biscuit12.tag_list.add("Peanut-free")
+biscuit12.save
+
+puts "Biscuit 12 created !"
+
+file_biscuit13 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Petit-Coeur.jpg')
+biscuit13 = Product.create(title: 'Litle Heart',
+                           description: "BRITANNIA LITTLE HEARTS 75G",
+                           price: 39,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit13.photo.attach(io: file_biscuit13, filename: 'petit-coeur', content_type: 'image/png')
+biscuit13.tag_list.add("Peanut-free")
+biscuit13.save
+
+puts "Biscuit 13 created !"
+
+file_biscuit14 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Petit-Coeur.jpg')
+biscuit14 = Product.create(title: 'Gato Pandan',
+                           description: "Pandan Chiffon Cake",
+                           price: 39,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit14.photo.attach(io: file_biscuit14, filename: 'pandan', content_type: 'image/png')
+biscuit14.tag_list.add("Homemade")
+biscuit14.save
+
+puts "Biscuit 14 created !"
+
+file_biscuit15 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/biscuit-champagne.jpg')
+biscuit15 = Product.create(title: 'Biscuits Champagne',
+                           description: "SUBANA CHAMPAGNE 100% MOR 60G",
+                           price: 27,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit15.photo.attach(io: file_biscuit15, filename: 'biscuit-champagne', content_type: 'image/png')
+
+puts "Biscuit 15 created !"
+
+file_biscuit16 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/cookies-oat.jpg')
+biscuit16 = Product.create(title: 'Cookies Oat',
+                           description: "JULIES OAT 25 TEN GRAINS 200G",
+                           price: 99,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit16.photo.attach(io: file_biscuit16, filename: 'oat-25', content_type: 'image/png')
+biscuit16.tag_list.add("Cookies")
+biscuit16.save
+
+puts "Biscuit 16 created !"
+
+file_biscuit17 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/savane.jpg')
+biscuit17 = Product.create(title: 'Savane Noisette',
+                           description: "SAVANE POCKET CHOCO NOIS 189G",
+                           price: 142,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit17.photo.attach(io: file_biscuit17, filename: 'savane', content_type: 'image/png')
+
+puts "Biscuit 17 created !"
+
+file_biscuit18 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/palet-breton.jpg')
+biscuit18 = Product.create(title: 'Palets Bretons',
+                           description: "ST AUB PALETS BRETONS 125G",
+                           price: 58,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit18.photo.attach(io: file_biscuit18, filename: 'palet', content_type: 'image/png')
+biscuit18.tag_list.add("Peanut-free")
+biscuit18.save
+
+puts "Biscuit 18 created !"
+
+file_biscuit19 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/devon-digestive.jpg')
+biscuit19 = Product.create(title: 'Devon Digestive',
+                           description: "DEVON 250G DIGESTIVE BISC",
+                           price: 78,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit19.photo.attach(io: file_biscuit19, filename: 'devon-digestive', content_type: 'image/png')
+biscuit19.tag_list.add("Digestive")
+biscuit19.save
+
+puts "Biscuit 19 created !"
+
+file_biscuit20 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sugar-free-digestive.jpg')
+biscuit20 = Product.create(title: 'Britania Digestive',
+                           description: "BRITANIA NC DIGESTIVE SF 200G",
+                           price: 79,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit20.photo.attach(io: file_biscuit20, filename: 'digestive', content_type: 'image/png')
+
+puts "Biscuit 20 created !"
+
+file_biscuit21 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/biscuits-marie.jpg')
+biscuit21 = Product.create(title: 'Biscuits Marie',
+                           description: "BAKERS BLUE LABEL MARIE 200G",
+                           price: 70,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit21.photo.attach(io: file_biscuit21, filename: 'biscuit-marie', content_type: 'image/png')
+
+puts "Biscuit 21 created !"
+
+file_biscuit22 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/cookie-julies.jpg')
+biscuit22 = Product.create(title: 'Cookies Julies',
+                           description: "JULIES OAT 25 CHOCOLATE 200 G",
+                           price: 99,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit22.photo.attach(io: file_biscuit22, filename: 'julie-cookies', content_type: 'image/png')
+biscuit22.tag_list.add("Cookies")
+biscuit22.save
+
+puts "Biscuit 22 created !"
+
+file_biscuit23 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/prince.jpg')
+biscuit23 = Product.create(title: 'Petit Prince',
+                           description: "LU PRINCE TOUT CHOCO 300 G",
+                           price: 109,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit23.photo.attach(io: file_biscuit23, filename: 'petit-prince', content_type: 'image/png')
+biscuit23.tag_list.add("Lu")
+biscuit23.save
+
+puts "Biscuit 23 created !"
+
+file_biscuit24 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/sable-maman.jpg')
+biscuit24 = Product.create(title: 'Sablés Choco',
+                           description: "BONNE MAMAN SABLES 150G TOUT CHOCOLAT",
+                           price: 106,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit24.photo.attach(io: file_biscuit24, filename: 'sable-maman', content_type: 'image/png')
+
+puts "Biscuit 24 created !"
+
+file_biscuit25 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/yanyan.jpg')
+biscuit25 = Product.create(title: 'Yan Yan Fraise',
+                           description: "MEIJI YAN YAN STRAW CRM 57G",
+                           price: 36,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit25.photo.attach(io: file_biscuit25, filename: 'yan-yan', content_type: 'image/png')
+biscuit25.tag_list.add("Peanut-free")
+biscuit25.save
+
+puts "Biscuit 25 created !"
+
+file_biscuit26 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/lulu-fraise.jpg')
+biscuit26 = Product.create(title: 'Lulu Fraise',
+                           description: "LU COQUELINE FRAISE 165G",
+                           price: 109,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit26.photo.attach(io: file_biscuit26, filename: 'lulu', content_type: 'image/png')
+biscuit26.tag_list.add("Lu")
+biscuit26.save
+
+puts "Biscuit 26 created !"
+
+file_biscuit27 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/strawbery-whirls.jpg')
+biscuit27 = Product.create(title: 'Whirls Biscuits',
+                           description: "BAKERS STRAWBERRY WHIRLS 200G",
+                           price: 131,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit27.photo.attach(io: file_biscuit27, filename: 'whirls', content_type: 'image/png')
+
+puts "Biscuit 27 created !"
+
+file_biscuit28 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/barquette-fraise.jpg')
+biscuit28 = Product.create(title: 'Barquette Fraise',
+                           description: "LU BARQUETTE FRAISE 120G",
+                           price: 79,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit28.photo.attach(io: file_biscuit28, filename: 'barquette', content_type: 'image/png')
+biscuit28.tag_list.add("Lu")
+biscuit28.save
+
+puts "Biscuit 28 created !"
+
+file_biscuit29 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Hello-panda.jpg')
+biscuit29 = Product.create(title: 'Hello Panda',
+                           description: "HELLO PANDA CHOCO.CREAM 21G",
+                           price: 27,
+                           quantity: 100,
+                           section_id: section8.id)
+biscuit29.photo.attach(io: file_biscuit29, filename: 'panda', content_type: 'image/png')
+biscuit29.tag_list.add("Peanut-free")
+biscuit29.save
+
+puts "Biscuit 29 created !"
+
+file_biscuit30 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/brownie.jpg')
+biscuit30 = Product.create(title: 'Denny Brownie',
+                           description: "BROWNIE CHOCOLAT DENNY'S SIGNATURE",
+                           price: 250,
+                           quantity: 1,
+                           section_id: section8.id)
+biscuit30.photo.attach(io: file_biscuit30, filename: 'brownie', content_type: 'image/png')
+biscuit30.tag_list.add("Homemade")
+biscuit30.save
+Rating.create!(rate: 5,
+               user_id: user2.id,
+               product_id: biscuit30.id)
+
+Rating.create!(rate: 5,
+               user_id: user3.id,
+               product_id: biscuit30.id)
+
+
+puts 'Ratings Biscuit 30 created !'
+
+puts "Biscuit 30 created !"
+
 file_p2 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/poulet-entier.jpg')
 product2 = Product.create(title: 'Poulet entier',
                           description: "Label60 POULET ENTIER",
@@ -1073,26 +1438,6 @@ product7 = Product.create(title: 'Oeufs X 15',
 product7.photo.attach(io: file_p7, filename: 'oeufs-15-oeudor', content_type: 'image/png')
 
 puts "product 7 created !"
-
-file_p8 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Tarte-Banane.jpg')
-product8 = Product.create(title: 'Tarte Banane',
-                          description: "TARTE BANANE 6-8 PERS",
-                          price: 239,
-                          quantity: 100,
-                          section_id: section8.id)
-product8.photo.attach(io: file_p8, filename: 'tarte-banane', content_type: 'image/png')
-
-puts "product 8 created !"
-
-file_p9 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Gato-Choco.jpg')
-product9 = Product.create(title: 'Gato Chocolat',
-                          description: "MOELLEUX AU CHOCOLAT 10-15 PERS",
-                          price: 359,
-                          quantity: 100,
-                          section_id: section8.id)
-product9.photo.attach(io: file_p9, filename: 'tarte-banane', content_type: 'image/png')
-
-puts "product 9 created !"
 
 file_p10 = URI.open('https://www.lakazart.com/wp-content/uploads/2023/06/Baguette-Campagne_500x500.jpg')
 product10 = Product.create(title: 'Baguette',
