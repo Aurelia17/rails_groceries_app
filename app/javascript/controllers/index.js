@@ -19,6 +19,9 @@ application.register("hello", HelloController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
 import OrderItemController from "./order_item_controller"
 application.register("order-item", OrderItemController)
 
@@ -27,3 +30,6 @@ application.register("search-products", SearchProductsController)
 
 import StarRatingController from "./star_rating_controller"
 application.register("star-rating", StarRatingController)
+
+import TurboController from "./turbo_controller"
+application.register("turbo", TurboController)

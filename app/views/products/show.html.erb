@@ -24,7 +24,7 @@
                 </div>
                 <div class="col-6">
                   <H2 class="fs-6">*No rating yet</H2>
-                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none " do %>
+                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
                     <h2 class="fs-6 btn-rating">add a rating</i></h2>
                   <% end %>
                 </div>
