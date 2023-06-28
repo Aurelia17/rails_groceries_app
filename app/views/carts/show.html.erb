@@ -61,6 +61,14 @@
         </tr>
       <% end %>
     </table>
+    <p>Subtotal : Rs <%= number_with_delimiter(@subtotal, delimiter: "’")%></p>
+    <p>Delivery Fees: Rs 75</p>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Add a cooler bag (Rs 150)
+      </label>
+    </div>
     <h2 class="total-cart">Total : Rs <%= number_with_delimiter(@total, delimiter: "’") %>.00</h2>
     <button class="btn-checkout mt-3" style="text-align: center"><a class="text-center" href="/cart/confirmation">Checkout</a></button>
   </div>
