@@ -44,9 +44,6 @@ export default class extends Controller {
           'success'
         )
       }
-      setTimeout(() => {
-        event.currentTarget.submit(); // Submit the form after a 2-second delay
-      }, 1500);
     })
   }
 }

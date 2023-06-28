@@ -4,13 +4,14 @@ class CartsController < ApplicationController
 
   def show
     @order_items = OrderItem.includes([:product]).where(cart_id: @cart.id).all
-    @total = all_total
+    @total = all_total + 75
     @cart.total_price = all_total
     @cart.save
     search
     @order_items.each do |order_item|
       if order_item.quantity.zero? then order_item.destroy end
     end
+    @subtotal = all_total
   end
 
   def edit
