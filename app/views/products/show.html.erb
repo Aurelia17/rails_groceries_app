@@ -29,8 +29,10 @@
                 </div>
                 <div class="col-6">
                   <H2 class="fs-6">*No rating yet</H2>
-                  <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
-                    <h2 class="fs-6 btn-rating">add a rating</i></h2>
+                  <% if user_signed_in? %>
+                    <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+                      <h2 class="fs-6 btn-rating">add a rating</i></h2>
+                    <% end %>
                   <% end %>
                 </div>
               </div>
@@ -56,8 +58,10 @@
                     <H2 class="fs-6"><%= @sum_rates.size * 59 %> ratings</H2>
                   <% end %>
                   <% unless user_signed_in? && @user_rating.include?(current_user.id) %>
-                    <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none " do %>
-                    <h2 class="fs-6 btn-rating">add a rating</i></h2>
+                    <% if user_signed_in? %>
+                      <%= link_to new_section_product_rating_path(@section, @product), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+                        <h2 class="fs-6 btn-rating">add a rating</i></h2>
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>
