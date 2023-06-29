@@ -73,7 +73,21 @@
         Add a cooler bag (Rs 150)
       </label>
     </div>
-    <h2 class="total-cart">Total : Rs <%= number_with_delimiter(@total, delimiter: "’") %>.00</h2>
+    <h2 class="total-cart ">Total : Rs <span id="total" class="not-bold"><%= number_with_delimiter(@total, delimiter: "’") %></span>.00</h2>
     <button class="btn-checkout mt-3" style="text-align: center"><a class="text-center" href="/cart/confirmation">Checkout</a></button>
   </div>
 <% end %>
+<script>
+  var totalBag = parseInt(document.getElementById("total").innerText);
+  var checkbox = document.getElementById("flexCheckDefault");
+  checkbox.addEventListener('change', (event) => {
+    if (checkbox.checked === true) {
+      totalBag = totalBag + 150;
+      document.getElementById("total").innerText = totalBag;
+    }
+    else {
+      totalBag = totalBag - 150;
+      document.getElementById("total").innerText = totalBag;
+    }
+  })
+</script>
