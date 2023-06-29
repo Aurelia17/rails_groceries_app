@@ -5,9 +5,9 @@
     </div>
     <div class="col-6 mt">
       <%= simple_form_for ([@section, @product, @rating]), data: { controller: "submit" } do |f| %>
-        <p>Rate the product :</p>
+        <h5 class="pb-2"><%= @product.title %></h5>
         <%= f.input :rate, collection: (1..5).to_a, label: false, input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
-        <div class="mt-3"><%= f.button :submit, 'Add rating', class: "btn-outline-cart"  %></div>
+        <div class="mt-3 pt-2"><%= f.button :submit, 'Add rating', class: "btn-outline-cart"  %></div>
       <% end %>
     </div>
   </div>
