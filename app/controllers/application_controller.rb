@@ -32,19 +32,26 @@ class ApplicationController < ActionController::Base
   end
 
   def cart_total
-    total_all = 0
-    @order_items = OrderItem.all.where(cart_id: @cart.id)
-    @order_items.each do |order_item|
-      total_all += order_item.total_price
-    end
-    @cart.total_price = total_all.to_i
+    @cart.total_price = @cart.order_items.sum(:total_price).to_i
   end
 
   def cart_quantity
-    @quantity = 0
-    @cart.order_items.each do |order_item|
-      @quantity += order_item.quantity
-    end
-    @quantity
+    @quantity = @cart.order_items.sum(:quantity)
   end
+  # def cart_total
+  #   total_all = 0
+  #   @order_items = OrderItem.all.where(cart_id: @cart.id)
+  #   @order_items.each do |order_item|
+  #     total_all += order_item.total_price
+  #   end
+  #   @cart.total_price = total_all.to_i
+  # end
+
+  # def cart_quantity
+  #   @quantity = 0
+  #   @cart.order_items.each do |order_item|
+  #     @quantity += order_item.quantity
+  #   end
+  #   @quantity
+  # end
 end
