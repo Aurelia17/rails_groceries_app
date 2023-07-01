@@ -56,7 +56,9 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
+    <div class="mb-5">
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
     <%= turbo_frame_tag "remote_modal" %>
     <script src="dist/star-rating.min.js"></script>
