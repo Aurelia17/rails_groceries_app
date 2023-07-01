@@ -57,7 +57,7 @@
             </td>
           <% end %>
           <td class="td-cross" data-controller="alert">
-            <%= link_to order_item_path(order_item), data: {alert_target: "button", action: "click->alert#removeAlert"} do %>
+            <%= link_to  order_item_path(order_item), class: "button-arounder button-red", data: { turbo_method: :delete } do %>
               <h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>
             <% end %>
           </td>
