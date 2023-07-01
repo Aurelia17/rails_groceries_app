@@ -10,6 +10,7 @@ export default class extends Controller {
     showCancelButton: Boolean,
     cancelButtonText: String
   }
+  static targets = ["alert"]
 
   initSweetalert(event) {
     // Prevent the form to be submited after the submit button has been clicked
@@ -27,6 +28,7 @@ export default class extends Controller {
 
   removeAlert(event) {
     // Prevent the form to be submited after the submit button has been clicked
+    console.log(this.alertTarget.getAttribute("href"));
     event.preventDefault();
     Swal.fire({
       title: 'Are you sure?',
