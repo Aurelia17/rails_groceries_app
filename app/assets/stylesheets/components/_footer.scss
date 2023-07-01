@@ -68,6 +68,18 @@
   overflow: hidden;
 }
 
+.menu li {
+  display: inline-block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  float: left;
+}
+
+.menu a {
+}
+
 .menu__link:hover {
   opacity: 1;
 }
