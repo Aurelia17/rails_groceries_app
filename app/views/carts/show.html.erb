@@ -56,11 +56,10 @@
               </button></td>
             </td>
           <% end %>
-          <td class="td-cross">
-              <%= button_to "<h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>".html_safe, order_item, method: :delete, form_class: 'delete-post', class: "btn btn-cross", data: {
-        controller: "alert",
-        action: "click->alert#removeAlert",
-        }  %>
+          <td class="td-cross" data-controller="alert">
+            <%= link_to order_item_path(order_item), data: {alert_target: "button", action: "click->alert#removeAlert"} do %>
+              <h3><i class='fa-solid fa-xmark' style='color: #ff3333;'></i></h3>
+            <% end %>
           </td>
         </tr>
       <% end %>
