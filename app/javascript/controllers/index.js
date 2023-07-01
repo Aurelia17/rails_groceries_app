@@ -10,6 +10,9 @@ application.register("alert", AlertController)
 import CartOrderItemController from "./cart_order_item_controller"
 application.register("cart-order-item", CartOrderItemController)
 
+import ContactMapController from "./contact_map_controller"
+application.register("contact-map", ContactMapController)
+
 import FormSubmitController from "./form_submit_controller"
 application.register("form-submit", FormSubmitController)
 
