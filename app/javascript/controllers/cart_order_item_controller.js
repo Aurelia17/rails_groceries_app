@@ -7,7 +7,7 @@ export default class extends Controller {
   connect() {
     console.log("hellooooooooooooo");
   }
-  tes() {
+  test() {
     const quantity = this.quantityTarget.value;
     const unitPrice = parseInt(this.priceValue);
     const totalPrice= quantity * unitPrice
