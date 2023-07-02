@@ -4,14 +4,11 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["totalprice", "quantity"]
   static values = { price: String}
-  connect() {
-    console.log("hellooooooooooooo");
-  }
+
   test() {
     const quantity = this.quantityTarget.value;
     const unitPrice = parseInt(this.priceValue);
     const totalPrice= quantity * unitPrice
-    console.log(totalPrice);
     this.totalpriceTarget.value = totalPrice;
   }
 }

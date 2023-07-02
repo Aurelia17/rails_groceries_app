@@ -26,26 +26,25 @@ export default class extends Controller {
 
   }
 
-  removeAlert(event) {
-    // Prevent the form to be submited after the submit button has been clicked
-    console.log(this.alertTarget.getAttribute("href"));
-    event.preventDefault();
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, remove it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Removed!',
-          'Your product has been removed from your cart.',
-          'success'
-        )
-      }
-    })
-  }
+  // removeAlert(event) {
+  //   // Prevent the form to be submited after the submit button has been clicked
+  //   event.preventDefault();
+  //   Swal.fire({
+  //     title: 'Are you sure?',
+  //     text: "You won't be able to revert this!",
+  //     icon: 'warning',
+  //     showCancelButton: true,
+  //     confirmButtonColor: '#3085d6',
+  //     cancelButtonColor: '#d33',
+  //     confirmButtonText: 'Yes, remove it!'
+  //   }).then((result) => {
+  //     if (result.isConfirmed) {
+  //       Swal.fire(
+  //         'Removed!',
+  //         'Your product has been removed from your cart.',
+  //         'success'
+  //       )
+  //     }
+  //   })
+  // }
 }

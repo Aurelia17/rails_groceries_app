@@ -6,19 +6,17 @@ export default class extends Controller {
   static values = { price: String, quantity: String}
   connect() {
   }
-  
+
   test() {
     const quantity = this.quantityTarget.value;
     const unitPrice = parseInt(this.priceValue);
     const totalPrice= quantity * unitPrice
-    console.log(totalPrice);
     this.totalpriceTarget.value = totalPrice;
   }
   reduce() {
     if (this.quantityTarget.value > 0) {
       const quantity = this.quantityTarget.value;
       const quantityReduced = quantity - 1;
-      console.log(quantityReduced);
       this.quantityTarget.value = quantityReduced
       const unitPrice = parseInt(this.priceValue);
       const totalPrice= quantityReduced * unitPrice
@@ -30,7 +28,6 @@ export default class extends Controller {
     if (this.quantityTarget.value > 1) {
       const quantity = this.quantityTarget.value;
       const quantityReduced = quantity - 1;
-      console.log(quantityReduced);
       this.quantityTarget.value = quantityReduced
       const unitPrice = parseInt(this.priceValue);
       const totalPrice= quantityReduced * unitPrice
