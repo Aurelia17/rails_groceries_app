@@ -77,3 +77,10 @@ th {
   border-color: #EB5757;
 }
 
+.table #cooler-bag {
+  --bs-table-bg-type: rgb(248, 248, 248) !important;
+}
+
+.was-validated .form-check-input:valid ~ .form-check-label, .form-check-input.is-valid ~ .form-check-label {
+    color: black;
+}
