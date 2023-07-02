@@ -55,10 +55,15 @@
   color: #000000;
   margin: 0 10px;
   display: inline-block;
-  transition: 0.5s;
+  transition: 0.3s;
   text-decoration: none;
-  opacity: 0.75;
+  opacity: 1;
   font-weight: 300;
+}
+
+.menu__link:hover {
+  color: #EB5757;
+  opacity: 1;
 }
 
 .menu, .social{
