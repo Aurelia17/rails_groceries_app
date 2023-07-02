@@ -8,9 +8,13 @@
   </div>
 </div>
 <% if @cart.order_items == [] %>
+  <div class="lottie-class d-flex justify-content-center text-center pb-2">
+    <lottie-player src="https://res.cloudinary.com/dyv1blw2a/raw/upload/v1688301650/43012-screaming-fear-face_yvgljg.json" background="transparent" speed="1"
+    style="width: 25%; height: 25%;" loop autoplay></lottie-player>
+  </div>
   <div class="container cart-empty">
     <h3>Oupsssss... Looks like you cart is empty !</h3>
-    <h4>Keep cool ✌️</h4>
+    <h4>✌️ Keep cool ✌️</h4>
     <a class="text-center btn-tag2" style="text-align: center" href="/products">Start Shopping</a>
   </div>
 <% else %>
@@ -72,21 +76,22 @@
         Add a cooler bag (Rs 150)
       </label>
     </div>
-    <h2 class="total-cart ">Total : Rs <span id="total" class="not-bold"><%= number_with_delimiter(@total, delimiter: "’") %></span>.00</h2>
+    <h2 class="total-cart ">Total : Rs <span id="totalbag" class="not-bold"><%= @total %></span>.00</h2>
     <button class="btn-checkout mt-3" style="text-align: center"><a class="text-center" href="/cart/confirmation">Checkout</a></button>
   </div>
 <% end %>
 <script>
-  var totalBag = parseInt(document.getElementById("total").innerText);
+  var totalBag = parseInt(document.getElementById("totalbag").innerText);
   var checkbox = document.getElementById("flexCheckDefault");
   checkbox.addEventListener('change', (event) => {
     if (checkbox.checked === true) {
+      console.log(totalBag);
       totalBag = totalBag + 150;
-      document.getElementById("total").innerText = totalBag;
+      document.getElementById("totalbag").innerText = totalBag;
     }
     else {
       totalBag = totalBag - 150;
-      document.getElementById("total").innerText = totalBag;
+      document.getElementById("totalbag").innerText = totalBag;
     }
   })
 </script>

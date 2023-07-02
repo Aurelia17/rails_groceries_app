@@ -4,13 +4,17 @@
   <li><a href="/orders/<%= @order.id %>">Order#<%= @order.oder_number %></a></li>
 </ul>
 <div class="homepage">
-  <div class="container">
-    <p class="fs-1">Order #<%= @order.oder_number %></p>
+  <div class="container p-0 pt-3">
+    <p class="fs-2 mb-0 pb-0">Order #<%= @order.oder_number %></p>
   </div>
 </div>
 <% if @order.is_delivered? %>
   <div class="container">
-    <p>Your order was delivered on the <%= @order.updated_at.strftime("%dth %B %y") %> at <%= @order.updated_at.time.strftime("%H:%M") %></p>
+    <div class="lottie-class d-flex justify-content-center text-center pb-2">
+      <lottie-player src="https://res.cloudinary.com/dyv1blw2a/raw/upload/v1688299091/114216-product-delivered_p4wgif.json" background="transparent" speed="1"
+      style="width: 55%; height: 55%;" loop autoplay></lottie-player>
+    </div>
+    <p class="mb-5">Your order was delivered on the <%= @order.updated_at.strftime("%dth %B %y") %> at <%= @order.updated_at.time.strftime("%H:%M") %></p>
     <table class="table">
       <thead>
         <tr>
@@ -20,16 +24,20 @@
           <th td class="td-eye-order" scope="col">Subtotal</th>
         </tr>
       </thead>
-      <% @order_items.includes([:product]).each do |order_item| %>
-        <tr>
-          <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
-          <td class="align-middle td-eye-order"><%= order_item.product.price %></td>
-          <td class="align-middle td-eye-order"><%= order_item.quantity %></td>
-          <td class="align-middle td-eye-order"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
-        </tr>
-      <% end %>
+      <tbody class="tbody-order">
+        <% @order_items.includes([:product]).each do |order_item| %>
+          <tr>
+            <td><%= cl_image_tag order_item.product.photo.key, height: 100, width: 100, crop: :fill, :effect=>"improve:outdoor" %></td>
+            <td class="align-middle td-eye-order"><%= order_item.product.price %></td>
+            <td class="align-middle td-eye-order"><%= order_item.quantity %></td>
+            <td class="align-middle td-eye-order"><%= number_with_delimiter(order_item.total_price.to_i, delimiter: "’") %></td>
+          </tr>
+        <% end %>
+      </tbody>
     </table>
-    <p class="fs-3">Total : Rs <%= @order.total_price.to_i %></p>
+    <p>Subotal : Rs <%= number_with_delimiter((@order.total_price.to_i - 75), delimiter: "’") %></p>
+    <p>Delivery Fees: Rs 75</p>
+    <p class="fs-3">Total : Rs <%= number_with_delimiter(@order.total_price.to_i, delimiter: "’") %></p>
   </div>
 
 <% else %>
@@ -96,6 +104,8 @@
         </tr>
       <% end %>
     </table>
+    <p>Subotal : Rs <%= number_with_delimiter((@order.total_price.to_i - 75), delimiter: "’") %></p>
+    <p>Delivery Fees: Rs 75</p>
     <p class="fs-3">Total : Rs <%= number_with_delimiter(@order.total_price.to_i, delimiter: "’") %></p>
     <% if current_user.is_admin? %>
       <p>Is the order delivered?</p>
