@@ -29,24 +29,34 @@ class CartsController < ApplicationController
         else
           oder_number = 9847
         end
-        @order = Order.create(total_price: all_total, oder_number: oder_number, user: current_user)
+        @order = Order.create(total_price: all_total, oder_number: oder_number, user: current_user, has_bag: @cart.has_bag)
+        if @order.has_bag?
+          @order.total_price += 150
+          @order.save
+        end
         @order_items.each do |order_item|
           order_item.order_id = @order.id
           order_item.save
         end
         @cart.order_items = []
+        @chatroom = Chatroom.create(name: @order.oder_number.to_s, order: @order)
+        qty_product_updated(@order_items)
+        deliverboy = User.where(email: "test@test.test").first
+        @msg_deliver = Message.create(content: "Bonzour, noun byen gagn to komman, mo p vini!", chatroom: @chatroom, user: deliverboy)
+        redirect_to order_path(@order)
+      else
+        @cart.save
       end
-      @chatroom = Chatroom.create(name: @order.oder_number.to_s, order: @order)
-      qty_product_updated(@order_items)
-      deliverboy = User.where(email: "test@test.test").first
-      @msg_deliver = Message.create(content: "Bonzour, noun byen gagn to komman, mo p vini!", chatroom: @chatroom, user: deliverboy)
-      redirect_to order_path(@order)
     end
     search
   end
 
   def confirmation
-    @total = all_total
+    if @cart.has_bag?
+      @total = all_total + 150
+    else
+      @total = all_total
+    end
     search
   end
 
@@ -64,7 +74,7 @@ class CartsController < ApplicationController
   end
 
   def cart_params
-    params.require(:cart).permit(:total_price, :is_confirmed, :id)
+    params.require(:cart).permit(:total_price, :is_confirmed, :id, :has_bag)
   end
 
   def set_cart
