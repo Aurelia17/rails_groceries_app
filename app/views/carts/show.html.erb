@@ -71,11 +71,18 @@
     <p>Subtotal : Rs <%= number_with_delimiter(@subtotal, delimiter: "’")%></p>
     <p>Delivery Fees: Rs 75</p>
 
-    <%= simple_form_for(@cart) do |f| %>
-      <%= hidden_field_tag :source, 'confirmation' %>
-      <%= f.input :has_bag, :as => :boolean, input_html: {checked: false}, label: "Add a cooler bag (Rs 150)" %>
-      <%= f.hidden_field :is_confirmed, value: false %>
-    <% end %>
+    <div class="row pb-2  align-items-end">
+      <div class="col-bag">
+        <img height="100" width="100" src="https://res.cloudinary.com/dyv1blw2a/image/upload/v1688311896/CoolerBag_wsqcfn.jpg">
+      </div>
+      <div class="col-3 bag-form">
+        <%= simple_form_for(@cart) do |f| %>
+          <%= hidden_field_tag :source, 'confirmation' %>
+          <%= f.input :has_bag, :as => :boolean, input_html: {checked: false}, label: "Add a cooler bag (Rs 150)" %>
+          <%= f.hidden_field :is_confirmed, value: false %>
+        <% end %>
+      </div>
+    </div>
 
     <h2 class="total-cart ">Total : Rs <span id="totalbag" class="not-bold"><%= @total %></span>.00</h2>
     <button class="btn-checkout mt-3" style="text-align: center"><a class="text-center" href="/cart/confirmation">Checkout</a></button>
