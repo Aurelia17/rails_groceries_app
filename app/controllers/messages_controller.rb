@@ -10,7 +10,11 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if @message.save
-      redirect_to order_path(@order)
+      ChatroomChannel.broadcast_to(
+        @chatroom,
+        render_to_string(partial: "message", locals: { message: @message })
+      )
+      head :ok
     end
   end
 

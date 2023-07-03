@@ -10,6 +10,9 @@ application.register("alert", AlertController)
 import CartOrderItemController from "./cart_order_item_controller"
 application.register("cart-order-item", CartOrderItemController)
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import ContactMapController from "./contact_map_controller"
 application.register("contact-map", ContactMapController)
 
