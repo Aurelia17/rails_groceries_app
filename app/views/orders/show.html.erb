@@ -132,10 +132,18 @@
     <p>Delivery Fees : Rs 75</p>
     <p class="fs-3">Total : Rs <%= number_with_delimiter(@order.total_price.to_i, delimiter: "’") %></p>
     <% if current_user.is_admin? %>
-      <p>Is the order delivered?</p>
-      <%= simple_form_for(@order) do |f| %>
-        <button class= "btn btn-outline-success btn-sm"><%= f.button :submit, 'Confirm' %></button>
-      <% end %>
+      <div class="row">
+        <p clas="fs-2" style="text-align:left; color:red !important; text-decoration:underline;">ADMIN SECTION :</p>
+        <div class="col-6">
+          <div class="d-flex my-4">
+            <%= simple_form_for(@order) do |f| %>
+              <button class= "btn btn-success btn-sm"><%= f.button :submit, 'Delivered?' %></button>
+            <% end %>
+          <div class="ms-4">
+            <%= link_to "delete order", order_path(@order), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this order?" } %>
+          </div>
+        </div>
+      </div>
     <% end %>
   </div>
 <% end %>

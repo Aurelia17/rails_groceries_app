@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: %i[show edit update]
+  before_action :set_order, only: %i[show edit update destroy]
+
   def index
     @orders = Order.all.order(oder_number: :desc)
     search
@@ -22,6 +23,11 @@ class OrdersController < ApplicationController
     @order.is_delivered = true
     @order.save
     redirect_to order_path(@order)
+  end
+
+  def destroy
+    @order.destroy
+    redirect_to orders_path, status: :see_other
   end
 
   private
