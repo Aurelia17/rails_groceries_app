@@ -89,35 +89,37 @@
         </thead>
           <tbody>
             <% @orders.each do |order| %>
-              <tr>
-                <td>
-                  <div>
-                    <p class="fw-normal mb-1"> #<%= link_to order.oder_number, order_path(order), class: "text-dark fw-normal mb-1"%></p>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <p class="text-muted mb-0"> <%= order.created_at.strftime("%d/%m/20%y") %> </p>
-                  </div>
-                </td>
-                <td>
-                  <div>
-                    <p class="text-muted mb-0 order-price">Rs <%= number_with_delimiter(order.total_price.to_i, delimiter: "'") %> </p>
-                  </div>
-                </td>
-                <td>
-                  <% if order.is_delivered? %>
-                    <span class="order-success">Delivered</span>
-                  <% else %>
-                    <span class="order-awaiting">On it's way</span>
-                  <% end %>
-                </td>
-                <td class="td-eye-order">
-                  <%= link_to order_path(order), class:"text-decoration-none" do %>
-                    <h3><i class="fa-solid fa-eye"></i></h3>
-                  <% end %>
-                </td>
-              </tr>
+              <% if order.user_id == current_user.id %>
+                <tr>
+                  <td>
+                    <div>
+                      <p class="fw-normal mb-1"> #<%= link_to order.oder_number, order_path(order), class: "text-dark fw-normal mb-1"%></p>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <p class="text-muted mb-0"> <%= order.created_at.strftime("%d/%m/20%y") %> </p>
+                    </div>
+                  </td>
+                  <td>
+                    <div>
+                      <p class="text-muted mb-0 order-price">Rs <%= number_with_delimiter(order.total_price.to_i, delimiter: "'") %> </p>
+                    </div>
+                  </td>
+                  <td>
+                    <% if order.is_delivered? %>
+                      <span class="order-success">Delivered</span>
+                    <% else %>
+                      <span class="order-awaiting">On it's way</span>
+                    <% end %>
+                  </td>
+                  <td class="td-eye-order">
+                    <%= link_to order_path(order), class:"text-decoration-none" do %>
+                      <h3><i class="fa-solid fa-eye"></i></h3>
+                    <% end %>
+                  </td>
+                </tr>
+              <% end %>
             <% end %>
           </tbody>
       </table>
