@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     end
   end
   resources :products, only: %i[index]
-  resources :orders, only: %i[index show edit update] do
+  resources :orders, only: %i[index show edit update destroy] do
     resources :chatrooms, only: :show do
       resources :messages, only: %i[new create]
     end
