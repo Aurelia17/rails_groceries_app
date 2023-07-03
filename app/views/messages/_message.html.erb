@@ -1,0 +1,11 @@
+<div class="message-row d-flex <%= message.user.is_admin == false ? 'justify-content-end' : 'justify-content-start' %>">
+  <div class="<%= message.user.is_admin == true ? 'sender-style' : 'receiver-style' %>">
+    <div id="message-<%= message.id %>">
+      <small>
+        <strong><%= message.user.username %></strong>
+        <i><%= message.created_at.strftime("at %l:%M %p") %></i>
+      </small>
+      <p><%= message.content %></p>
+    </div>
+  </div>
+</div>
