@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :orders
   has_many :ratings
   has_many :chatrooms
+  has_many :reviews
 end

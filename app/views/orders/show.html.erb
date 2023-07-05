@@ -1,8 +1,37 @@
-<ul class="breadcrumb">
-  <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
-  <li><a href="/orders">Orders</a></li>
-  <li><a href="/orders/<%= @order.id %>">Order#<%= @order.oder_number %></a></li>
-</ul>
+
+<div class="row text-center">
+  <div class="col-9">
+    <ul class="breadcrumb">
+      <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
+      <li><a href="/orders">Orders</a></li>
+      <li><a href="/orders/<%= @order.id %>">Order#<%= @order.oder_number %></a></li>
+    </ul>
+  </div>
+  <div class="col-3">
+    <% if @order.is_delivered? %>
+      <% if @order.review.nil? %>
+        <%= link_to new_order_review_path(@order), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+          <h2 class="fs-6 btn-review">Review your order</i></h2>
+        <% end %>
+      <% else %>
+        <%= link_to order_review_path(@order, @review), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+          <div class="pt-4 star-size">
+            <% @total_rate.each do |star| %>
+              <% if star == "star_fill" %>
+                <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+              <% elsif star == "star_lefthalf_fill" %>
+                <i class="fa-solid fa-star-half-stroke" style="color: #ffde0a;"></i>
+              <% else star %>
+                <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+              <% end %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
 <div class="homepage">
   <div class="container p-0 pt-3">
     <p class="fs-2 mb-0 pb-0">Order #<%= @order.oder_number %></p>
@@ -14,7 +43,12 @@
       <lottie-player src="https://res.cloudinary.com/dyv1blw2a/raw/upload/v1688299091/114216-product-delivered_p4wgif.json" background="transparent" speed="1"
       style="width: 55%; height: 55%;" loop autoplay></lottie-player>
     </div>
-    <p class="mb-5">Your order was delivered on the <%= @order.updated_at.strftime("%dth %B %y") %> at <%= @order.updated_at.time.strftime("%H:%M") %></p>
+    <div class="row">
+      <div class="col-6">
+        <p class="mb-5">Your order was delivered on the <%= @order.updated_at.strftime("%dth %B %y") %> at <%= @order.updated_at.time.strftime("%H:%M") %></p>
+      </div>
+    </div>
+
     <table class="table">
       <thead>
         <tr>
@@ -79,7 +113,7 @@
               <%= render "messages/message", message: message %>
             <% end %>
           </div>
-          <%= simple_form_for(@message, url: order_chatroom_messages_path(@order, @chatroom), method: :post, html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" }) do |f| %>
+          <%= simple_form_for(@message, url: order_chatroom_messages_path(@order, @chatroom), method: :post, html: { autocomplete: 'off', data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" }) do |f| %>
             <%= f.input :content,
               label: false,
               placeholder: "Say something to Dennis",

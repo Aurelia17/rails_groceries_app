@@ -1,0 +1,22 @@
+<p class="mb-1" style="text-decoration: underline;">General review:</p>
+<% @general_rate.each do |star| %>
+  <% if star == "star_fill" %>
+    <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+  <% elsif star == "star_lefthalf_fill" %>
+    <i class="fa-solid fa-star-half-stroke" style="color: #ffde0a;"></i>
+  <% else star %>
+    <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+  <% end %>
+<% end %>
+<p class="mt-1"><%= @order.review.general_review %></p>
+<p class="mb-1" style="text-decoration: underline;">Delivery review:</p>
+<% @delivery_rate.each do |star| %>
+  <% if star == "star_fill" %>
+    <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+  <% elsif star == "star_lefthalf_fill" %>
+    <i class="fa-solid fa-star-half-stroke" style="color: #ffde0a;"></i>
+  <% else star %>
+    <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+  <% end %>
+<% end %>
+<p class="mt-1"><%= @order.review.delivery_review %></p>
