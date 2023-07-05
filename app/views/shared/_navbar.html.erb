@@ -29,11 +29,12 @@
 
 
       <form class="d-flex me-5">
-        <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+        <%= form_with url: products_path, method: :get, class: "d-flex", html: { autocomplete: 'off' } do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
-                placeholder: "Keyword"
+                placeholder: "Keyword",
+                autocomplete: 'off'
             %>
           <%= submit_tag "Search", name: "", class: "btn btn-warning form-button" %>
         <% end %>
