@@ -6,7 +6,7 @@
   <div class="container py-1" data-controller="search-products">
     <div class="row justify-content-center py-2">
       <div class="col-sm-8 my-3">
-        <%= form_with url: products_path, method: :get, class: "d-flex", data: {search_products_target: "form"} do %>
+        <%= form_with url: products_path, method: :get, class: "d-flex", data: {search_products_target: "form"}, html: { autocomplete: 'off' } do %>
           <%= text_field_tag :query,
                 params[:query],
                 class: "form-control",
