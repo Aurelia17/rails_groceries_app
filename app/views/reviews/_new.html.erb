@@ -1,0 +1,13 @@
+<%# <div class="container">
+  <div class="row">
+    <div class="col-4"> %>
+      <%= simple_form_for ([@order, @review]), data: { controller: "submit" }, html: { autocomplete: 'off' } do |f| %>
+        <%= f.input :general_rating, collection: (1..5).to_a, label: "Rate your order", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }, class: "rating-order"  %>
+        <%= f.input :general_review, label: "Order review :", placeholder: "Say something about your order."%>
+        <%= f.input :delivery_rating, collection: (1..5).to_a, label: "Rate the delivery", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+        <%= f.input :delivery_review, label: "Delivery review :", placeholder: "Say something about Dennis." %>
+        <div class="mt-3"><%= f.button :submit, 'Submit', class: "btn-outline-cart"  %></div>
+      <% end %>
+    <%# </div>
+  </div>
+</div> %>

@@ -67,7 +67,6 @@
             <th scope="col">Date</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
-            <th scope="col"></th>
           </tr>
         </thead>
       </table>
@@ -84,6 +83,7 @@
             <th scope="col">Date</th>
             <th scope="col">Total Price</th>
             <th scope="col">Status</th>
+            <th scope="col">Review*</th>
             <th td class="td-eye-order" scope="col">Preview</th>
           </tr>
         </thead>
@@ -113,6 +113,29 @@
                       <span class="order-awaiting">On it's way</span>
                     <% end %>
                   </td>
+                  <td style="font-size: 1.2rem;">
+                    <% if order.is_delivered? %>
+                      <% if order.review.nil? %>
+                        <%= link_to new_order_review_path(order), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+                          <h2 class="fs-6 btn-review-index">Review your order</i></h2>
+                        <% end %>
+                      <% else %>
+                        <%= link_to order_review_path(order, order.review), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
+                          <% @total_rate.each do |star| %>
+                            <% if star == "star_fill" %>
+                              <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
+                            <% elsif star == "star_lefthalf_fill" %>
+                              <i class="fa-solid fa-star-half-stroke" style="color: #ffde0a;"></i>
+                            <% else star %>
+                              <i class="fa-regular fa-star" style="color: #ffde0a;"></i>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    <% end %>
+
+
+                  </td>
                   <td class="td-eye-order">
                     <%= link_to order_path(order), class:"text-decoration-none" do %>
                       <h3><i class="fa-solid fa-eye"></i></h3>
@@ -124,5 +147,6 @@
           </tbody>
       </table>
     </div>
+  <p class="mt-3 review-delivered">* Once your order is delivered, you will be able to review it.</p>
   </div>
 <% end %>

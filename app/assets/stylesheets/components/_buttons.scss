@@ -89,6 +89,52 @@
   color: white;
 }
 
+.btn-review {
+  background: #EB5757;
+  font-size: 18px !important;
+  padding: 6px 6px;
+  border-radius: 5px;
+  color: white;
+  margin-left: 150px;
+  width: 165px !important;
+  border: none;
+  margin-bottom: 10px;
+  margin-top: 25px;
+  text-decoration: none;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-review:hover {
+  background-color: #ffd859;
+  color: black;
+}
+
+.btn-review-index {
+  background: #EB5757;
+  font-size: 14px !important;
+  padding: 6px 6px;
+  border-radius: 5px;
+  color: white;
+  width: 127px !important;
+  border: none;
+  margin-top: 5px;
+  text-decoration: none;
+  text-align: center;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
+
+.btn-review-index:hover {
+  background-color: #ffd859;
+  color: black;
+}
+
 .btn-tag2:hover {
   background-color: #ffd859;
   color: black;

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <p>Order #<%= @order.oder_number %></p>
+      <%= simple_form_for ([@order, @review]), data: { controller: "submit" } do |f| %>
+        <%= f.input :general_rating, collection: (1..5).to_a, label: "Rate the order", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+        <%= f.input :general_review %>
+        <%= f.input :delivery_rating, collection: (1..5).to_a, label: "Rate the delivery", input_html: {data: { controller: "star-rating", action: "click->form-submit#submit"} }  %>
+        <%= f.input :delivery_review %>
+        <div class="mt-3"><%= f.button :submit, 'Submit', class: "btn-outline-cart"  %></div>
+      <% end %>
+    </div>
+  </div>
+</div>
