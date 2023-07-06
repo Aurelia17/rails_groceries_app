@@ -88,7 +88,7 @@
           </tr>
         </thead>
           <tbody>
-            <% @orders.each do |order| %>
+            <% @orders.each_with_index do |order, index| %>
               <% if order.user_id == current_user.id %>
                 <tr>
                   <td>
@@ -120,8 +120,10 @@
                           <h2 class="fs-6 btn-review-index">Review your order</i></h2>
                         <% end %>
                       <% else %>
+
+
                         <%= link_to order_review_path(order, order.review), class:"text-decoration-none ", data: { controller: 'turbo' } do %>
-                          <% @total_rate.each do |star| %>
+                          <% @total_rate[index].each do |star| %>
                             <% if star == "star_fill" %>
                               <i class="fa-solid fa-star" style="color: #ffde0a;"></i>
                             <% elsif star == "star_lefthalf_fill" %>
@@ -131,6 +133,8 @@
                             <% end %>
                           <% end %>
                         <% end %>
+
+
                       <% end %>
                     <% end %>
 

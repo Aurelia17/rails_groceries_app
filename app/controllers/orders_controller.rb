@@ -43,9 +43,12 @@ class OrdersController < ApplicationController
   end
 
   def orders_rating
+    @total_rate = []
     @orders.each do |order|
       unless order.review.nil?
-        @total_rate = show_star_rating(order.review.general_rating)
+        @total_rate.append(show_star_rating(order.review.general_rating))
+      else
+        @total_rate.append([])
       end
     end
   end
